@@ -1,0 +1,46 @@
+ 请填写用户名进行查找（不输入用户名则查找全部用户）
+
+<?php
+$this->form->setAction($this->url());
+echo $this->form;
+
+?>
+<table>
+	<thead>
+		<tr>
+			<th>用户信息:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>修改</th>
+			<th>删除</th>
+			<th>用户名</th>
+			<th>邮箱</th>
+		</tr>
+		<?php foreach ($this->paginator as $item) :?>
+			    <tr>
+			    <th><a href="<?php echo $this->url(
+			    array(
+			    'controller' => 'user',
+			    'action'     => 'update',
+			    'userid'=>$item->userid
+			    ),
+			    'default',true) ?>">修改</a></th>
+			    <th><a href="<?php echo $this->url(
+			    array(
+			    'controller' => 'user',
+			    'action'     => 'delete',
+			    'userid'=>$item->userid,
+			    'state'=>$item->state
+			    ),
+			    'default',true) ?>">删除</a></th>
+			    <th><?php echo $this->escape($item->username) ?></th>
+			    <th><?php echo $this->escape($item->email) ?></th>
+			    </tr>
+     			
+		 <?php endforeach ?>
+		
+	</tbody>
+</table>
+<?php echo $this->paginator; ?>
