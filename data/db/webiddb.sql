@@ -72,17 +72,17 @@ CREATE TABLE IF NOT EXISTS `webhistory` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `certkey`
+-- 表的结构 `webschool`
 --
 
-CREATE TABLE IF NOT EXISTS `certkey` (
-  `keyid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `webschool` (
+  `schoolid` int(11) NOT NULL AUTO_INCREMENT,
   `certid` int(11) NOT NULL,
-  `publickey` varchar(2000) NOT NULL,
-  `privatekey` varchar(2000) NOT NULL,
-  `publickey1` varchar(2000) NOT NULL,
-  `privatekey1` varchar(2000) NOT NULL,
-  PRIMARY KEY (`keyid`)
+  `schooloout` varchar(600) NOT NULL,
+  `schooloin` varchar(600) NOT NULL,
+  `schooloout1` varchar(600) NOT NULL,
+  `schooloin1` varchar(600) NOT NULL,
+  PRIMARY KEY (`schoolid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 -- --------------------------------------------------------
 
