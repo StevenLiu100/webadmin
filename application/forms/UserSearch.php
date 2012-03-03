@@ -13,10 +13,10 @@ class Application_Form_UserSearch extends Zend_Form
     	$this->addElement('text', 'username', array(
     			'label'      => '用户名:',
     	    //    'label'      => 'username:',
-    			'filters'    => array('StringTrim'),
-    	        'validators' => array(
-    	        		array('validator' => 'StringLength', 'options' => array(0, 10))
-    	        )
+//     			'filters'    => array('StringTrim'),
+//     	        'validators' => array(
+//     	        		array('validator' => 'StringLength', 'options' => array(0, 10))
+//     	        )
     	));
 
     	// Add a submit button

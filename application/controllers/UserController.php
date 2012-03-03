@@ -37,13 +37,13 @@ class UserController extends Zend_Controller_Action
 
     public function updatepasswordAction()
     {
-        $userid='3';
+        $userid='9';
         $request = $this->getRequest();
         $form    = new Application_Form_UserPassword();
         
         if ($this->getRequest()->isPost()) {
         	if ($form->isValid($request->getPost())) {
-        	    $password=$form->getValue('oldpassword');
+        	    $password=$form->getValue('password');
         	    $newpassword=$form->getValue('newpassword');
         	    //$renewpassword=$form->getValue('renewpassword');
         	    //密码和密码确认工作已经在浏览器端验证了，旧的密码也已经验证过了，因此这里直接更新
@@ -104,7 +104,7 @@ class UserController extends Zend_Controller_Action
         $mapper  = new Application_Model_AcuserMapper();
         $mapper->find($userid,$user);
 
-    	$form = new Application_Form_UserUpdate();
+    	$form = new Application_Form_UserInfoUpdate();
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
     			$user_update = new Application_Model_Acuser($form->getValues());
