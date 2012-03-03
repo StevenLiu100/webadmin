@@ -78,10 +78,10 @@ CREATE TABLE IF NOT EXISTS `webhistory` (
 CREATE TABLE IF NOT EXISTS `certkey` (
   `keyid` int(11) NOT NULL AUTO_INCREMENT,
   `certid` int(11) NOT NULL,
-  `publickey` varchar(200) NOT NULL,
-  `privatekey` varchar(200) NOT NULL,
-  `publickey1` varchar(200) NOT NULL,
-  `privatekey1` varchar(200) NOT NULL,
+  `publickey` varchar(2000) NOT NULL,
+  `privatekey` varchar(2000) NOT NULL,
+  `publickey1` varchar(2000) NOT NULL,
+  `privatekey1` varchar(2000) NOT NULL,
   PRIMARY KEY (`keyid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 -- --------------------------------------------------------
@@ -231,20 +231,6 @@ CREATE TABLE IF NOT EXISTS `SYSLog` (
   `createdate` datetime DEFAULT NULL,
   PRIMARY KEY (`logid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
-
---
--- 表的结构 `Cipher`
---
-
-CREATE TABLE IF NOT EXISTS `Cipher` (
-  `cipid` int(11) NOT NULL AUTO_INCREMENT,
-  `webid` int(11) NOT NULL,
-  `pub` varchar(2000) DEFAULT NULL,
-  `pri` varchar(2000) DEFAULT NULL,
-  PRIMARY KEY (`cipid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
 
 
 
