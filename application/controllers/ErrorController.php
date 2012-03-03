@@ -27,6 +27,9 @@ class ErrorController extends Zend_Controller_Action
                 $priority = Zend_Log::CRIT;
                 $this->view->message = 'Application error';
                 break;
+                
+                
+                
         }
         
         // Log exception, if logger available
