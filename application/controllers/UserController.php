@@ -22,7 +22,7 @@ class UserController extends Zend_Controller_Action
     public function addAction ()
     {
         $request = $this->getRequest();
-        $form    = new Application_Form_User();
+        $form    = new Application_Form_UserInfo();
         if ($this->getRequest()->isPost()) {
         	if ($form->isValid($request->getPost())) {
         		$user = new Application_Model_Acuser($form->getValues());
@@ -39,7 +39,7 @@ class UserController extends Zend_Controller_Action
     {
         $userid='3';
         $request = $this->getRequest();
-        $form    = new Application_Form_Password();
+        $form    = new Application_Form_UserPassword();
         
         if ($this->getRequest()->isPost()) {
         	if ($form->isValid($request->getPost())) {
@@ -68,7 +68,7 @@ class UserController extends Zend_Controller_Action
     public function searchAction ()
     {
     	$request = $this->getRequest();
-    	$form    = new Application_Form_Search();
+    	$form    = new Application_Form_UserSearch();
     	//$this->view->entries =$this->view->entries==null?array():$this->view->entries;
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {

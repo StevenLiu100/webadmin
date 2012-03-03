@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_UserUpdate extends Zend_Form
+class Application_Form_UserInfoUpdate extends Zend_Form
 {
 
     public function init()

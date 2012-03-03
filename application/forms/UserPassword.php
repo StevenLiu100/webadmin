@@ -1,5 +1,5 @@
 <?php
-class Application_Form_Password extends Zend_Form
+class Application_Form_UserPassword extends Zend_Form
 {
     public function init()
     {

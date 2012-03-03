@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Search extends Zend_Form
+class Application_Form_UserSearch extends Zend_Form
 {
     
     
