@@ -152,6 +152,5 @@ class UserController extends Zend_Controller_Action
     		$mapper->remove($userid);
     		return $this->_helper->redirector('index');
     	}
-    	$this->view->message='由于此用户的状态为可用，所以不能将其删除';
     }
 }

@@ -27,14 +27,18 @@ echo $this->form;
 			    'userid'=>$item->userid
 			    ),
 			    'default',true) ?>">修改</a></th>
-			    <th><a href="<?php echo $this->url(
+			    
+			    <?php if ($item->state!='禁用'): ?>
+			    <th class="disabled">删除</th>
+				<?php else: ?>
+  				<th><a href="<?php echo $this->url(
 			    array(
 			    'controller' => 'user',
 			    'action'     => 'delete',
-			    'userid'=>$item->userid,
-			    'state'=>$item->state
+			    'userid'=>$item->userid
 			    ),
 			    'default',true) ?>">删除</a></th>
+				<?php endif; ?>
 			    <th><?php echo $this->escape($item->username) ?></th>
 			    <th><?php echo $this->escape($item->email) ?></th>
 			    </tr>
