@@ -233,6 +233,19 @@ CREATE TABLE IF NOT EXISTS `SYSLog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 
+--
+-- 表的结构 `Cipher`
+--
+
+CREATE TABLE IF NOT EXISTS `Cipher` (
+  `cipid` int(11) NOT NULL AUTO_INCREMENT,
+  `webid` int(11) NOT NULL,
+  `pub` varchar(2000) DEFAULT NULL,
+  `pri` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`cipid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
 
 
 
