@@ -2,8 +2,6 @@
 
 class Application_Form_UserInfo extends Zend_Form
 {
-    
-    
     public function init()
     {
     	// Set the method for the display form to POST
