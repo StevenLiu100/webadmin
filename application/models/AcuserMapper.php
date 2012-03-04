@@ -70,9 +70,11 @@ class Application_Model_AcuserMapper
     	$user->setUserName($row->username);
     	$user->setComment($row->comment);
     }
-    public function fetchAll()
+    public function fetchAll($sortfield)
     {
-    	$resultSet = $this->getDbTable()->fetchAll();
+    	$resultSet = $this->getDbTable()->fetchAll(
+    			$this->getDbTable()->select()
+    			->order($sortfield));
     	$entries   = array();
     	foreach ($resultSet as $row) {
     		$user = new Application_Model_Acuser();
@@ -91,16 +93,16 @@ class Application_Model_AcuserMapper
     	}
     	return $entries;
     }
-    public function findByName($username)
+    public function findByName($username,$sortfield)
     {
         if($username==null){
-            return $this->fetchAll();
+            return $this->fetchAll($sortfield);
         }
     	//$resultSet = $this->getDbTable()->fetchRow(array('username like ?'=>$username));
     	$resultSet = $this->getDbTable()->fetchAll(
     			$this->getDbTable()->select()
     			->where('username like ?', '%'.$username.'%')
-    			->order('username')
+    			->order($sortfield)
     	);
     	$entries   = array();
     	foreach ($resultSet as $row) {

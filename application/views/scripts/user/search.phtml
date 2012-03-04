@@ -17,6 +17,12 @@ echo $this->form;
 			<th>删除</th>
 			<th>用户名</th>
 			<th>邮箱</th>
+			<th>手机号</th>
+			<th>固定电话</th>
+			<th>单位</th>
+			<th>创建时间</th>
+			<th>用户类型</th>
+			<th>状态</th>
 		</tr>
 		<?php foreach ($this->paginator as $item) :?>
 			    <tr>
@@ -41,6 +47,12 @@ echo $this->form;
 				<?php endif; ?>
 			    <th><?php echo $this->escape($item->username) ?></th>
 			    <th><?php echo $this->escape($item->email) ?></th>
+			    <th><?php echo $this->escape($item->mobile) ?></th>
+			    <th><?php echo $this->escape($item->tel) ?></th>
+			    <th><?php echo $this->escape($item->unit) ?></th>
+			    <th><?php echo $this->escape($item->createdate) ?></th>
+			    <th><?php echo $this->escape($item->userstyle) ?></th>
+			    <th><?php echo $this->escape($item->state) ?></th>
 			    </tr>
      			
 		 <?php endforeach ?>

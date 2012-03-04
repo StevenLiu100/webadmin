@@ -69,22 +69,22 @@ class UserController extends Zend_Controller_Action
     {
     	$request = $this->getRequest();
     	$form    = new Application_Form_UserSearch();
-    	//$this->view->entries =$this->view->entries==null?array():$this->view->entries;
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
     			$user = new Application_Model_Acuser();
     			$mapper  = new Application_Model_AcuserMapper();
     			$username=$form->getValue('username');
-    			$this->view->entries=$mapper->findByName($username);
+    			$sortfield=$form->getValue('sortfield');
+    			//$this->getDbField($sortfield);
+    			$this->view->entries=$mapper->findByName($username,$sortfield);
     			Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
     			$paginator = Zend_Paginator::factory($this->view->entries);
     			$paginator->setCurrentPageNumber($this->_getParam('page', 1));
     			$this->view->paginator = $paginator;
-    			    			//return $this->_helper->redirector('search');
+    			//return $this->_helper->redirector('search');
     		}
     	}
-    	else if ($this->_getParam('page')!=null){
-    	    
+    	else if ($this->_getParam('page')!=null){  
     	    $username=$form->getValue('username');
     	    $mapper  = new Application_Model_AcuserMapper();
     	    $this->view->entries=$mapper->findByName($username);
