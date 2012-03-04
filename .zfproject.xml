@@ -12,8 +12,28 @@
           <actionMethod actionName="index"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Acapplication">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="appdelete"/>
+          <actionMethod actionName="appupdate"/>
+          <actionMethod actionName="appadd"/>
+        </controllerFile>
+        <controllerFile controllerName="Unit">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="unitadd"/>
+          <actionMethod actionName="unitdelete"/>
+          <actionMethod actionName="unitUpdate"/>
+          <actionMethod actionName="unitSearch"/>
+        </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory enabled="false">
+        <formFile formName="Application"/>
+        <formFile formName="Applicationupdate"/>
+        <formFile formName="Delapplication"/>
+        <formFile formName="Unitadd"/>
+        <formFile formName="UnitSearch"/>
+        <formFile formName="Unitupdate"/>
+      </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>
@@ -22,9 +42,15 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Acuser"/>
+          <dbTableFile dbTableName="Acapplication"/>
+          <dbTableFile dbTableName="Unit"/>
         </dbTableDirectory>
         <modelFile modelName="Acuser"/>
         <modelFile modelName="AcuserMapper"/>
+        <modelFile modelName="Acapplication"/>
+        <modelFile modelName="AcapplicationMapper"/>
+        <modelFile modelName="Unit"/>
+        <modelFile modelName="UnitMapper"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -34,6 +60,33 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Error">
             <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="appdelete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="appupdate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="appadd"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitadd"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitdelete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitUpdate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitSearch"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

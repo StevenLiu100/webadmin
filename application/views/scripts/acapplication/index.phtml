@@ -1,0 +1,41 @@
+<br /><br />
+<?php
+$this->title = "系统管理";
+$this->headTitle($this->title);
+?>
+
+<div id="view-content">
+	<p><a href="<?php echo $this->url(array('controller'=>'acapplication',
+'action'=>'appadd'));?>">增加新系统</a></p>
+<table>
+<tr>
+<th>删除</th>
+<th>修改</th>
+<th>系统名称</th>
+<th>系统描述</th>
+<th>系统状态</th>
+<th>系统编号</th>
+</tr>
+<?php foreach($this->apps as $item) :?>
+<tr>
+<?php if ($item->enable == 1): ?>
+<th class="disabled">删除</th>
+<?php else: ?>
+<th> <a href="<?php echo $this->url(array('controller'=>'acapplication',
+'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>">删除</a>
+</th>
+<?php endif; ?>
+<th>
+<a href="<?php echo $this->url(array('controller'=>'acapplication',
+'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>">修改</a>
+</th>
+<th><?php echo $this->escape($item->applicationname);?></th>
+<th><?php echo $this->escape($item->description);?></th>
+<th><?php echo $this->escape($item->enable);?></th>
+<th><?php echo $this->escape($item->apporder);?></th>
+</tr>
+<?php endforeach; ?>
+</table>
+</div>
+
+
