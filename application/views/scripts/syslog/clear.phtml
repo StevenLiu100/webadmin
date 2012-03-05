@@ -1,0 +1,10 @@
+<?php $this->title = "清空日志";
+$this->headTitle($this->title);
+?>
+<p>确定要清空日志吗</p>
+<form action="<?php echo $this->url(array('action'=>'clear')); ?>" method="post">
+<div>
+  <input type="submit" name="del" value="是" />
+  <input type="submit" name="del" value="否" />
+</div>
+</form>

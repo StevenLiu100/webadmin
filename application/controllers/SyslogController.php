@@ -97,6 +97,23 @@ class SyslogController extends Zend_Controller_Action
     			$this->view->syslog = $mapper->getSyslog($id);
     	}
     }
+    
+    public function clearAction()
+    {
+    	// action body
+    	if ($this->getRequest()->isPost()) {
+    		$del = $this->getRequest()->getPost('del');
+    		if ($del == '是') {
+    			$syslog = new Application_Model_AcsyslogMapper();
+    			$syslog->clearSyslog();
+    		}
+    		$this->_helper->redirector('index');
+    	} /*else {
+    	$id = $this->_getParam('logid', 0);
+    	$syslog = new Application_Model_DbTable_Syslog();
+    	$this->view->syslog = $syslog->getSyslog($id);
+    	}*/
+    }
 
 
 }
