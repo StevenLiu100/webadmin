@@ -95,6 +95,16 @@ class Application_Model_AcsyslogMapper {
 	
 	}
 	
+	public function addSyslog($userid,$event,$eventtype){		
+		$data = array(
+				'userid' => $userid,
+				'event'=> $event,
+				'eventtype'=>$eventtype,
+				'createdate'=>date('Y-m-d H:i:s')
+		);
+		$this->getDbTable()->insert($data);
+	}
+	
 	public function getSyslog($id) {
 		$id = ( int ) $id;
 		$row = $this->getDbTable ()->fetchRow ( 'logid = ' . $id );
