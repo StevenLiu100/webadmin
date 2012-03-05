@@ -79,7 +79,7 @@ class Application_Form_UserInfoUpdate extends Zend_Form
     				'可用' => '可用',
     				'禁用' => '禁用',));
     	$submit =  new Zend_Form_Element_Submit('submit');
-    	$submit->setLabel('添加');
+    	$submit->setLabel('修改');
     	 
     	$this->addElements(array($username,$email,$mobile,$tel,$unit,$userstyle,$comment,$state,$submit));
     	 
