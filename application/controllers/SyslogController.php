@@ -9,9 +9,8 @@ class SyslogController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-    	$this->view->addHelperPath('ZendX/JQuery/View/Helper', 'ZendX_JQuery_View_Helper');
+//    	$this->view->addHelperPath('ZendX/JQuery/View/Helper', 'ZendX_JQuery_View_Helper');
     	$this->entries = null;
-//    	$this->entries[0] = 'zhangshan';
     }
 
     public function indexAction()
@@ -48,7 +47,7 @@ class SyslogController extends Zend_Controller_Action
     	$this->view->form = $form;
     	
     	$page = 1;
-    	$numPerPage = 1;
+    	$numPerPage = 5;
     	if(isset($_GET['page']) && is_numeric($_GET['page'])){
     		$page = $_GET['page'];
     	}
@@ -59,11 +58,6 @@ class SyslogController extends Zend_Controller_Action
     public function page($page, $numPerPage)
     {
     	$mapper = new Application_Model_AcsyslogMapper();
-//     	$select = $mapper->getDbTable()->select()
-//     	->limit(200);
-//     	$stmt = $select->query();
-//     	$array = $stmt->fetchall();
-//		$array = $mapper->getNSyslogs(-1, $offset, $numPerPage);
 		$array = $mapper->getSyslogsByUserName($this->entries);
     
     	$paginator = Zend_Paginator::factory($array);
@@ -77,7 +71,6 @@ class SyslogController extends Zend_Controller_Action
     {
     	Zend_Paginator::setDefaultScrollingStyle('Elastic');
     	Zend_View_Helper_PaginationControl::setDefaultViewPartial('../views/scripts/syslog/pagelist.phtml');
-    	//$paginator->setView($view);
     }
 
     public function deleteAction()
