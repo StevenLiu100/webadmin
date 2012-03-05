@@ -1,0 +1,14 @@
+<?php
+$this->title = "Delete Syslog";
+$this->headTitle($this->title);
+?>
+<p>Are you sure that you want to delete
+  '<?php echo $this->escape($this->syslog['logid']); ?>'
+</p>
+<form action="<?php echo $this->url(array('action'=>'delete')); ?>" method="post">
+<div>
+  <input type="hidden" name="logid" value="<?php echo $this->syslog['logid']; ?>" />
+  <input type="submit" name="del" value="Yes" />
+  <input type="submit" name="del" value="No" />
+</div>
+</form>

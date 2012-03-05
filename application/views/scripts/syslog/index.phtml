@@ -1,0 +1,29 @@
+<p align="center"><?php
+$this->form->setAction($this->url());
+$this->jQuery();
+echo $this->form;
+?></p>
+<table align="center">
+<tr>
+    <th>用户名</th>
+    <th>事件</th>
+    <th>事件类型</th>
+    <th>发生时间</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach($this->paginator as $slog) : ?>
+<tr>
+    <td><?php echo $slog->username;?></td>
+    <td><?php echo $slog->event;?></td>
+    <td><?php echo $slog->eventtype;?></td>
+    <td><?php echo $slog->createdate;?></td>
+    <td>
+    <a href="<?php echo $this->url(array('controller'=>'syslog',
+            'action'=>'delete', 'logid'=>$slog->logid));?>">删除</a>
+<?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml'); ?>
+
+<p align="center"><a href="<?php echo $this->url(array('controller'=>'syslog',
+        'action'=>'clear'));?>">清空</a></p>
