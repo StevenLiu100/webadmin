@@ -1,0 +1,43 @@
+<br /><br />
+<div id="view-content">
+<?php
+$this->form->setAction($this->url());
+echo $this->form;?>
+<table>
+	<thead>
+		<tr>
+			<th>用户信息:</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>修改</th>
+			<th>删除</th>
+			<th>单位名称</th>
+		</tr>
+		<?php foreach ($this->paginator as $item) :?>
+			    <tr>
+			    <th><a href="<?php echo $this->url(
+			    array(
+			    'controller' => 'user',
+			    'action'     => 'update',
+			    'userid'=>$item->userid
+			    ),
+			    'default',true) ?>">修改</a></th>
+			    
+  				<th><a href="<?php echo $this->url(
+			    array(
+			    'controller' => 'user',
+			    'action'     => 'delete',
+			    'userid'=>$item->userid
+			    ),
+			    'default',true) ?>">删除</a></th>
+
+			    <th><?php echo $this->escape($item->unitname) ?></th>
+			    </tr>
+     			
+		 <?php endforeach ?>
+		
+	</tbody>
+</table>
+</div>

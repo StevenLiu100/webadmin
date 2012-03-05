@@ -24,6 +24,9 @@
           <actionMethod actionName="unitdelete"/>
           <actionMethod actionName="unitUpdate"/>
           <actionMethod actionName="unitSearch"/>
+          <actionMethod actionName="unitdel"/>
+          <actionMethod actionName="unitupd"/>
+          <actionMethod actionName="unitsearch"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
@@ -33,6 +36,8 @@
         <formFile formName="Unitadd"/>
         <formFile formName="UnitSearch"/>
         <formFile formName="Unitupdate"/>
+        <formFile formName="Unitsearch"/>
+        <formFile formName="Unitupd"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -87,6 +92,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Unit">
             <viewScriptFile forActionName="unitSearch"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitdel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitupd"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitsearch"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
