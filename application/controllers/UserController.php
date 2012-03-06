@@ -29,6 +29,8 @@ class UserController extends Zend_Controller_Action
         		$mapper  = new Application_Model_AcuserMapper();
         		//密码和密码确认工作已经在浏览器端验证了，用户名的是否重复的问题也已经验证过了，因此这里直接插入一条新记录
         		$mapper->save($user);
+        		$logMapper=new Application_Model_AcsyslogMapper();
+        		$logMapper->addSyslog('10000', '添加用户，用户名为'.$user->getUsername().',注册邮箱为'.$user->getEmail(), '系统');
         		return $this->_helper->redirector('index');
         	}
         }
@@ -54,6 +56,8 @@ class UserController extends Zend_Controller_Action
         		if($userpassword==md5($password+$user->getPasswordsalt())){
         			$user->setPassword(md5($newpassword+$user->getPasswordsalt()));
         			$mapper->save($user);
+        			$logMapper=new Application_Model_AcsyslogMapper();
+        			$logMapper->addSyslog($userid, '修改密码为'.$password, '系统');
         			return $this->_helper->redirector('index');
         		}
         		else
@@ -77,6 +81,8 @@ class UserController extends Zend_Controller_Action
     			$sortfield=$form->getValue('sortfield');
     			//$this->getDbField($sortfield);
     			$this->view->entries=$mapper->findByName($username,$sortfield);
+    			$logMapper=new Application_Model_AcsyslogMapper();
+    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$username.'，排序属性为'.$sortfield, '系统');
     			Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
     			$paginator = Zend_Paginator::factory($this->view->entries);
     			$paginator->setCurrentPageNumber($this->_getParam('page', 1));
@@ -112,6 +118,8 @@ class UserController extends Zend_Controller_Action
     			$user_update->setPassword($user->getPassword());
     			$mapper  = new Application_Model_AcuserMapper();
     			$mapper->save($user_update);
+    			$logMapper=new Application_Model_AcsyslogMapper();
+    			$logMapper->addSyslog('10000', '修改用户信息', '系统');
     			return $this->_helper->redirector('index');
     		}
     	}
