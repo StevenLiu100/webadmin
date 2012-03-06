@@ -88,7 +88,7 @@ class Application_Model_Acapplication
 	{
 		$method = 'set' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception('Invalid user property');
+			throw new Exception('Invalid application property');
 		}
 		$this->$method($value);
 	}
@@ -97,7 +97,7 @@ class Application_Model_Acapplication
 	{
 		$method = 'get' . $name;
 		if (('mapper' == $name) || !method_exists($this, $method)) {
-			throw new Exception('Invalid user property');
+			throw new Exception('Invalid application property');
 		}
 		return $this->$method();
 	}
