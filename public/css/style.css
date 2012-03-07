@@ -2,7 +2,7 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,dt,dd,th,td,form,fieldset,legend,button,input,te
 img {border:0;vertical-align:middle}
 li {list-style:none;}
 
-body,input,button,textarea,select {font:normal 12px/1.667 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;color:#263e8a}
+body,input,button,textarea,select,form {font:normal 14px/1.667 Tahoma,Helvetica,Arial,"\5b8b\4f53",å¾®è½¯é›…é»‘,å®‹ä½“;color:#263e8a}
 
 #container {width:900px;margin:0 auto;}
 
@@ -100,7 +100,7 @@ body,input,button,textarea,select {font:normal 12px/1.667 Tahoma,Helvetica,Arial
 #menu1 {float:left;padding:5px 0 0 27px;text-decoration: none;}
 #menu1 ul { list-style: none; margin: 0px; padding: 0px; }
 #menu1 ul li {padding-left:3px; float:left; position:relative;}
-#menu1 ul li a {text-decoration: none;display:block; width:87px; height:28px; line-height:28px; text-align:left;padding-left:5px; background: url(../images/nav_01.jpg); font:Î¢ÈíÑÅºÚ,ËÎÌå bold 18px; }
+#menu1 ul li a {text-decoration: none;display:block; width:87px; height:28px; line-height:28px; text-align:left;padding-left:5px; background: url(../images/nav_01.jpg); font:Î¢ï¿½ï¿½ï¿½Åºï¿½,ï¿½ï¿½ï¿½ï¿½ bold 18px; }
 #menu1 ul li a:hover { background:url(../images/nav_01_1.jpg) 0 0 no-repeat;}
 #menu1 ul li a#current { background:none;}
 #menu1 ul li ul { display:none; position:absolute;}
@@ -160,6 +160,56 @@ body,input,button,textarea,select {font:normal 12px/1.667 Tahoma,Helvetica,Arial
 
 .big-form-tit {height:36px;background-image:url(../images/form_bg.jpg);color:#5d5d5d; font: bold 14px 'Microsoft YaHei',simsun;text-align:center;}
 
+.zend_form{   
+background:#fff;   
+width:460px;   
+margin:5px auto;   
+padding:0;   
+overflow:auto;   
+}   
+  
+.zend_form dt{   
+padding:0;   
+clear:both;   
+width:30%;   
+float:left;   
+text-align:right;   
+margin:5px 5px 5px 0;   
+}   
+  
+.zend_form dd{   
+padding:0;   
+float:left;   
+width:68%;   
+margin:5px 2px 5px 0;   
+}   
+  
+.zend_form p{   
+padding:0;   
+margin:0;   
+}   
+  
+.zend_form input, .zend_form textarea{   
+margin:0 0 2px 0;   
+padding:0;   
+}
+
+.zend_form textarea{   
+ height:30px;
+ width:68%;
+ overflow-y:auto;
+}
+
+
+.zend_form input#submit{   
+width:117px;
+height:45px;
+background-image:url(../images/bt_03.jpg);
+}   
+  
+.required:before{content:'* '}   
+  
+.optional:before{content:''}
 /*Page*/
 
 .page_1 {padding:0 0 10px 0;text-align:right;width:840px;margin:0 auto;}
