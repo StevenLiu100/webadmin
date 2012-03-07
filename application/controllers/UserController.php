@@ -84,6 +84,7 @@ class UserController extends Zend_Controller_Action
     			$this->view->sortfield=$sortfield;
     			$logMapper=new Application_Model_AcsyslogMapper();
     			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$username.'，排序属性为'.$sortfield, '系统');
+    			$this->getRequest()->setParam('page', 1);
     		}
     	}
     	else if ($this->_getParam('page')!=null){
