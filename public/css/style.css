@@ -204,6 +204,7 @@ padding:0;
 .zend_form input#submit{   
 width:117px;
 height:45px;
+border:none;
 background-image:url(../images/bt_03.jpg);
 }   
   
