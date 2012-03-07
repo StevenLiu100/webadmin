@@ -108,7 +108,7 @@ class Application_Form_UserInfo extends Zend_Form
         				'禁用' => '禁用',))
         		->setValue('可用');
     	$submit =  new Zend_Form_Element_Submit('submit');
-    	$submit->setLabel('添加');
+    	$submit->setLabel('');
     	
     	$this->addElements(array($username,$email,$password,$repassword,$mobile,$tel,$unit,$userstyle,$comment,$state,$submit));
     	
