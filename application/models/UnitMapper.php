@@ -100,5 +100,23 @@ class Application_Model_UnitMapper
 		}
 		return $units;
 	}
+	
+	public function findbyid($unitid)
+	{
+		$unit = new Application_Model_Unit();
+	
+		$result = $this->getDbTable()->find($unitid);
+		if (0 == count($result)) {
+			return;
+		}
+		$row = $result->current();
+	
+		$unit->setUnitid($row->unitid);
+		$unit->setUnitname($row->unitname);
+		$unit->setParentid($row->parentid);
+		$unit->setUnitorder($row->unitorder);
+	
+		return $unit;
+	}
 }
 

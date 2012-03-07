@@ -12,7 +12,7 @@ class Application_Form_Unitadd extends Zend_Form
     	$unitid->addFilter('Int');
     	$this->addElement($unitid);
     	
-    	$this->addElement('select', 'parentunitname', array(
+    	$this->addElement('select', 'parentid', array(
     			'label'      => '大单位选择',
     			'required'   => true,
     			'filters'    => array('StringTrim'),

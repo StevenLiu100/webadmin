@@ -15,21 +15,21 @@ echo $this->form;?>
 			<th>删除</th>
 			<th>单位名称</th>
 		</tr>
-		<?php foreach ($this->paginator as $item) :?>
+		<?php foreach ($this->units as $item) :?>
 			    <tr>
 			    <th><a href="<?php echo $this->url(
 			    array(
-			    'controller' => 'user',
-			    'action'     => 'update',
-			    'userid'=>$item->userid
+			    'controller' => 'unit',
+			    'action'     => 'unitupd',
+			    'unitid'=>$item->unitid
 			    ),
 			    'default',true) ?>">修改</a></th>
 			    
   				<th><a href="<?php echo $this->url(
 			    array(
-			    'controller' => 'user',
-			    'action'     => 'delete',
-			    'userid'=>$item->userid
+			    'controller' => 'unit',
+			    'action'     => 'unitdel',
+			    'unitid'=>$item->unitid
 			    ),
 			    'default',true) ?>">删除</a></th>
 
