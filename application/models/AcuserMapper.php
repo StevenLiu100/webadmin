@@ -42,7 +42,6 @@ class Application_Model_AcuserMapper
         if (null === ($id = $user->getUserId())) {
             unset($data['userid']);
             $data['passwordsalt']=rand(0,10000);
-            date_default_timezone_set('PRC');  
             $data['createdate']=date('Y-m-d H:i:s');
             $data['password']=md5($data['passwordsalt']+ $data['password']);
             $this->getDbTable()->insert($data);
