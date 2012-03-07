@@ -89,30 +89,6 @@ body,input,button,textarea,select {font:normal 12px/1.667 Tahoma,Helvetica,Arial
 
 #nav {background-image:url(../images/nav_bg.jpg);width:900px;height:39px;}
 
-#menu1 {float:left;padding:5px 0 0 27px;}
-
-#menu1 li {padding-left:3px; float:left; position:relative;}
-#menu1 li ul {display:none;}
-
-#menu1 .menu_1{width:85px; height:28px;}
-#menu1 .menu_1 a{display:block;overflow:hidden;text-indent:-9999px;width:85px; height:28px; background-image: url(../images/nav_01.jpg);}
-#menu1 .menu_1 a:hover{width:85px; height:28px; background-image: url(../images/nav_01_1.jpg);}
-
-#menu1 .menu_2{width:85px; height:28px;}
-#menu1 .menu_2 a{display:block;overflow:hidden;text-indent:-9999px;width:85px; height:28px; background-image: url(../images/nav_02.jpg);}
-#menu1 .menu_2 a:hover{width:85px; height:28px; background-image: url(../images/nav_02_1.jpg);}
-
-#menu1 .menu_3{width:85px; height:28px;}
-#menu1 .menu_3 a{display:block;overflow:hidden;text-indent:-9999px;width:85px; height:28px; background-image: url(../images/nav_03.jpg);}
-#menu1 .menu_3 a:hover{width:85px; height:28px; background-image: url(../images/nav_03_1.jpg);}
-
-#menu1 .menu_4{width:85px; height:28px;}
-#menu1 .menu_4 a{display:block;overflow:hidden;text-indent:-9999px;width:85px; height:28px; background-image: url(../images/nav_04.jpg);}
-#menu1 .menu_4 a:hover{width:85px; height:28px; background-image: url(../images/nav_04_1.jpg);}
-
-#menu1 .menu_5{width:85px; height:28px;}
-#menu1 .menu_5 a{display:block;overflow:hidden;text-indent:-9999px;width:85px; height:28px; background-image: url(../images/nav_05.jpg);}
-#menu1 .menu_5 a:hover{width:85px; height:28px; background-image: url(../images/nav_05_1.jpg);}
 
 .menu2 {float:right;padding:8px 20px 0 27px;}
 .menu2 .out{color:#5d5d5d; font: 13px 'Microsoft YaHei',simsun;text-align:center}
@@ -121,13 +97,19 @@ body,input,button,textarea,select {font:normal 12px/1.667 Tahoma,Helvetica,Arial
 
 
 /*Drop-down menu*/
+#menu1 {float:left;padding:5px 0 0 27px;text-decoration: none;}
+#menu1 ul { list-style: none; margin: 0px; padding: 0px; }
+#menu1 ul li {padding-left:3px; float:left; position:relative;}
+#menu1 ul li a {text-decoration: none;display:block; width:87px; height:28px; line-height:28px; text-align:left;padding-left:5px; background: url(../images/nav_01.jpg); font:Î¢ÈíÑÅºÚ,ËÎÌå bold 18px; }
+#menu1 ul li a:hover { background:url(../images/nav_01_1.jpg) 0 0 no-repeat;}
+#menu1 ul li a#current { background:none;}
+#menu1 ul li ul { display:none; position:absolute;}
+#menu1 ul li ul li { float:left; width:87px; background:#eee; margin:0;}
+#menu1 ul li ul li a { background:url(../images/m_bg.jpg) 0 0 no-repeat;padding-left:5px;text-align:center}
+#menu1 ul li ul li a:hover { background:url(../images/m_bg_1.jpg) 0 0 no-repeat; color:#fff;padding-left:5px;text-align:center}
+#menu1 ul li:hover ul { display:block;}
+#menu1 ul li.sfhover ul { display:block;}
 
-#down-menu {width:128px;height:170px;border:1px solid #979797;}
-#down-menu .down-menu-bg {width:127px;height:34px;}
-#down-menu .down-menu-bg .m_txt {color:#5d5d5d; font: 14px 'Microsoft YaHei',simsun;text-align:center;}
-#down-menu .down-menu-bg .m_txt a{width:127px;height:34px;display:block;overflow:hidden;color:#5d5d5d;text-decoration:none;background-image: url(../images/m_bg.jpg)}
-#down-menu .down-menu-bg .m_txt a:hover {overflow:hidden;width:127px;height:34px;color:#263e8a;text-decoration:underline;background-image: url(../images/m_bg_1.jpg)}
-#down-menu .down-menu-bg .m_txt a span {position:relative;height:19px;top:7px;clear:both;}
 /*Bread crumbs*/
 
 .bc {padding:10px 0 0 5px;color:#5d5d5d; font: 14px 'Microsoft YaHei',simsun;}

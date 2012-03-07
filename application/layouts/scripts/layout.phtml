@@ -1,42 +1,68 @@
-<?php echo $this->doctype() ?>
+<?php echo $this->doctype()?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>网站管理系统</title>
-  <?php echo $this->headLink()->appendStylesheet('/css/global.css')
-  							  ->appendStylesheet('/css/redmond/jquery-ui-1.8.18.custom.css');
-
-  ?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>网站管理系统</title>
+  <?php
+		
+		echo $this->headLink ()->appendStylesheet ( '/css/style.css' )->appendStylesheet ( '/css/redmond/jquery-ui-1.8.18.custom.css' );
+		
+		?>
 <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.8.18.custom.min.js"></script>
 </head>
 <body>
-<div id="header" style="background-color: #EEEEEE; height: 30px;">
-    <div id="header-logo" style="float: left">
-        <b>网站管理</b>
-    </div>
-    <div id="header-navigation" style="float: right">
-        <a href="<?php echo $this->url(
-            array('controller'=>'user'),
-            'default',
-            true) ?>">用户管理</a>
-		&nbsp;&nbsp;
-        <a href="<?php echo $this->url(
-            array('controller'=>'acapplication'),
-            'default',
-            true) ?>">系统管理</a>
-       &nbsp;&nbsp;     
-       <a href="<?php echo $this->url(
-            array('controller'=>'unit'),
-            'default',
-            true) ?>">部门管理</a>
-       &nbsp;&nbsp;      
-       <a href="<?php echo $this->url(
-            array('controller'=>'syslog'),
-            'default',
-            true) ?>">日志管理</a>
-    </div>
-</div>
-<?php echo $this->layout()->content ?>
+	<div id="container">
+		<div class="info_top"></div>
+
+		<div id="nav">
+		   <div id="menu1">
+				<ul>
+					<li><a href="#">用户管理</a>
+						<ul>
+							<li><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'add'),'default', true) ?>">添加用戶</a></li>
+							<li><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'search'),'default', true) ?>">浏览用戶</a></li>
+						</ul></li>
+					<li><a href="#">系統管理</a>
+						<ul>
+							<li><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appadd'));?>">添加系統</a></li>
+							<li><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'index'));?>">浏览系统</a></li>
+						</ul></li>
+					<li><a href="#">数据管理</a>
+						<ul>
+							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitadd'));?>">添加单位</a></li>
+							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitsearch'));?>">浏览单位</a></li>
+						</ul></li>
+					<li><a href="<?php echo $this->url ( array ('controller' => 'syslog' ), 'default', true )?>">日志管理</a></li>
+				</ul>
+			</div>
+			<div class="menu2">
+				<div class="out">
+					admin：<a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'updatepassword'),'default', true) ?>" target="_blank">修改密码</a>|<a href="">退出</a>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="bc">
+				<a href="">首页</a> > <a href="">人员信息</a> > 人员信息浏览
+			</div>
+			<div class="bc_mod">
+				<div class="line"></div>
+			</div>
+		</div>
+		<div class="bc_mod">
+			<div class="lan_tit">人员信息浏览</div>
+		</div>
+
+
+		<div class="bc_mod">
+			<?php echo $this->layout()->content ?>				
+		</div>
+
+		<div class="bc_mod">
+			<div class="line"></div>
+		</div>
+		<div id="foot_1">61733 &copy; 2000-2012 All rights reserved</div>
+
 </body>
 </html>
