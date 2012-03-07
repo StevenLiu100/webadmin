@@ -17,7 +17,18 @@
 <?php else: ?>
   <span class="disabled">&lt; 上一页</span> |
 <?php endif; ?>
- 
+
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>
+  <?php if ($page != $this->current): ?>
+    <a href="<?php echo $this->url(array('page' => $page,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
+    <?= $page; ?>
+  </a> |
+  <?php else: ?>
+    <?= $page; ?> |
+  <?php endif; ?>
+<?php endforeach; ?>
+
 <!-- Next page link -->
 <?php if (isset($this->next)): ?>
   <a href="<?php echo $this->url(array('page' => $this->next,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
