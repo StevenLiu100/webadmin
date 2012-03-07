@@ -59,4 +59,10 @@ echo $this->form;
 		
 	</tbody>
 </table>
-<?php echo $this->paginator; ?>
+<?php echo $this->paginationControl($this->paginator,
+		'Sliding',
+		'user/controls.phtml',
+		array('username' => $this->username,
+				'sortfield'=>$this->sortfield
+			));
+?>

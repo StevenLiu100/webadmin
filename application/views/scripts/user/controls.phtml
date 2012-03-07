@@ -2,7 +2,7 @@
 <?php if ($this->pageCount): ?>
 <!-- First page link -->
 <?php if (isset($this->previous)): ?>
-  <a href="<?php echo $this->url(array('page' => $this->first)); ?>">
+  <a href="<?php echo $this->url(array('page' => $this->first,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
     首页
   </a> |
 <?php else: ?>
@@ -11,7 +11,7 @@
  
 <!-- Previous page link -->
 <?php if (isset($this->previous)): ?>
-  <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+  <a href="<?php echo $this->url(array('page' => $this->previous,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
     &lt; 上一页
   </a> |
 <?php else: ?>
@@ -20,7 +20,7 @@
  
 <!-- Next page link -->
 <?php if (isset($this->next)): ?>
-  <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+  <a href="<?php echo $this->url(array('page' => $this->next,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
     下一页 &gt;
   </a> |
 <?php else: ?>
@@ -29,14 +29,12 @@
  
 <!-- Last page link -->
 <?php if (isset($this->next)): ?>
-  <a href="<?php echo $this->url(array('page' => $this->last)); ?>">
+  <a href="<?php echo $this->url(array('page' => $this->last,'username'=>$this->username,'sortfield'=>$this->sortfield)); ?>">
     末页
   </a>
 <?php else: ?>
   <span class="disabled">末页</span>
 <?php endif; ?>
- 
-</div>
 第<?php echo $this->current; ?>页 
 共<?php echo $this->pageCount ?>页
 <?php endif; ?>
