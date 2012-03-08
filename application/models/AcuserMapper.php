@@ -127,5 +127,36 @@ class Application_Model_AcuserMapper
     {
         $this->getDbTable()->delete(array('userid = ?' => $userid));
     }
-	}
+    public function login($user)
+    {
+    	$password_text=$user->getPassword();
+    	$resultSet = $this->getDbTable()->fetchAll(
+    			$this->getDbTable()->select()
+    			->where('email = ?', $user->getEmail()));
+    	$userCount=count($resultSet);
+    	if($userCount==0||$userCount>1)
+    	{
+    		return null;
+    	}
+    	foreach ($resultSet as $row) {
+    		$user->setUserId($row->userid);
+    		$user->setEmail($row->email);
+    		$user->setUserstyle($row->userstyle);
+    		$user->setMobile($row->mobile);
+    		$user->setTel($row->tel);
+    		$user->setUnit($row->unit);
+    		$user->setPassword($row->password);
+    		$user->setState($row->state);
+    		$user->setPasswordsalt($row->passwordsalt);
+    		$user->setCreatedate($row->createdate);
+    		$user->setUserName($row->username);
+    	}
+    	if(md5($password_text+$user->getPasswordsalt())==$user->getPassword()){
+    		return $user;
+    	}
+    	else {
+    		return null;
+    	}
+    }
+}
 

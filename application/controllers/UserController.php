@@ -19,6 +19,33 @@ class UserController extends Zend_Controller_Action
     {
         // TODO Auto-generated PersonController::indexAction() default action
     }
+    public function loginAction()
+    {
+    	
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_Userlogin();
+    	if ($this->getRequest()->isPost()) {
+    		if ($form->isValid($request->getPost())) {
+    			$user = new Application_Model_Acuser($form->getValues());
+    			$mapper  = new Application_Model_AcuserMapper();
+    			//密码和密码确认工作已经在浏览器端验证了，用户名的是否重复的问题也已经验证过了，因此这里直接插入一条新记录
+    			$user=$mapper->login($user);
+    			if($user==null)
+    			{
+    				$this->view->message='登录失败';
+    				$this->view->form = $form;
+    				return;
+    			}
+    			else {
+    				$this->view->user=$user;
+    			}
+    			$logMapper=new Application_Model_AcsyslogMapper();
+    			$logMapper->addSyslog($user->getUserid(), '用户登录，用户名为'.$user->getUsername().',注册邮箱为'.$user->getEmail(), '系统');
+    			return $this->_helper->redirector('index');
+    		}
+    	}
+    	$this->view->form = $form;
+    }
     public function addAction ()
     {
         $request = $this->getRequest();
