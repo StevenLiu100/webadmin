@@ -19,7 +19,7 @@ class Application_Model_UnitMapper
 	public function getDbTable()
 	{
 		if (null === $this->_dbTable) {
-			$this->setDbTable('Application_Model_Unit');
+			$this->setDbTable('Application_Model_DbTable_Unit');
 		}
 		return $this->_dbTable;
 	}
@@ -94,9 +94,7 @@ class Application_Model_UnitMapper
 		
 		$units = array();
 		foreach ($resultSet as $row) {
-			$unit = $row->unitid.'=>'.$row->unitname;
-
-			$units[] = $unit;
+			$units[$row->unitid] = $row->unitname;
 		}
 		return $units;
 	}

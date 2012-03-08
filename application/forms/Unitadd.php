@@ -17,7 +17,7 @@ class Application_Form_Unitadd extends Zend_Form
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
-    					array('validator' => 'StringLength', 'options' => array(2, 100))
+    					array('validator' => 'StringLength', 'options' => array(0, 100))
     			),
     			
     			'multioptions'   => $mapper->parentunit()
@@ -31,6 +31,10 @@ class Application_Form_Unitadd extends Zend_Form
     					array('validator' => 'StringLength', 'options' => array(2, 100))
     			)
     	));
+    	
+    	$unitorder = new Zend_Form_Element_Hidden('unitorder');
+    	$unitorder->addFilter('Int');
+    	$this->addElement($unitorder);
     	
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(

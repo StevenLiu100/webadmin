@@ -80,7 +80,7 @@ class UnitController extends Zend_Controller_Action
     			$unit = new Application_Model_Unit();
     			$mapper  = new Application_Model_UnitMapper();
     			
-    			$parentid = $form->getValue('parentid');
+    			$parentid = $form->getValue('parentunitname');
     			$unitname = $form->getValue('unitname');
     			
     			$this->view->units=$mapper->unitSearch($parentid,$unitname);

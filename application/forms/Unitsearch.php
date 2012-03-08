@@ -18,7 +18,7 @@ class Application_Form_Unitsearch extends Zend_Form
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
-    					array('validator' => 'StringLength', 'options' => array(2, 100))
+    					array('validator' => 'StringLength', 'options' => array(0, 100))
     			),
     			 
     			'multioptions'   => $mapper->parentunit()
