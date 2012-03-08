@@ -83,7 +83,9 @@ class UserController extends Zend_Controller_Action
     			$mapper  = new Application_Model_AcuserMapper();
     			$username=$form->getValue('username');
     			$sortfield=$form->getValue('sortfield');
-    			$this->view->entries=$mapper->findByName($username,$sortfield);
+    			$users=$mapper->findByName($username,$sortfield);
+    			$this->processUserStyle($users);
+    			$this->view->entries=$users;
     			$this->view->username=$username;
     			$this->view->sortfield=$sortfield;
     			$logMapper=new Application_Model_AcsyslogMapper();
@@ -95,7 +97,9 @@ class UserController extends Zend_Controller_Action
     		$username=$request->getParam('username');
     		$sortfield=$request->getParam('sortfield');
     		$mapper  = new Application_Model_AcuserMapper();
-    		$this->view->entries=$mapper->findByName($username,$sortfield);
+    		$users=$mapper->findByName($username,$sortfield);
+    		$this->processUserStyle($users);
+    		$this->view->entries=$users;
     		$this->view->username=$username;
     		$this->view->sortfield=$sortfield;		
     	}
@@ -173,6 +177,22 @@ class UserController extends Zend_Controller_Action
     		$mapper  = new Application_Model_AcuserMapper();
     		$mapper->remove($userid);
     		return $this->_helper->redirector('index');
+    	}
+    }
+    private function processUserStyle($users)
+    {
+    	foreach ($users as $user)
+    	{
+    		$userstyle=explode('#', $user->getUserstyle());
+    		$appMapper=new Application_Model_AcapplicationMapper();
+    		$userstyle_name=array();
+    		foreach ($userstyle as $appid)
+    		{
+    			$app=$appMapper->findbyid($appid);
+    			if($app!=null)
+    				$userstyle_name[]=$app->getApplicationname();
+    		}
+    		$user->setUserstyle(implode(';', $userstyle_name));
     	}
     }
 }
