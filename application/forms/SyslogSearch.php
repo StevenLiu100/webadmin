@@ -7,39 +7,34 @@ class Application_Form_SyslogSearch extends Zend_Form
     {
     	$this->setMethod('post');
     	
-//    	ZendX_JQuery::enableForm($this);
+    	ZendX_JQuery::enableForm($this);
     	// Add a username element
     	$this->addElement('text', 'username', array(
-    			'label'      => '用户名:',
-    			//    'label'      => 'username:',
-    	//     			'filters'    => array('StringTrim'),
-    	//     	        'validators' => array(
-    			//     	        		array('validator' => 'StringLength', 'options' => array(0, 10))
-    			//     	        )
+    			'label'      => '用户名:'
     	));
     	
     	
-//     	$elem = new ZendX_JQuery_Form_Element_DatePicker('start_date', array(
-//     			'label' 		=> 'Start Date',
-//     			'required'		=> true,
-//     			'validators'	=> array('Date'),
-//     			'jQueryParams'	=> array(
-//     					'dateFormat' => 'dd-mm-yy',
-//     					'minDate'	 => '+1'
-//     			)));
+    	$elem = new ZendX_JQuery_Form_Element_DatePicker('start_date', array(
+    			'label' 		=> '时间',
+    			'required'		=> false,
+    			'validators'	=> array('Date'),
+    			'jQueryParams'	=> array(
+    					'dateFormat' => 'dd-mm-yy',
+    					'minDate'	 => '+1'
+    			)));
     	
-//     	$this->addElement($elem);
+    	$this->addElement($elem);
     	
-//     	$elem = new ZendX_JQuery_Form_Element_DatePicker('end_date', array(
-//     			'label' 		=> 'End Date',
-//     			'required'		=> true,
-//     			'validators'	=> array('Date'),
-//     			'jQueryParams'	=> array(
-//     					'dateFormat' 	=> 'dd-mm-yy',
-//     					'minDate'	 	=> '+1')
-//     	));
+    	$elem = new ZendX_JQuery_Form_Element_DatePicker('end_date', array(
+    			'label' 		=> '至',
+    			'required'		=> false,
+    			'validators'	=> array('Date'),
+    			'jQueryParams'	=> array(
+    					'dateFormat' 	=> 'dd-mm-yy',
+    					'minDate'	 	=> '+1')
+    	));
     	
-//    	$this->addElement($elem);
+   	$this->addElement($elem);
     	
 //     	$element = new ZendX_JQuery_Form_Element_DatePicker(
 //     			'dp1',

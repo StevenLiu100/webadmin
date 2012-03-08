@@ -1,3 +1,11 @@
+<script type="text/javascript">
+//<!--
+$(document).ready(function() {
+    $("#start_date").datepicker({"dateFormat":"yy-mm-dd","minDate":"+1","defaultDate":"12-03-08"});
+    $("#end_date").datepicker({"dateFormat":"yy-mm-dd","minDate":"+1"});
+});
+//-->
+</script>
 <p align="center"><?php
 $this->form->setAction($this->url());
 echo $this->form;
