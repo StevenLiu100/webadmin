@@ -5,6 +5,7 @@ $this->form->setAction($this->url());
 echo $this->form;
 
 ?>
+<?php if(count($this->entries)>0): ?>
 <table>
 	<thead>
 		<tr>
@@ -54,11 +55,11 @@ echo $this->form;
 			    <th><?php echo $this->escape($item->userstyle) ?></th>
 			    <th><?php echo $this->escape($item->state) ?></th>
 			    </tr>
-     			
 		 <?php endforeach ?>
 		
 	</tbody>
 </table>
+<?php endif;?>
 <?php echo $this->paginationControl($this->paginator,
 		'Sliding',
 		'user/controls.phtml',

@@ -136,7 +136,8 @@ class UserController extends Zend_Controller_Action
     			$mapper->save($user_update);
     			$logMapper=new Application_Model_AcsyslogMapper();
     			$logMapper->addSyslog('10000', '修改用户信息', '系统');
-    			return $this->_helper->redirector('index');
+     			return $this->_helper->redirector('search');
+// 				echo '修改成功';
     		}
     	}
     	$username_element=$form->getElement('username');
