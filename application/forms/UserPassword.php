@@ -64,42 +64,6 @@ class Application_Form_UserPassword extends Zend_Form
     	$submit->setLabel('修改密码');
     	
     	$this->addElements(array($password,$newpassword,$renewpassword,$submit));
-//     	// Add a old password element
-//     	$this->addElement('password', 'oldpassword', array(
-//     				'label'      => '原密码:',
-//     			//'label'      => 'Input your password:',
-//     			'required'   => true,
-//     			'filters'    => array('StringTrim'),
-//     			'validators' => array(
-//     					array('validator' => 'StringLength', 'options' => array(6, 20))
-//     			)
-//     	));
-//     	// Add a repassword element
-//     	$this->addElement('password', 'newpassword', array(
-//     				'label'      => '新密码:',
-//     			//'label'      => 'Input your new password:',
-//     			'required'   => true,
-//     			'filters'    => array('StringTrim'),
-//     			'validators' => array(
-//     					array('validator' => 'StringLength', 'options' => array(6, 20))
-//     			)
-//     	));
-//     	// Add a renewpassword element
-//     	$this->addElement('password', 'renewpassword', array(
-//     				'label'      => '确认新密码:',
-//     			//'label'      => 'Retype your new password:',
-//     			'required'   => true,
-//     			'filters'    => array('StringTrim'),
-//     			'validators' => array(
-//     					array('validator' => 'StringLength', 'options' => array(6, 20))
-//     			)
-//     	));
-//         // Add a submit button
-//     	$this->addElement('submit', 'submit', array(
-//     			'ignore'   => true,
-//     				'label'    => '修改密码',
-//     		//	'label'      => 'update password',
-//     	));
     
     }
     

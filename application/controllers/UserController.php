@@ -26,6 +26,10 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
         	if ($form->isValid($request->getPost())) {
         		$user = new Application_Model_Acuser($form->getValues());
+        		$appMapper=new Application_Model_AcapplicationMapper();
+        		$apps=$appMapper->fetchAll();
+        		$userstyle=implode('#', $user->getUserstyle());
+        		$user->setUserstyle($userstyle);
         		$mapper  = new Application_Model_AcuserMapper();
         		//密码和密码确认工作已经在浏览器端验证了，用户名的是否重复的问题也已经验证过了，因此这里直接插入一条新记录
         		$mapper->save($user);
@@ -104,36 +108,6 @@ class UserController extends Zend_Controller_Action
     	$paginator->setCurrentPageNumber($this->_getParam('page', 1));
     	$this->view->paginator = $paginator;
     	$this->view->form = $form;
-  	
-//     	$request = $this->getRequest();
-//     	$form    = new Application_Form_UserSearch();
-//     	if ($this->getRequest()->isPost()) {
-//     		if ($form->isValid($request->getPost())) {
-//     			$user = new Application_Model_Acuser();
-//     			$mapper  = new Application_Model_AcuserMapper();
-//     			$username=$form->getValue('username');
-//     			$sortfield=$form->getValue('sortfield');
-//     			//$this->getDbField($sortfield);
-//     			$this->view->entries=$mapper->findByName($username,$sortfield);
-//     			$logMapper=new Application_Model_AcsyslogMapper();
-//     			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$username.'，排序属性为'.$sortfield, '系统');
-//     			Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
-//     			$paginator = Zend_Paginator::factory($this->view->entries);
-//     			$paginator->setCurrentPageNumber($this->_getParam('page', 1));
-//     			$this->view->paginator = $paginator;
-//     			//return $this->_helper->redirector('search');
-//     		}
-//     	}
-//     	else if ($this->_getParam('page')!=null){  
-//     	    $username=$form->getValue('username');
-//     	    $mapper  = new Application_Model_AcuserMapper();
-//     	    $this->view->entries=$mapper->findByName($username);
-//     	    Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
-//     	    $paginator = Zend_Paginator::factory($this->view->entries);
-//     	    $paginator->setCurrentPageNumber($this->_getParam('page', 1));
-//     	    $this->view->paginator = $paginator;
-//     	}	 
-//     	$this->view->form = $form;
     	 
     }
     public function updateAction ()
@@ -143,13 +117,17 @@ class UserController extends Zend_Controller_Action
         $user = new Application_Model_Acuser();
         $mapper  = new Application_Model_AcuserMapper();
         $mapper->find($userid,$user);
-
+        $appMapper=new Application_Model_AcapplicationMapper();
+        $apps=$appMapper->fetchAll();
+        
     	$form = new Application_Form_UserInfoUpdate();
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
     			$user_update = new Application_Model_Acuser($form->getValues());
     			$user_update->setUserid($userid);
     			$user_update->setPassword($user->getPassword());
+    			$userstyle=implode('#', $user_update->getUserstyle());
+        		$user_update->setUserstyle($userstyle);
     			$mapper  = new Application_Model_AcuserMapper();
     			$mapper->save($user_update);
     			$logMapper=new Application_Model_AcsyslogMapper();
@@ -171,9 +149,11 @@ class UserController extends Zend_Controller_Action
 
     	$unit_element=$form->getElement('unit');
     	$unit_element->setValue($user->getUnit());
+    	
+		$userstyle_array=explode('#',$user->getUserstyle());
 
      	$userstyle_element=$form->getElement('userstyle');
-     	$userstyle_element->setValue($user->getUserstyle());
+     	$userstyle_element->setValue($userstyle_array);
 
      	$comment_element=$form->getElement('comment');
      	$comment_element->setValue($user->getComment());

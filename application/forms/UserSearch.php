@@ -12,18 +12,11 @@ class Application_Form_UserSearch extends Zend_Form
     	// Add a username element
     	$this->addElement('text', 'username', array(
     			'label'      => '用户名:',
-    	    //    'label'      => 'username:',
-//     			'filters'    => array('StringTrim'),
-//     	        'validators' => array(
-//     	        		array('validator' => 'StringLength', 'options' => array(0, 10))
-//     	        )
     	));
+    	//add a sort field element
     	$this->addElement('select', 'sortfield', array(
     			'label'      => '排序属性:',
 				'required'   => true,
-//     			'attribs' =>   array(
-//     					'id'=>'userstyle',
-//     			),
     			'multioptions'   => array(
     					'username' => '用户名',
     					'email' => '邮箱',
@@ -37,7 +30,6 @@ class Application_Form_UserSearch extends Zend_Form
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
     			'label'    => '查找',
-    	    //    'label'      => 'search',
     	));
 
     }
