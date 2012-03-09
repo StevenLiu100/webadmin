@@ -11,7 +11,14 @@ require_once 'Zend/Controller/Action.php';
 
 class UserController extends Zend_Controller_Action
 {
-
+	public function init()
+	{
+		$uri = $this->_request->getPathInfo();
+		$activeNav = $this->view->navigation()->findByUri($uri);
+		$activeNav-> active = true;
+		$activeNav->setClass("active");
+	}
+    
     /**
      * The default action - show the home page
      */

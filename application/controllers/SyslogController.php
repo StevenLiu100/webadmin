@@ -8,8 +8,11 @@ class SyslogController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
-//    	$this->view->addHelperPath('ZendX/JQuery/View/Helper', 'ZendX_JQuery_View_Helper');
+        $uri = $this->_request->getPathInfo();
+		$activeNav = $this->view->navigation()->findByUri($uri);
+		$activeNav-> active = true;
+		$activeNav->setClass("active");
+		
     	$this->entries = null;
     }
 

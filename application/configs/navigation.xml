@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configdata>
+   <nav>
+      <home>
+         <label>首页</label>
+         <uri>/</uri>
+          <pages>
+             <login>
+                <label>用户登录</label>
+                <uri>/user/login</uri>
+             </login>
+             <adduser>
+                <label>添加用户</label>
+                <uri>/user/add</uri>
+             </adduser>
+             <searchuser>
+                <label>浏览用户</label>
+                <uri>/user/search</uri>
+             </searchuser>
+             <addapp>
+                <label>添加系统</label>
+                <uri>/acapplication/appadd</uri> 
+             </addapp>
+             <indexapp>
+                 <label>浏览系统</label>
+                 <uri>/acapplication</uri>
+             </indexapp>
+             <addunit>
+                 <label>添加单位</label>
+                 <uri>/unit/unitadd</uri>      
+             </addunit>
+             <searchunit>
+               <label>浏览单位</label>
+                 <uri>/unit/unitsearch</uri>
+             </searchunit>
+             <searchlog>
+               <label>日志管理</label>
+                 <uri>/syslog</uri>
+             </searchlog>
+             <changepass>
+               <label>修改密码</label>
+                 <uri>/user/updatepassword</uri>
+             </changepass>
+          </pages>
+          
+      </home>
+   </nav>
+</configdata>

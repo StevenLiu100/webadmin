@@ -44,15 +44,19 @@
 			</div>
 		</div>
 		<div id="content">
-			<div class="bc">
-				<a href="">首页</a> > <a href="">人员信息</a> > 人员信息浏览
-			</div>
+		      <div class="bc_mod">
+				<div class="breadcrumbs">
+			     <?= $this->navigation()->breadcrumbs()->setMinDepth(0)->setLinkLast(true)->setSeparator(" > ");; ?>
+		        </div>
+		        </div>
+			
 			<div class="bc_mod">
 				<div class="line"></div>
 			</div>
 		</div>
 
 		<div class="bc_mod">
+		
 			<?php echo $this->layout()->content ?>				
 		</div>
 
