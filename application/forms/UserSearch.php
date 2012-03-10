@@ -29,7 +29,7 @@ class Application_Form_UserSearch extends Zend_Form
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
-    			'label'    => '查找',
+    			'label'    => '',
     	));
 
     }

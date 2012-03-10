@@ -1,12 +1,11 @@
-<br /><br />
+<div class="bc_mod">
+			<div class="lan_tit">系统浏览</div>
+		</div>
 <?php
 $this->title = "系统管理";
 $this->headTitle($this->title);
 ?>
 
-<div id="view-content">
-	<p><a href="<?php echo $this->url(array('controller'=>'acapplication',
-'action'=>'appadd'));?>">增加新系统</a></p>
 <table>
 <tr>
 <th>删除</th>
@@ -36,6 +35,6 @@ $this->headTitle($this->title);
 </tr>
 <?php endforeach; ?>
 </table>
-</div>
+
 
 

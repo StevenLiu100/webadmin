@@ -28,6 +28,12 @@
           <actionMethod actionName="unitupd"/>
           <actionMethod actionName="unitsearch"/>
         </controllerFile>
+        <controllerFile controllerName="BaseController">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Base">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false">
         <formFile formName="Application"/>
@@ -101,6 +107,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Unit">
             <viewScriptFile forActionName="unitsearch"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="BaseController">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Base">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

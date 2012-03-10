@@ -1,16 +1,13 @@
 <?php
-
-class UnitController extends Zend_Controller_Action
+require_once 'BaseController.php';
+class UnitController extends BaseController
 {
 
-    public function init()
-    {
-        $uri = $this->_request->getPathInfo();
-		$activeNav = $this->view->navigation()->findByUri($uri);
-		$activeNav-> active = true;
-		$activeNav->setClass("active");
-    }
-
+	public function init()
+	{
+		parent::init();
+		
+	}
     public function indexAction()
     {
         // action body

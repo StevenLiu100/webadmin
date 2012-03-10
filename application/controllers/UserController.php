@@ -6,19 +6,17 @@
  * @author xdhan
  * @version 
  */
-
 require_once 'Zend/Controller/Action.php';
+require_once 'BaseController.php';
 
-class UserController extends Zend_Controller_Action
+class UserController extends BaseController
 {
+	
 	public function init()
 	{
-		$uri = $this->_request->getPathInfo();
-		$activeNav = $this->view->navigation()->findByUri($uri);
-		$activeNav-> active = true;
-		$activeNav->setClass("active");
+		parent::init();
+	
 	}
-    
     /**
      * The default action - show the home page
      */

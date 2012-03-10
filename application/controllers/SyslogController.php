@@ -2,17 +2,13 @@
 
 
 require_once 'Zend/Controller/Action.php';
-
-class SyslogController extends Zend_Controller_Action
+require_once 'BaseController.php';
+class SyslogController extends BaseController
 {
 
     public function init()
     {
-        $uri = $this->_request->getPathInfo();
-		$activeNav = $this->view->navigation()->findByUri($uri);
-		$activeNav-> active = true;
-		$activeNav->setClass("active");
-		
+    	parent::init();
     	$this->entries = null;
     }
 
