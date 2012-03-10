@@ -1,13 +1,16 @@
 <?php
-require_once 'BaseController.php';
-class UnitController extends BaseController
+
+class UnitController extends Zend_Controller_Action
 {
 
-	public function init()
-	{
-		parent::init();
-		
-	}
+    public function init()
+    {
+        $uri = $this->_request->getPathInfo();
+		$activeNav = $this->view->navigation()->findByUri($uri);
+		$activeNav-> active = true;
+		$activeNav->setClass("active");
+    }
+
     public function indexAction()
     {
         // action body
@@ -54,13 +57,15 @@ class UnitController extends BaseController
     	$request = $this->getRequest();
 
     	$form = new Application_Form_Unitupd();
+    	$this->view->form = $form;
+    	$unitid = $form->getValue('unitid');
+    	$mapper  = new Application_Model_UnitMapper();
+    	$unit = $mapper->findbyid($unitid);
     	
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
-    			$unitid = $form->getValue('unitid');
     			$unitname = $form->getValue('unitnamenew');
-    			$mapper  = new Application_Model_UnitMapper();
-    			$unit = $mapper->findbyid($unitid);
+ 
     			$unit->setUnitname($unitname);
     			$mapper->save($unit);
 
@@ -68,6 +73,12 @@ class UnitController extends BaseController
     		}
     	}
     	
+    	$parentunit = $mapper->findbyid($unit->getParentid());
+    		
+    	$form->getElement('unitname')->setValue($unit->getUnitname());
+    	$form->getElement('parentid')->setValue($parentunit->getUnitname());
+    		
+    	$this->view->form = $form;
     }
 
     public function unitsearchAction()

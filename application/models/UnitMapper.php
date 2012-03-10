@@ -67,7 +67,9 @@ class Application_Model_UnitMapper
 	{
 		$resultSet = $this->getDbTable()->fetchAll(
 				$this->getDbTable()->select()
-				->where('unitname like ? and parentid = ?', '%'.$key.'%', $parentid)
+				//->where('unitname like ? and parentid = ?', '%'.$key.'%', $parentid)
+				->where('unitname like ? ', '%'.$key.'%')
+				->where('parentid = ? ', $parentid)
 				->order('unitorder')
 		);
 		
