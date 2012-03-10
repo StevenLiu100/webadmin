@@ -7,58 +7,52 @@ echo $this->form;
 
 ?>
 <?php if(count($this->entries)>0): ?>
+<div class="big-form">
 <table>
-	<thead>
-		<tr>
-			<th>用户信息:</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>修改</th>
-			<th>删除</th>
-			<th>用户名</th>
-			<th>邮箱</th>
-			<th>手机号</th>
-			<th>固定电话</th>
-			<th>单位</th>
+		<tr class="big-form-tit">
+			<th width="70px">修改</th>
+			<th width="70px">删除</th>
+			<th width="70px">用户名</th>
+			<th width="90px">邮箱</th>
+			<th width="90px">手机号</th>
+			<th width="90px">固定电话</th>
+			<th width="100px">单位</th>
 			<th>创建时间</th>
-			<th>用户类型</th>
-			<th>状态</th>
+			<th width="70px">用户类型</th>
+			<th width="40px">状态</th>
 		</tr>
 		<?php foreach ($this->paginator as $item) :?>
-			    <tr>
-			    <th><a href="<?php echo $this->url(
+			    <tr height="35" align="center" bgcolor="#FFFFFF">
+			    <td><a class="table_edit" href="<?php echo $this->url(
 			    array(
 			    'controller' => 'user',
 			    'action'     => 'update',
 			    'userid'=>$item->userid
 			    ),
-			    'default',true) ?>">修改</a></th>
+			    'default',true) ?>"><img src="../images/modify.gif"></a></td>
 			    
 			    <?php if ($item->state!='禁用'): ?>
-			    <th class="disabled">删除</th>
+			    <td class="disabled"></td>
 				<?php else: ?>
-  				<th><a href="<?php echo $this->url(
+  				<td><a class="table_del" href="<?php echo $this->url(
 			    array(
 			    'controller' => 'user',
 			    'action'     => 'delete',
 			    'userid'=>$item->userid
 			    ),
-			    'default',true) ?>">删除</a></th>
+			    'default',true) ?>"><img src="../images/del.gif"></a></td>
 				<?php endif; ?>
-			    <th><?php echo $this->escape($item->username) ?></th>
-			    <th><?php echo $this->escape($item->email) ?></th>
-			    <th><?php echo $this->escape($item->mobile) ?></th>
-			    <th><?php echo $this->escape($item->tel) ?></th>
-			    <th><?php echo $this->escape($item->unit) ?></th>
-			    <th><?php echo $this->escape($item->createdate) ?></th>
-			    <th><?php echo $this->escape($item->userstyle) ?></th>
-			    <th><?php echo $this->escape($item->state) ?></th>
+			    <td><?php echo $this->escape($item->username) ?></td>
+			    <td><?php echo $this->escape($item->email) ?></td>
+			    <td><?php echo $this->escape($item->mobile) ?></td>
+			    <td><?php echo $this->escape($item->tel) ?></td>
+			    <td><?php echo $this->escape($item->unit) ?></td>
+			    <td><?php echo $this->escape($item->createdate) ?></td>
+			    <td><?php echo $this->escape($item->userstyle) ?></td>
+			    <td><?php echo $this->escape($item->state) ?></td>
 			    </tr>
 		 <?php endforeach ?>
-		
-	</tbody>
+	
 </table>
 <?php endif;?>
 <?php echo $this->paginationControl($this->paginator,
@@ -68,3 +62,4 @@ echo $this->form;
 				'sortfield'=>$this->sortfield
 			));
 ?>
+</div>

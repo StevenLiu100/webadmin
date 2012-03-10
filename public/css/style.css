@@ -384,10 +384,17 @@ body,input,button,textarea,select,form {
 	width: 840px;
 	margin: 0 auto;
 	padding: 20px 0 10px 0;
+    overflow:auto;
+}
+.big-form table{
+     width=100%  ;
 }
 
 .big-form table td {
-	border: 1px solid #ffffff
+	border:0.5px solid #000000;
+}
+.big-form table th {
+	border:0.5px solid #000000;
 }
 
 .big-form-tit {
@@ -396,6 +403,12 @@ body,input,button,textarea,select,form {
 	color: #5d5d5d;
 	font: bold 14px 'Microsoft YaHei', simsun;
 	text-align: center;
+}
+.table_edit{
+	background-image: url(../images/modify.gif);
+}
+.table_del{
+	background-image: url(../images/del.gif);
 }
 
 .zend_form {
