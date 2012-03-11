@@ -1,14 +1,11 @@
 <?php
-
-class AcapplicationController extends Zend_Controller_Action
+require_once 'BaseController.php';
+class AcapplicationController extends BaseController
 {
 
     public function init()
     {
-    	$uri = $this->_request->getPathInfo();
-    	$activeNav = $this->view->navigation()->findByUri($uri);
-    	$activeNav-> active = true;
-    	$activeNav->setClass("active");
+    	parent::init();
     }
 
     public function indexAction()

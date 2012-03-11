@@ -25,8 +25,6 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
-Zend_Controller_Action_HelperBroker::addPath(
-		APPLICATION_PATH .'/controllers/helpers');
 
 $application->bootstrap()
             ->run();

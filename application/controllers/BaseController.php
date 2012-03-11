@@ -7,8 +7,10 @@ class BaseController extends Zend_Controller_Action
     {
         $uri = $this->_request->getPathInfo();
     	$activeNav = $this->view->navigation()->findByUri($uri);
-    	$activeNav-> active = true;
-    	$activeNav->setClass("active");
+    	if($activeNav!=null){
+    	  $activeNav-> active = true;
+    	  $activeNav->setClass("active");
+    	}
     }
 
     public function indexAction()
