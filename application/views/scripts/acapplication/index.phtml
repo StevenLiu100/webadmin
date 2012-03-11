@@ -18,20 +18,20 @@ $this->headTitle($this->title);
 <?php foreach($this->apps as $item) :?>
 <tr>
 <?php if ($item->enable == 1): ?>
-<th class="disabled">删除</th>
+<td class="disabled">删除</td>
 <?php else: ?>
-<th> <a href="<?php echo $this->url(array('controller'=>'acapplication',
+<td> <a href="<?php echo $this->url(array('controller'=>'acapplication',
 'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>">删除</a>
-</th>
+</td>
 <?php endif; ?>
-<th>
+<td>
 <a href="<?php echo $this->url(array('controller'=>'acapplication',
 'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>">修改</a>
-</th>
-<th><?php echo $this->escape($item->applicationname);?></th>
-<th><?php echo $this->escape($item->description);?></th>
-<th><?php echo $this->escape($item->enable);?></th>
-<th><?php echo $this->escape($item->apporder);?></th>
+</td>
+<td><?php echo $this->escape($item->applicationname);?></td>
+<td><?php echo $this->escape($item->description);?></td>
+<td><?php echo $this->escape($item->enable);?></td>
+<td><?php echo $this->escape($item->apporder);?></td>
 </tr>
 <?php endforeach; ?>
 </table>

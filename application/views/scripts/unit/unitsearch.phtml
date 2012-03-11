@@ -17,23 +17,23 @@ echo $this->form;?>
 		</tr>
 		<?php foreach ($this->units as $item) :?>
 			    <tr>
-			    <th><a href="<?php echo $this->url(
+			    <td><a href="<?php echo $this->url(
 			    array(
 			    'controller' => 'unit',
 			    'action'     => 'unitupd',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>">修改</a></th>
+			    'default',true) ?>">修改</a></td>
 			    
-  				<th><a href="<?php echo $this->url(
+  				<td><a href="<?php echo $this->url(
 			    array(
 			    'controller' => 'unit',
 			    'action'     => 'unitdel',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>">删除</a></th>
+			    'default',true) ?>">删除</a></td>
 
-			    <th><?php echo $this->escape($item->unitname) ?></th>
+			    <td><?php echo $this->escape($item->unitname) ?></td>
 			    </tr>
      			
 		 <?php endforeach ?>

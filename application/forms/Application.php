@@ -25,7 +25,7 @@ class Application_Form_Application extends Zend_Form
     	
     	$this->addElement('textarea', 'description', array(
     			'label'      => '系统描述',
-    			'required'   => true,
+    			'required'   => false,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 200))
