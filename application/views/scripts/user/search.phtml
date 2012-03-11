@@ -2,6 +2,7 @@
 			<div class="lan_tit">人员信息浏览</div>
 		</div>
 <?php
+$this->form->setAttrib('class', 'heng');
 $this->form->setAction($this->url());
 echo $this->form;
 
@@ -9,6 +10,7 @@ echo $this->form;
 <?php if(count($this->entries)>0): ?>
 <div class="big-form">
 <table>
+<thead>
 		<tr class="big-form-tit">
 			<th width="70px">修改</th>
 			<th width="70px">删除</th>
@@ -21,6 +23,8 @@ echo $this->form;
 			<th width="70px">用户类型</th>
 			<th width="40px">状态</th>
 		</tr>
+		</thead>
+        <tbody>
 		<?php foreach ($this->paginator as $item) :?>
 			    <tr height="35" align="center" bgcolor="#FFFFFF">
 			    <td><a class="table_edit" href="<?php echo $this->url(
@@ -52,7 +56,7 @@ echo $this->form;
 			    <td><?php echo $this->escape($item->state) ?></td>
 			    </tr>
 		 <?php endforeach ?>
-	
+	</tbody>
 </table>
 <?php endif;?>
 <?php echo $this->paginationControl($this->paginator,

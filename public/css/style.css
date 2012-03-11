@@ -14,8 +14,7 @@ li {
 }
 
 body,input,button,textarea,select,form {
-	font: normal 14px/1.667 Tahoma, Helvetica, Arial, "\5b8b\4f53", 微软雅黑,
-		宋体;
+	font: normal 14px/1.667 Tahoma, Helvetica, Arial, "\5b8b\4f53", 'Microsoft YaHei', simsun;
 	color: #263e8a
 }
 
@@ -378,6 +377,12 @@ body,input,button,textarea,select,form {
 	height: 22px;
 	line-height: 22px;
 }
+#usersearchbtn{
+	background-image: url(../images/search_02.jpg);
+    width:34px;
+    height:34px;
+    border:none;
+}
 
 /*form*/
 .big-form {
@@ -387,18 +392,25 @@ body,input,button,textarea,select,form {
     overflow:auto;
 }
 .big-form table{
-     width=100%  ;
+	width:100%;
+    border-width: 0px;
+    border-style: none;
+    border-color: #C1BBAB;
+    border-collapse: collapse;
+    empty-cells: show;
+
 }
 
-.big-form table td {
-	border:0.5px solid #000000;
+ .big-form table td, table th {
+	border-width: 1px;
+    border-style: solid;
+    padding: 1px 5px 1px 5px;
+
 }
-.big-form table th {
-	border:0.5px solid #000000;
-}
+
 
 .big-form-tit {
-	height: 36px;
+	height: 34px;
 	background-image: url(../images/form_bg.jpg);
 	color: #5d5d5d;
 	font: bold 14px 'Microsoft YaHei', simsun;
@@ -410,8 +422,7 @@ body,input,button,textarea,select,form {
 .table_del{
 	background-image: url(../images/del.gif);
 }
-
-.zend_form {
+.heng .zend_form {
 	background: #fff;
 	width: 460px;
 	margin: 5px auto;
@@ -419,7 +430,7 @@ body,input,button,textarea,select,form {
 	overflow: auto;
 }
 
-.zend_form dt {
+.heng .zend_form dt {
 	padding: 0;
 	clear: both;
 	width: 30%;
@@ -428,41 +439,95 @@ body,input,button,textarea,select,form {
 	margin: 5px 5px 5px 0;
 }
 
-.zend_form dd {
+.heng .zend_form dd {
 	padding: 0;
 	float: left;
 	width: 68%;
 	margin: 5px 2px 5px 0;
 }
 
-.zend_form p {
+.heng .zend_form p {
 	padding: 0;
 	margin: 0;
 }
 
-.zend_form input,.zend_form textarea {
+.heng .zend_form input,.zend_form textarea {
 	margin: 0 0 2px 0;
 	padding: 0;
 }
 
-.zend_form textarea {
+.heng .zend_form textarea {
 	height: 30px;
 	width: 68%;
 	overflow-y: auto;
 }
 
-.zend_form input#submit {
+.heng .zend_form input#submit {
 	width: 117px;
 	height: 45px;
 	border: none;
 	background-image: url(../images/bt_03.jpg);
 }
 
-.required:before {
+.heng .required:before {
 	content: '* '
 }
 
-.optional:before {
+.heng .optional:before {
+	content: ''
+}
+.shu .zend_form {
+	background: #fff;
+	width: 460px;
+	margin: 5px auto;
+	padding: 0;
+	overflow: auto;
+}
+
+.shu .zend_form dt {
+	padding: 0;
+	clear: both;
+	width: 30%;
+	float: left;
+	text-align: right;
+	margin: 5px 5px 5px 0;
+}
+
+.shu .zend_form dd {
+	padding: 0;
+	float: left;
+	width: 68%;
+	margin: 5px 2px 5px 0;
+}
+
+.shu .zend_form p {
+	padding: 0;
+	margin: 0;
+}
+
+.shu .zend_form input,.zend_form textarea {
+	margin: 0 0 2px 0;
+	padding: 0;
+}
+
+.shu .zend_form textarea {
+	height: 30px;
+	width: 68%;
+	overflow-y: auto;
+}
+
+.shu .zend_form input#submit {
+	width: 117px;
+	height: 45px;
+	border: none;
+	background-image: url(../images/bt_03.jpg);
+}
+
+.shu .required:before {
+	content: '* '
+}
+
+.shu .optional:before {
 	content: ''
 }
 /*Page*/

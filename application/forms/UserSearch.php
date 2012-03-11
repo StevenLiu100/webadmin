@@ -13,6 +13,10 @@ class Application_Form_UserSearch extends Zend_Form
     	$this->addElement('text', 'username', array(
     			'label'      => '用户名:',
     	));
+    	$this->addElement('submit', 'usersearchbtn', array(
+    			'ignore'   => true,
+    			'label'    => '',
+    	));
     	//add a sort field element
     	$this->addElement('select', 'sortfield', array(
     			'label'      => '排序属性:',
