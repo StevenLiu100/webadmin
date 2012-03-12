@@ -10,6 +10,7 @@
 		?>
 <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+
 </head>
 <body>
 	<div id="container">
@@ -17,24 +18,26 @@
 
 		<div id="nav">
 		   <div id="menu1">
-				<ul>
-					<li><a href="#">用户管理</a>
-						<ul>
-							<li><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'login'),'default', true) ?>">用戶登录</a></li>
-							<li><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'add'),'default', true) ?>">添加用戶</a></li>
-							<li><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'search'),'default', true) ?>">浏览用戶</a></li>
+				<ul id="nav_root_ul">
+				    <li class="menu_5"><a href="<?php echo $this->url ( array ('controller' => 'index' ), 'default', true )?>">管理说明</a></li>
+					<li class="menu_1"><a href="#">人员信息</a>
+						<ul class="nav_mini_ul">
+							<li class="m_txt"><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'login'),'default', true) ?>"><span>用戶登录</span></a></li>
+							<li class="m_txt"><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'add'),'default', true) ?>"><span>添加用戶</span></a></li>
+							<li class="m_txt"><a href="<?php echo $this->url(array('controller' => 'user', 'action'=> 'search'),'default', true) ?>"><span>浏览用戶</span></a></li>
 						</ul></li>
-					<li><a href="#">系統管理</a>
-						<ul>
-							<li><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appadd'));?>">添加系統</a></li>
-							<li><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'index'));?>">浏览系统</a></li>
+					<li class="menu_2"><a href="#">系統管理</a>
+						<ul class="nav_mini_ul">
+							<li class="m_txt"><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appadd'));?>"><span>添加系統</span></a></li>
+							<li class="m_txt"><a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'index'));?>"><span>浏览系统</span></a></li>
 						</ul></li>
-					<li><a href="#">数据管理</a>
-						<ul>
-							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitadd'));?>">添加单位</a></li>
-							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitsearch'));?>">浏览单位</a></li>
+					<li class="menu_3"><a href="#">数据管理</a>
+						<ul class="nav_mini_ul">
+							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitadd'));?>"><span>添加单位</span></a></li>
+							<li><a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitsearch'));?>"><span>浏览单位</span></a></li>
 						</ul></li>
-					<li><a href="<?php echo $this->url ( array ('controller' => 'syslog' ), 'default', true )?>">日志管理</a></li>
+					<li class="menu_4"><a href="<?php echo $this->url ( array ('controller' => 'syslog' ), 'default', true )?>">日志管理</a></li>
+					
 				</ul>
 			</div>
 			<div class="menu2">
