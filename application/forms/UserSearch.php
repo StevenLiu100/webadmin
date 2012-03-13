@@ -18,23 +18,23 @@ class Application_Form_UserSearch extends Zend_Form
     			'label'    => '',
     	));
     	//add a sort field element
-    	$this->addElement('select', 'sortfield', array(
-    			'label'      => '排序属性:',
-				'required'   => true,
-    			'multioptions'   => array(
-    					'username' => '用户名',
-    					'email' => '邮箱',
-    			        'unit'=>'单位',
-    					'state' => '状态',
-    					'createdate' => '创建时间',
-    			),
-    	        'value'=>'username',
-    	));
-    	// Add a submit button
-    	$this->addElement('submit', 'submit', array(
-    			'ignore'   => true,
-    			'label'    => '',
-    	));
+//     	$this->addElement('select', 'sortfield', array(
+//     			'label'      => '排序属性:',
+// 				'required'   => true,
+//     			'multioptions'   => array(
+//     					'username' => '用户名',
+//     					'email' => '邮箱',
+//     			        'unit'=>'单位',
+//     					'state' => '状态',
+//     					'createdate' => '创建时间',
+//     			),
+//     	        'value'=>'username',
+//     	));
+//     	// Add a submit button
+//     	$this->addElement('submit', 'submit', array(
+//     			'ignore'   => true,
+//     			'label'    => '',
+//     	));
 
     }
     
