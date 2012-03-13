@@ -33,8 +33,6 @@ class AcapplicationController extends BaseController
     	$form    = new Application_Form_Application();
     	$this->view->form = $form;
     	
-    	$form->submit->setLabel('保存');
-    	
     	if ($this->getRequest()->isPost()) {
     		$formData = $this->getRequest()->getPost();
     	
@@ -69,7 +67,6 @@ class AcapplicationController extends BaseController
         // action body
     	$form    = new Application_Form_Application();
     	$this->view->form = $form;
-    	$form->submit->setLabel('增加');
     	
     	if ($this->getRequest()->isPost()) {
     		$formData = $this->getRequest()->getPost();

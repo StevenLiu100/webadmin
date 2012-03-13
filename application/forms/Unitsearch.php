@@ -36,7 +36,7 @@ class Application_Form_Unitsearch extends Zend_Form
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
-    			'label'    => '搜索',
+    			'label'    => '',
     	));
     }
 

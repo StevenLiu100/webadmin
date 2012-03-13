@@ -15,7 +15,6 @@ class BaseController extends Zend_Controller_Action
     			if($endindex!=false)
     			{
     				$uri=substr($uri,0,$endindex);
-    				print("this is uri:".$uri);
     			}
     			else
     			{

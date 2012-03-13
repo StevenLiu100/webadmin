@@ -39,7 +39,7 @@ class Application_Form_Unitadd extends Zend_Form
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
-    			'label'    => '增加',
+    			'label'    => '',
     	));
     }
 
