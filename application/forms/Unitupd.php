@@ -13,7 +13,6 @@ class Application_Form_Unitupd extends Zend_Form
     	$this->addElement('text', 'parentid', array(
     			'label'      => '归属大单位',
     			'required'   => true,
-    			'enabled'    => false,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 100))

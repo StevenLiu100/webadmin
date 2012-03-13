@@ -55,9 +55,11 @@ class UnitController extends BaseController
 
     	$form = new Application_Form_Unitupd();
     	$this->view->form = $form;
-    	$unitid = $form->getValue('unitid');
+    	$unitid =$this->getRequest()->getParam('unitid');
     	$mapper  = new Application_Model_UnitMapper();
     	$unit = $mapper->findbyid($unitid);
+    	
+    	$this->view->form = $form;
     	
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
@@ -69,13 +71,15 @@ class UnitController extends BaseController
     			return $this->_helper->redirector('index');
     		}
     	}
-    	
-    	$parentunit = $mapper->findbyid($unit->getParentid());
+    	else
+    	{
+    		$parentunit = $mapper->findbyid($unit->getParentid());
+    		 
+    		$form->getElement('unitname')->setValue($unit->getUnitname());
+    		$form->getElement('parentid')->setValue($parentunit->getUnitname());
+    	}
     		
-    	$form->getElement('unitname')->setValue($unit->getUnitname());
-    	$form->getElement('parentid')->setValue($parentunit->getUnitname());
-    		
-    	$this->view->form = $form;
+
     }
 
     public function unitsearchAction()
