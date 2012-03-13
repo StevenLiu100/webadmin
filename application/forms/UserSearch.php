@@ -13,7 +13,7 @@ class Application_Form_UserSearch extends Zend_Form
     	$this->addElement('text', 'username', array(
     			'label'      => '用户名:',
     	));
-    	$this->addElement('submit', 'usersearchbtn', array(
+    	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
     			'label'    => '',
     	));

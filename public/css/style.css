@@ -14,7 +14,7 @@ li {
 }
 
 body,input,button,textarea,select,form {
-	font: normal 14px/1.667 Tahoma, Helvetica, Arial, "\5b8b\4f53", 'Microsoft YaHei', simsun;
+	font: normal 16px/1.667 Tahoma, Helvetica, Arial, "\5b8b\4f53", 'Microsoft YaHei', simsun;
 	color: #263e8a
 }
 
@@ -342,13 +342,6 @@ body,input,button,textarea,select,form {
 	font: bold 16px 'Microsoft YaHei', simsun;
 }
 
-.name_search .name_search_kuang {
-	float: left;
-	background-image: url(../images/search_01.jpg);
-	width: 336px;
-	height: 34px;
-}
-
 .name_search .name_search_button {
 	float: left;
 	width: 34px;
@@ -373,12 +366,6 @@ body,input,button,textarea,select,form {
 	width: 320px;
 	height: 22px;
 	line-height: 22px;
-}
-#usersearchbtn{
-	background-image: url(../images/search_02.jpg);
-    width:34px;
-    height:34px;
-    border:none;
 }
 
 /*form*/
@@ -413,12 +400,7 @@ body,input,button,textarea,select,form {
 	font: bold 14px 'Microsoft YaHei', simsun;
 	text-align: center;
 }
-.table_edit{
-	background-image: url(../images/modify.gif);
-}
-.table_del{
-	background-image: url(../images/del.gif);
-}
+
 .heng .zend_form {
 	background: #fff;
 	width: 800px;
@@ -431,7 +413,6 @@ body,input,button,textarea,select,form {
 }
 .heng .zend_form dt {
 	padding: 2px 5px;;
-	width: 220px;
 	float: left;
 	text-align: right;
 	margin: 10px auto;
@@ -445,11 +426,38 @@ body,input,button,textarea,select,form {
 	margin: 5px auto;
     position:relative;
 }
+.heng .zend_form dd select {
+	float: left;
+	width: 200px;
+	margin: 5px 10px;
+    position:relative;
+}
 .heng .zend_form dd input#username{
+	background-image: url(../images/search_01_1.jpg);
+    width:218px;
+    height:29px;
+    padding:0;
+}
+.heng .zend_form dd input#unitname{
 	background-image: url(../images/search_01.jpg);
     width:336px;
-    height:33px;
+    height:29px;
     padding:0;
+}
+.heng .zend_form dd input#usernamelog{
+	background-image: url(../images/search_01_1.jpg);
+    width:218px;
+    height:29px;
+    padding:0;
+}
+.heng .zend_form dd input#start_date,#end_date{
+	background-image: url(../images/search_01_2.jpg);
+    width:170px;
+    height:29px;
+    padding:0;
+}
+.heng .zend_form dt#username-label {
+	width:260px;
 }
 .heng .zend_form dt#usersearchbtn-label {
 	display:none;
@@ -472,18 +480,15 @@ body,input,button,textarea,select,form {
 	padding: 0;
 }
 
-.heng .zend_form textarea {
-	height: 30px;
-	width: 68%;
-	overflow-y: auto;
-}
 
 .heng .zend_form input#submit {
-	width: 117px;
-	height: 45px;
-	border: none;
-	background-image: url(../images/bt_03.jpg);
+	background-image: url(../images/search_02.jpg);
+    width:30px;
+    height:30px;
+    border:none;
+    margin-left:-28px;
 }
+
 
 .heng .required:before {
 	content: '* '
@@ -522,14 +527,24 @@ body,input,button,textarea,select,form {
 }
 
 .shu .zend_form input,.zend_form textarea {
-	margin: 0 0 2px 0;
+	margin: 0 0 0px 0;
 	padding: 0;
+    height:29px;
+}
+.shu .zend_form input radio {
+	margin:5px;
+}
+.shu .zend_form input checkbox {
+	margin-top:0px;
 }
 
 .shu .zend_form textarea {
-	height: 30px;
-	width: 68%;
+	height: 60px;
+	width: 300px;
 	overflow-y: auto;
+}
+.shu .zend_form select#parentid {
+	width: 200px;
 }
 
 .shu .zend_form input#submit {

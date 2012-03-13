@@ -32,9 +32,9 @@ class Application_Form_Unitadd extends Zend_Form
     			)
     	));
     	
-    	$unitorder = new Zend_Form_Element_Hidden('unitorder');
-    	$unitorder->addFilter('Int');
-    	$this->addElement($unitorder);
+//     	$unitorder = new Zend_Form_Element_Hidden('unitorder');
+//     	$unitorder->addFilter('Int');
+//     	$this->addElement($unitorder);
     	
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(

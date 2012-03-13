@@ -8,10 +8,7 @@ class Application_Form_SyslogSearch extends Zend_Form
     	$this->setMethod('post');
     	
     	ZendX_JQuery::enableForm($this);
-    	// Add a username element
-    	$this->addElement('text', 'username', array(
-    			'label'      => '用户名:'
-    	));
+    	
     	
     	
     	$elem = new ZendX_JQuery_Form_Element_DatePicker('start_date', array(
@@ -35,6 +32,10 @@ class Application_Form_SyslogSearch extends Zend_Form
     	));
     	
    	$this->addElement($elem);
+   	// Add a username element
+   	$this->addElement('text', 'usernamelog', array(
+   			'label'      => '用户名:'
+   	));
     	
 //     	$element = new ZendX_JQuery_Form_Element_DatePicker(
 //     			'dp1',
@@ -75,7 +76,7 @@ class Application_Form_SyslogSearch extends Zend_Form
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
-    			'label'    => '查询',
+    			'label'    => '',
     			//    'label'      => 'search',
     	));
     	

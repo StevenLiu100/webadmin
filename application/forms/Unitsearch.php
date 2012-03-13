@@ -15,7 +15,6 @@ class Application_Form_Unitsearch extends Zend_Form
     	 
     	$this->addElement('select', 'parentunitname', array(
     			'label'      => '大单位选择',
-    			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 100))

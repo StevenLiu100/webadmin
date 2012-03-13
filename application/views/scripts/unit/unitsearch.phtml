@@ -1,23 +1,23 @@
 <div class="bc_mod">
-			<div class="lan_tit">单位查询</div>
+			<div class="lan_tit">单位信息浏览</div>
 		</div>
 <div id="view-content">
 <?php
 $this->form->setAttrib('class', 'heng');
 $this->form->setAction($this->url());
 echo $this->form;?>
+<?php if(count($this->units)>0): ?>
+<div class="big-form">
 <table>
 	<thead>
-		<tr>
-			<th>用户信息:</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th>修改</th>
-			<th>删除</th>
+	
+		<tr class="big-form-tit">
+			<th width="70">修改</th>
+			<th width="70">删除</th>
 			<th>单位名称</th>
 		</tr>
+		</thead>
+		<tbody>
 		<?php foreach ($this->units as $item) :?>
 			    <tr>
 			    <td><a href="<?php echo $this->url(
@@ -26,7 +26,7 @@ echo $this->form;?>
 			    'action'     => 'unitupd',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>">修改</a></td>
+			    'default',true) ?>"><img src="../images/modify.gif"></a></td>
 			    
   				<td><a href="<?php echo $this->url(
 			    array(
@@ -34,7 +34,7 @@ echo $this->form;?>
 			    'action'     => 'unitdel',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>">删除</a></td>
+			    'default',true) ?>"><img src="../images/del.gif"></a></td>
 
 			    <td><?php echo $this->escape($item->unitname) ?></td>
 			    </tr>
@@ -44,3 +44,4 @@ echo $this->form;?>
 	</tbody>
 </table>
 </div>
+<?php endif;?>

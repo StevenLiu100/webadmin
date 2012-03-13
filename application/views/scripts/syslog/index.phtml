@@ -6,17 +6,21 @@ $(document).ready(function() {
 });
 //-->
 </script>
-<p align="center"><?php
+<div class="bc_mod">
+			<div class="lan_tit">日志浏览</div>
+		</div>
+<?php
+$this->form->setAttrib('class', 'heng');
 $this->form->setAction($this->url());
 echo $this->form;
-?></p>
-<table align="center">
-<tr>
+?>
+<div class="big-form">
+<table>
+<tr class="big-form-tit">
     <th>用户名</th>
     <th>事件</th>
     <th>事件类型</th>
     <th>发生时间</th>
-    <th>&nbsp;</th>
 </tr>
 <?php foreach($this->paginator as $slog) : ?>
 <tr>
@@ -24,11 +28,10 @@ echo $this->form;
     <td><?php echo $slog->event;?></td>
     <td><?php echo $slog->eventtype;?></td>
     <td><?php echo $slog->createdate;?></td>
-    <td>
-    <a href="<?php echo $this->url(array('controller'=>'syslog',
-            'action'=>'delete', 'logid'=>$slog->logid));?>">删除</a>
+  
 <?php endforeach; ?>
 </table>
+</div>
 
 <?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml'); ?>
 
