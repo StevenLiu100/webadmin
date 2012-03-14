@@ -30,7 +30,12 @@ $this->headTitle($this->title);
 </td>
 <td><?php echo $this->escape($item->applicationname);?></td>
 <td><?php echo $this->escape($item->description);?></td>
-<td><?php echo $this->escape($item->enable);?></td>
+<?php if ($item->enable == 1): ?>
+<td>可用</td>
+<?php else: ?>
+<td>不可用
+</td>
+<?php endif; ?>
 <td><?php echo $this->escape($item->apporder);?></td>
 </tr>
 <?php endforeach; ?>
