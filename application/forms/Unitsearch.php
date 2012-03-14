@@ -12,9 +12,19 @@ class Application_Form_Unitsearch extends Zend_Form
     	$unitid = new Zend_Form_Element_Hidden('unitid');
     	$unitid->addFilter('Int');
     	$this->addElement($unitid);
-    	 
+
+    	$this->addElement('select', 'parentunitname1', array(
+    			'label'      => '一级单位选择',
+    			'filters'    => array('StringTrim'),
+    			'validators' => array(
+    					array('validator' => 'StringLength', 'options' => array(0, 100))
+    			),
+    	
+    			'multioptions'   => $mapper->parentunit()
+    	));
+    	
     	$this->addElement('select', 'parentunitname', array(
-    			'label'      => '大单位选择',
+    			'label'      => '二级单位选择',
     			'filters'    => array('StringTrim'),
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 100))
@@ -24,7 +34,7 @@ class Application_Form_Unitsearch extends Zend_Form
     	));
     	 
     	$this->addElement('text', 'unitname', array(
-    			'label'      => '二级单位',
+    			'label'      => '三级单位',
     			'required'   => false,
     			'filters'    => array('StringTrim'),
     			'validators' => array(

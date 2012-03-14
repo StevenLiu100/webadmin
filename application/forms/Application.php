@@ -50,7 +50,7 @@ class Application_Form_Application extends Zend_Form
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
-    					array('validator' => 'StringLength', 'options' => array(2, 50))
+    					array('validator' => 'StringLength', 'options' => array(0, 50))
     			)
     	));
     	

@@ -13,7 +13,7 @@ class Application_Form_Unitadd extends Zend_Form
     	$this->addElement($unitid);
     	
     	$this->addElement('select', 'parentid', array(
-    			'label'      => '大单位选择',
+    			'label'      => '一级单位选择',
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
@@ -23,8 +23,19 @@ class Application_Form_Unitadd extends Zend_Form
     			'multioptions'   => $mapper->parentunit()
     	));
     	
+    	$this->addElement('select', 'subparentid', array(
+    			'label'      => '二级单位选择',
+    			'required'   => true,
+    			'filters'    => array('StringTrim'),
+    			'validators' => array(
+    					array('validator' => 'StringLength', 'options' => array(0, 100))
+    			),
+    			 
+    			'multioptions'   => $mapper->parentunit()
+    	));
+    	
     	$this->addElement('text', 'unitname', array(
-    			'label'      => '二级单位',
+    			'label'      => '三级单位',
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(

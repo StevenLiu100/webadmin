@@ -21,7 +21,7 @@ class Application_Form_Unitupd extends Zend_Form
     	));
     	 
     	$this->addElement('text', 'unitname', array(
-    			'label'      => '新二级单位名称',
+    			'label'      => '新单位名称',
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
