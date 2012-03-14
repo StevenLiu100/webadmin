@@ -63,7 +63,7 @@ class UnitController extends BaseController
     	
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
-    			$unitname = $form->getValue('unitnamenew');
+    			$unitname = $form->getValue('unitname');
  
     			$unit->setUnitname($unitname);
     			$mapper->save($unit);

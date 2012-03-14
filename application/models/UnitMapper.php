@@ -101,6 +101,27 @@ class Application_Model_UnitMapper
 		return $units;
 	}
 	
+	public function getsubunits($unitid)
+	{
+		$resultSet = $this->getDbTable()->fetchAll(
+				$this->getDbTable()->select()
+				->where('parentid = ?', $unitid)
+				->order('unitorder')				
+		);
+		
+		$units   = array();
+		foreach ($resultSet as $row) {
+			$unit = new Application_Model_Unit();
+			$unit->setUnitid($row->unitid);
+			$unit->setUnitname($row->unitname);
+			$unit->setParentid($row->parentid);
+			$unit->setUnitorder($row->unitorder);
+		
+			$units[] = $unit;
+		}
+		return $units;
+		
+	}
 	public function findbyid($unitid)
 	{
 		$unit = new Application_Model_Unit();
