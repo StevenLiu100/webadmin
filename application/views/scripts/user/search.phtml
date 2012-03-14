@@ -9,24 +9,34 @@ echo $this->form;
 ?>
 <?php if(count($this->entries)>0): ?>
 <div class="big-form">
-<table>
+<table style="table-layout:fixed" >
 <thead>
 		<tr class="big-form-tit">
-			<th width="70px">修改</th>
-			<th width="70px">删除</th>
-			<th width="70px">用户名</th>
-			<th width="90px">邮箱</th>
-			<th width="90px">手机号</th>
-			<th width="90px">固定电话</th>
-			<th width="100px">单位</th>
-			<th>创建时间</th>
-			<th width="70px">用户类型</th>
-			<th width="40px">状态</th>
+			
+			<th style="width:70px">用户名</th>
+			<th style="width:100px">邮箱</th>
+			<th style="width:100px">手机号</th>
+			<th style="width:100px">固定电话</th>
+			<th style="width:100px">单位</th>
+			<th style="width:100px">创建时间</th>
+			<th style="width:70px">用户类型</th>
+			<th style="width:40px">状态</th>
+			<th style="width:70px">修改</th>
+			<th style="width:70px">删除</th>
 		</tr>
 		</thead>
         <tbody>
 		<?php foreach ($this->paginator as $item) :?>
 			    <tr height="35" align="center" bgcolor="#FFFFFF">
+			    
+			    <td><?php echo $this->escape($item->username) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->email ?>><?php echo $this->escape($item->email) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->mobile ?>><?php echo $this->escape($item->mobile) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->tel ?>><?php echo $this->escape($item->tel) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->unit ?>><?php echo $this->escape($item->unit) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->createdate ?>><?php echo $this->escape($item->createdate) ?></td>
+			    <td nowrap class="fixtd" title=<?php echo $item->userstyle ?>><?php echo $this->escape($item->userstyle) ?></td>
+			    <td><?php echo $this->escape($item->state) ?></td>
 			    <td><a class="table_edit" href="<?php echo $this->url(
 			    array(
 			    'controller' => 'user',
@@ -46,14 +56,6 @@ echo $this->form;
 			    ),
 			    'default',true) ?>"><img src="../images/del.gif"></a></td>
 				<?php endif; ?>
-			    <td><?php echo $this->escape($item->username) ?></td>
-			    <td><?php echo $this->escape($item->email) ?></td>
-			    <td><?php echo $this->escape($item->mobile) ?></td>
-			    <td><?php echo $this->escape($item->tel) ?></td>
-			    <td><?php echo $this->escape($item->unit) ?></td>
-			    <td><?php echo $this->escape($item->createdate) ?></td>
-			    <td><?php echo $this->escape($item->userstyle) ?></td>
-			    <td><?php echo $this->escape($item->state) ?></td>
 			    </tr>
 		 <?php endforeach ?>
 	</tbody>

@@ -25,7 +25,7 @@ echo $this->form;
 <?php foreach($this->paginator as $slog) : ?>
 <tr>
     <td><?php echo $slog->username;?></td>
-    <td><?php echo $slog->event;?></td>
+    <td nowrap class="fixtd" title=<?php echo $slog->event ?>><?php echo $slog->event;?></td>
     <td><?php echo $slog->eventtype;?></td>
     <td><?php echo $slog->createdate;?></td>
   

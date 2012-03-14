@@ -391,6 +391,11 @@ body,input,button,textarea,select,form {
     padding: 1px 5px 1px 5px;
 
 }
+.big-form table td.fixtd{
+	overflow:hidden;
+    text-overflow:ellipsis;
+    word-break:keep-all;
+}
 
 
 .big-form-tit {

@@ -8,15 +8,24 @@ $this->headTitle($this->title);
 <div class="big-form">
 <table>
 <tr class="big-form-tit">
-<th>删除</th>
-<th>修改</th>
-<th>系统名称</th>
-<th>系统描述</th>
-<th>系统状态</th>
-<th>系统编号</th>
+<th style="width:100px">系统名称</th>
+<th style="width:200px">系统描述</th>
+<th style="width:70px">系统状态</th>
+<th style="width:70px">系统序号</th>
+<th style="width:70px">删除</th>
+<th style="width:70px">修改</th>
 </tr>
 <?php foreach($this->apps as $item) :?>
 <tr>
+<td nowrap class="fixtd" title=<?php echo $item->applicationname ?>><?php echo $this->escape($item->applicationname);?></td>
+<td nowrap class="fixtd" title=<?php echo $item->description ?>><?php echo $this->escape($item->description);?></td>
+<?php if ($item->enable == 1): ?>
+<td>可用</td>
+<?php else: ?>
+<td>禁用
+</td>
+<?php endif; ?>
+<td><?php echo $this->escape($item->apporder);?></td>
 <?php if ($item->enable == 1): ?>
 <td class="disabled"></td>
 <?php else: ?>
@@ -28,15 +37,6 @@ $this->headTitle($this->title);
 <a href="<?php echo $this->url(array('controller'=>'acapplication',
 'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"><img src="../images/modify.gif"></a>
 </td>
-<td><?php echo $this->escape($item->applicationname);?></td>
-<td><?php echo $this->escape($item->description);?></td>
-<?php if ($item->enable == 1): ?>
-<td>可用</td>
-<?php else: ?>
-<td>禁用
-</td>
-<?php endif; ?>
-<td><?php echo $this->escape($item->apporder);?></td>
 </tr>
 <?php endforeach; ?>
 </table>
