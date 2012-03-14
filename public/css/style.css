@@ -529,13 +529,13 @@ body,input,button,textarea,select,form {
 .shu .zend_form input,.zend_form textarea {
 	margin: 0 0 0px 0;
 	padding: 0;
-    height:29px;
+    height:25px;
 }
 .shu .zend_form input radio {
 	margin:5px;
 }
 .shu .zend_form input checkbox {
-	margin-top:0px;
+	margin:10px;
 }
 
 .shu .zend_form textarea {
