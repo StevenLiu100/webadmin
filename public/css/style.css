@@ -388,6 +388,7 @@ body,input,button,textarea,select,form {
  .big-form table td, table th {
 	border-width: 1px;
     border-style: solid;
+    text-align: center;
     padding: 1px 5px 1px 5px;
 
 }
