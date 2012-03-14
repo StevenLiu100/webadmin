@@ -13,6 +13,7 @@ class Application_Form_Unitupd extends Zend_Form
     	$this->addElement('text', 'parentid', array(
     			'label'      => '归属大单位',
     			'required'   => true,
+    			'readonly' => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 100))
@@ -20,7 +21,7 @@ class Application_Form_Unitupd extends Zend_Form
     	));
     	 
     	$this->addElement('text', 'unitname', array(
-    			'label'      => '二级单位名称',
+    			'label'      => '新二级单位名称',
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
