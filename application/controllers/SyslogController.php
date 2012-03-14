@@ -46,7 +46,7 @@ class SyslogController extends BaseController
     	$this->view->form = $form;
     	
     	$page = 1;
-    	$numPerPage = 5;
+    	$numPerPage = 10;
     	if(isset($_GET['page']) && is_numeric($_GET['page'])){
     		$page = $_GET['page'];
     	}
@@ -62,6 +62,7 @@ class SyslogController extends BaseController
     	$paginator = Zend_Paginator::factory($array);
     	$paginator->setCurrentPageNumber($page)
     	->setItemCountPerPage($numPerPage);
+    	$paginator->setDefaultPageRange(2);
     
     	$this->view->paginator = $paginator;
     }
@@ -100,11 +101,7 @@ class SyslogController extends BaseController
     			$syslog->clearSyslog();
     		}
     		$this->_helper->redirector('index');
-    	} /*else {
-    	$id = $this->_getParam('logid', 0);
-    	$syslog = new Application_Model_DbTable_Syslog();
-    	$this->view->syslog = $syslog->getSyslog($id);
-    	}*/
+    	}
     }
 
 
