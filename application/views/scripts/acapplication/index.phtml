@@ -30,12 +30,12 @@ $this->headTitle($this->title);
 <td class="disabled"></td>
 <?php else: ?>
 <td> <a href="<?php echo $this->url(array('controller'=>'acapplication',
-'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>"><img src="../images/del.gif"></a>
+'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>"><input type="button" class="btn_edit"/></a>
 </td>
 <?php endif; ?>
 <td>
 <a href="<?php echo $this->url(array('controller'=>'acapplication',
-'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"><img src="../images/modify.gif"></a>
+'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"><input type="button" class="btn_del"/></a>
 </td>
 </tr>
 <?php endforeach; ?>

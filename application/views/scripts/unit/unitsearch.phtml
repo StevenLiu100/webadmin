@@ -28,7 +28,7 @@ echo $this->form;?>
 			    'action'     => 'unitupd',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>"><img src="../images/modify.gif"></a></td>
+			    'default',true) ?>"><input type="button" class="btn_edit"/></a></td>
 			    
   				<td><a href="<?php echo $this->url(
 			    array(
@@ -36,7 +36,7 @@ echo $this->form;?>
 			    'action'     => 'unitdel',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>"><img src="../images/del.gif"></a></td>
+			    'default',true) ?>"><input type="button" class="btn_del"/></a></td>
 			    </tr>
      			
 		 <?php endforeach ?>
