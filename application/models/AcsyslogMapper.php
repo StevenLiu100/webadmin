@@ -44,17 +44,17 @@ class Application_Model_AcsyslogMapper {
 		// return $resultSet;
 	}
 	
-	public function getSyslogsByUserName($username) {
-		if ($username == null) {
-			return $this->getAllSyslogs ();
-		} else {
-			
+	public function getSyslogsBySearchContent($username,$start_date,$end_date) {
+		if ($username == null){
+			return $this->getAllSyslogs();
+		} else {		
 			$entries = array ();
-			
 			$userMapper = new Application_Model_AcuserMapper ();
 			$users = $userMapper->findByName ( $username );
 			foreach ( $users as $user ) {
-				$rows = $this->getDbTable ()->select()->where( 'userid = ?', $user->getUserid () )->query()->fetchAll();
+				$rows = $this->getDbTable ()->select()->where( 'userid = ?', $user->getUserid () )
+													  //->where('createdate >= ? and createdate <= ?',$end_date,$start_date)
+													  ->query()->fetchAll();
 				foreach($rows as $row)
 				if ($row) {
 					$syslog = new Application_Model_Acsyslog ();
@@ -67,29 +67,6 @@ class Application_Model_AcsyslogMapper {
 					$entries [] = $syslog;
 				}
 			}
-			
-			// $select = $this->getDbTable ()->select ()->where ( 'userid = ?',
-			// $un[0] )->order ( 'logid DESC' );
-			
-			// $stmt = $select->query ();
-			// $results = $stmt->fetchall ();
-			
-			// $entries = array ();
-			// foreach ( $results as $row ) {
-			// $syslog = new Application_Model_Acsyslog ();
-			// $syslog->setLogid ( $row->logid );
-			// $syslog->setUserid ( $row->userid );
-			
-			// $user = new Application_Model_Acuser ();
-			
-			// $userMapper->find ( $row->userid, $user );
-			// $syslog->setUsername ( $user->getUsername () );
-			
-			// $syslog->setEvent ( $row->event );
-			// $syslog->setEventtype ( $row->eventtype );
-			// $syslog->setCreatedate ( $row->createdate );
-			// $entries [] = $syslog;
-			// }
 			return $entries;
 		}
 	

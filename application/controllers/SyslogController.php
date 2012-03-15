@@ -1,7 +1,5 @@
 <?php
 
-
-require_once 'Zend/Controller/Action.php';
 require_once 'BaseController.php';
 class SyslogController extends BaseController
 {
@@ -10,6 +8,8 @@ class SyslogController extends BaseController
     {
     	parent::init();
     	$this->entries = null;
+    	$this->start_date = null;
+    	$this->end_date = null;
     }
 
     public function indexAction()
@@ -17,52 +17,44 @@ class SyslogController extends BaseController
     	
     	$request = $this->getRequest();
     	$form    = new Application_Form_SyslogSearch();
-    	//$this->view->entries =$this->view->entries==null?array():$this->view->entries;
+    	//$this->entries=$form->getValue('usernamelog');
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
     			$syslog = new Application_Model_Acsyslog();
-//     			$mapper  = new Application_Model_AcuserMapper();
-     			$this->entries=$form->getValue('username');
-//     			$this->view->entries=$mapper->findByName($username);
-//     			Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
-//     			$paginator = Zend_Paginator::factory($this->view->entries);
-//     			$paginator->setCurrentPageNumber($this->_getParam('page', 1));
-//     			$this->view->paginator = $paginator;
-    			//return $this->_helper->redirector('search');
+     			$this->entries=$form->getValue('usernamelog');
+     			$this->start_date=$form->getValue('start_date');
+     			$this->end_date=$form->getValue('end_date');
+     			$mapper = new Application_Model_AcsyslogMapper();
+     			$this->entries = $mapper->getSyslogsBySearchContent($this->entries,$this->start_date,$this->end_date);
     		}
     	}
     	else if ($this->_getParam('page')!=null){
     			
-     		$this->entries=$form->getValue('username');
-//     		$mapper  = new Application_Model_AcuserMapper();
-//     		$this->view->entries=$mapper->findByName($username);
-//     		Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
-//     		$paginator = Zend_Paginator::factory($this->view->entries);
-//     		$paginator->setCurrentPageNumber($this->_getParam('page', 1));
-//     		$this->view->paginator = $paginator;
-    		
-
+    		$this->entries=$request->getParam('usernamelog');
+    		$this->start_date=$request->getParam('start_date');
+     		$this->end_date=$request->getParam('end_date');
+    		$mapper = new Application_Model_AcsyslogMapper();
+    		$this->entries = $mapper->getSyslogsBySearchContent($this->entries,$this->start_date,$this->end_date);    		
     	}
+    	else {
+    		$this->entries = array();
+    	}
+    		
     	$this->view->form = $form;
-    	
+    	  	
     	$page = 1;
-    	$numPerPage = 10;
     	if(isset($_GET['page']) && is_numeric($_GET['page'])){
     		$page = $_GET['page'];
     	}
-    	$this->page($page,$numPerPage);
+    	$this->page($page);
 
     }
 
-    public function page($page, $numPerPage)
+    public function page($page)
     {
-    	$mapper = new Application_Model_AcsyslogMapper();
-		$array = $mapper->getSyslogsByUserName($this->entries);
-    
-    	$paginator = Zend_Paginator::factory($array);
-    	$paginator->setCurrentPageNumber($page)
-    	->setItemCountPerPage($numPerPage);
-    	$paginator->setDefaultPageRange(2);
+    	$paginator = Zend_Paginator::factory($this->entries);
+    	$paginator->setCurrentPageNumber($page);
+    	$paginator->setDefaultPageRange(10);
     
     	$this->view->paginator = $paginator;
     }

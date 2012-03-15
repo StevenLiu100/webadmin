@@ -22,6 +22,7 @@ echo $this->form;
     <th>事件类型</th>
     <th>发生时间</th>
 </tr>
+<?php if (isset($this->paginator)):?>
 <?php foreach($this->paginator as $slog) : ?>
 <tr>
     <td><?php echo $slog->username;?></td>
@@ -30,10 +31,10 @@ echo $this->form;
     <td><?php echo $slog->createdate;?></td>
   
 <?php endforeach; ?>
+<?php endif; ?>
 </table>
 </div>
 
 <?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml'); ?>
-
 <p align="center"><a href="<?php echo $this->url(array('controller'=>'syslog',
         'action'=>'clear'));?>">清空</a></p>
