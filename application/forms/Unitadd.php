@@ -8,9 +8,7 @@ class Application_Form_Unitadd extends Zend_Form
     	$mapper = new Application_Model_UnitMapper();
         /* Form Elements & Other Definitions Here ... */
     	$this->setMethod('post');
-    	$unitid = new Zend_Form_Element_Hidden('unitid');
-    	$unitid->addFilter('Int');
-    	$this->addElement($unitid);
+    	
     	
     	$this->addElement('select', 'parentid', array(
     			'label'      => '一级单位选择',
@@ -35,7 +33,7 @@ class Application_Form_Unitadd extends Zend_Form
     	));
     	
     	$this->addElement('text', 'unitname', array(
-    			'label'      => '三级单位',
+    			'label'      => '单位名称',
     			'required'   => true,
     			'filters'    => array('StringTrim'),
     			'validators' => array(
@@ -52,6 +50,9 @@ class Application_Form_Unitadd extends Zend_Form
     			'ignore'   => true,
     			'label'    => '',
     	));
+    	$unitid = new Zend_Form_Element_Hidden('unitid');
+    	$unitid->addFilter('Int');
+    	$this->addElement($unitid);
     }
 
 
