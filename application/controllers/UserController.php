@@ -113,26 +113,28 @@ class UserController extends BaseController
     		if ($form->isValid($request->getPost())) {
     			$user = new Application_Model_Acuser();
     			$mapper  = new Application_Model_AcuserMapper();
-    			$username=$form->getValue('username');
+    			$searchinput=$form->getValue('searchinput');
     			$sortfield=$form->getValue('sortfield');
-    			$users=$mapper->findByName($username,$sortfield);
+    			$users=$mapper->findByManyFields($searchinput,$sortfield);
     			$this->processUserStyle($users);
     			$this->view->entries=$users;
-    			$this->view->username=$username;
+    			$this->view->searchinput=$searchinput;
     			$this->view->sortfield=$sortfield;
     			$logMapper=new Application_Model_AcsyslogMapper();
-    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$username.'，排序属性为'.$sortfield, '系统');
+    			//$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput.'，排序属性为'.$sortfield, '系统');
+    			if($searchinput==null)$searchinput = ' 空';
+    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput,'系统');
     			$this->getRequest()->setParam('page', 1);
     		}
     	}
     	else if ($this->_getParam('page')!=null){
-    		$username=$request->getParam('username');
+    		$searchinput=$request->getParam('searchinput');
     		$sortfield=$request->getParam('sortfield');
     		$mapper  = new Application_Model_AcuserMapper();
-    		$users=$mapper->findByName($username,$sortfield);
+    		$users=$mapper->findByManyFields($searchinput,$sortfield);
     		$this->processUserStyle($users);
     		$this->view->entries=$users;
-    		$this->view->username=$username;
+    		$this->view->searchinput=$searchinput;
     		$this->view->sortfield=$sortfield;		
     	}
     	else

@@ -122,7 +122,42 @@ class Application_Model_AcuserMapper
     	
     	return $entries;
     }
-    
+    public function findByManyFields($searchinput,$sortfield)
+    {
+    	if($searchinput==null){
+    		return $this->fetchAll($sortfield);
+    	}
+    	//$resultSet = $this->getDbTable()->fetchRow(array('username like ?'=>$username));
+    	$resultSet = $this->getDbTable()->fetchAll(
+    			$this->getDbTable()->select()
+    			->where('username like ? or email like ? or mobile like ? or tel like ? or unit like ? or comment like ?', 
+    					'%'.$searchinput.'%',
+    					'%'.$searchinput.'%',
+    					'%'.$searchinput.'%',
+    					'%'.$searchinput.'%',
+    					'%'.$searchinput.'%',
+    					'%'.$searchinput.'%')
+    			->order($sortfield)
+    	);
+    	$entries   = array();
+    	foreach ($resultSet as $row) {
+    		$user = new Application_Model_Acuser();
+    		$user->setUserId($row->userid);
+    		$user->setEmail($row->email);
+    		$user->setUserstyle($row->userstyle);
+    		$user->setMobile($row->mobile);
+    		$user->setTel($row->tel);
+    		$user->setUnit($row->unit);
+    		$user->setPassword($row->password);
+    		$user->setState($row->state);
+    		$user->setPasswordsalt($row->passwordsalt);
+    		$user->setCreatedate($row->createdate);
+    		$user->setUserName($row->username);
+    		$entries[] = $user;
+    	}
+    	 
+    	return $entries;
+    }
     public function remove($userid)
     {
         $this->getDbTable()->delete(array('userid = ?' => $userid));

@@ -10,8 +10,8 @@ class Application_Form_UserSearch extends Zend_Form
     	$this->setMethod('post');
     
     	// Add a username element
-    	$this->addElement('text', 'username', array(
-    			'label'      => '用户名:',
+    	$this->addElement('text', 'searchinput', array(
+    			'label'      => '查询条件:',
     	));
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
