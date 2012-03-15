@@ -130,7 +130,8 @@ class Application_Model_AcuserMapper
     	//$resultSet = $this->getDbTable()->fetchRow(array('username like ?'=>$username));
     	$resultSet = $this->getDbTable()->fetchAll(
     			$this->getDbTable()->select()
-    			->where('username like ? or email like ? or mobile like ? or tel like ? or unit like ? or comment like ?', 
+    			->where('username like ? or email like ? or mobile like ? or tel like ? or unit like ? or comment like ? or state like ?', 
+    					'%'.$searchinput.'%',
     					'%'.$searchinput.'%',
     					'%'.$searchinput.'%',
     					'%'.$searchinput.'%',
