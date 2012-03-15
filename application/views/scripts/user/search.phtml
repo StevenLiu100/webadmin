@@ -37,13 +37,13 @@ echo $this->form;
 			    <td nowrap class="fixtd" title=<?php echo $item->createdate ?>><?php echo $this->escape($item->createdate) ?></td>
 			    <td nowrap class="fixtd" title=<?php echo $item->userstyle ?>><?php echo $this->escape($item->userstyle) ?></td>
 			    <td><?php echo $this->escape($item->state) ?></td>
-			    <td><a class="table_edit" href="<?php echo $this->url(
+			    <td><a  href="<?php echo $this->url(
 			    array(
 			    'controller' => 'user',
 			    'action'     => 'update',
 			    'userid'=>$item->userid
 			    ),
-			    'default',true) ?>"><img src="../images/modify.gif"></a></td>
+			    'default',true) ?>"><input type="button" class="btn_edit"/></a></td>
 			    
 			    <?php if ($item->state!='禁用'): ?>
 			    <td class="disabled"></td>
@@ -54,7 +54,7 @@ echo $this->form;
 			    'action'     => 'delete',
 			    'userid'=>$item->userid
 			    ),
-			    'default',true) ?>"><img src="../images/del.gif"></a></td>
+			    'default',true) ?>"><input type="button" class="btn_del"/></a></td>
 				<?php endif; ?>
 			    </tr>
 		 <?php endforeach ?>

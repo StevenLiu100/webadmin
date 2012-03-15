@@ -397,6 +397,18 @@ body,input,button,textarea,select,form {
     text-overflow:ellipsis;
     word-break:keep-all;
 }
+.big-form table td input.btn_edit{
+	width:57px;
+    height:24px;
+    border:none;
+	background-image:url(../images/modify.gif);
+}
+.big-form table td input.btn_del{
+	width:57px;
+    height:24px;
+    border:none;
+	background-image: url(../images/del.gif);
+}
 
 
 .big-form-tit {
