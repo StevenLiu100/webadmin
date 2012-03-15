@@ -12,8 +12,9 @@ $this->headTitle($this->title);
 <th style="width:200px">系统描述</th>
 <th style="width:70px">系统状态</th>
 <th style="width:70px">系统序号</th>
-<th style="width:70px">删除</th>
 <th style="width:70px">修改</th>
+<th style="width:70px">删除</th>
+
 </tr>
 <?php foreach($this->apps as $item) :?>
 <tr>
@@ -26,17 +27,18 @@ $this->headTitle($this->title);
 </td>
 <?php endif; ?>
 <td><?php echo $this->escape($item->apporder);?></td>
+<td>
+<a class="btn_edit" href="<?php echo $this->url(array('controller'=>'acapplication',
+'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"></a>
+</td>
 <?php if ($item->enable == 1): ?>
 <td class="disabled"></td>
 <?php else: ?>
-<td> <a href="<?php echo $this->url(array('controller'=>'acapplication',
-'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>"><input type="button" class="btn_edit"/></a>
+<td> <a  class="btn_del" href="<?php echo $this->url(array('controller'=>'acapplication',
+'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>"></a>
 </td>
 <?php endif; ?>
-<td>
-<a href="<?php echo $this->url(array('controller'=>'acapplication',
-'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"><input type="button" class="btn_del"/></a>
-</td>
+
 </tr>
 <?php endforeach; ?>
 </table>

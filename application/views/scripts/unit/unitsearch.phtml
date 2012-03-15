@@ -22,21 +22,21 @@ echo $this->form;?>
 		<?php foreach ($this->units as $item) :?>
 			    <tr>
 			    <td><?php echo $this->escape($item->unitname) ?></td>
-			    <td><a href="<?php echo $this->url(
+			    <td><a  class="btn_edit" href="<?php echo $this->url(
 			    array(
 			    'controller' => 'unit',
 			    'action'     => 'unitupd',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>"><input type="button" class="btn_edit"/></a></td>
+			    'default',true) ?>"></a></td>
 			    
-  				<td><a href="<?php echo $this->url(
+  				<td><a  class="btn_del" href="<?php echo $this->url(
 			    array(
 			    'controller' => 'unit',
 			    'action'     => 'unitdel',
 			    'unitid'=>$item->unitid
 			    ),
-			    'default',true) ?>"><input type="button" class="btn_del"/></a></td>
+			    'default',true) ?>"></a></td>
 			    </tr>
      			
 		 <?php endforeach ?>
