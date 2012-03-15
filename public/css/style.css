@@ -24,7 +24,7 @@ body,input,button,textarea,select,form {
 }
 
 #content {
-	width: 840px;
+	width: 890px;
 	margin: 0 auto;
 }
 
@@ -432,7 +432,7 @@ body,input,button,textarea,select,form {
     width:600px;
 }
 .heng .zend_form dt {
-	padding: 2px 5px;;
+	padding: 2px 5px;
 	float: left;
 	text-align: right;
 	margin: 10px auto;
@@ -540,22 +540,34 @@ body,input,button,textarea,select,form {
 	width: 68%;
 	margin: 5px 2px 5px 0;
 }
+.shu .zend_form dd. {
+	padding: 0;
+	float: left;
+	width: 68%;
+	margin: 5px 2px 5px 0;
+}
 
 .shu .zend_form p {
 	padding: 0;
 	margin: 0;
 }
-
-.shu .zend_form input,.zend_form textarea {
+.shu .zend_form dd select{
+	float: left;
+	width: 200px;
+	margin: 5px 10px;
+    position:relative;
+}
+.zend_form textarea {
 	margin: 0 0 0px 0;
 	padding: 0;
     height:25px;
 }
-.shu .zend_form input radio {
-	margin:5px;
-}
-.shu .zend_form input checkbox {
-	margin:10px;
+.shu .zend_form dd input[type="text"] {
+	float: left;
+	width: 200px;
+	margin: 5px 10px;
+    height:25px;
+    position:relative;
 }
 
 .shu .zend_form textarea {
@@ -572,6 +584,13 @@ body,input,button,textarea,select,form {
 	height: 45px;
 	border: none;
 	background-image: url(../images/bt_03.jpg);
+}
+.shu .zend_form input#submitsearch {
+	background-image: url(../images/search_02.jpg);
+    width:30px;
+    height:30px;
+    border:none;
+    margin-left:-28px;
 }
 
 .shu .required:before {
