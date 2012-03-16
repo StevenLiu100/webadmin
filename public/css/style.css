@@ -371,9 +371,10 @@ body,input,button,textarea,select,form {
 /*form*/
 .big-form {
 	width: 840px;
-	margin: 0 auto;
-	padding: 20px 0 10px 0;
-    overflow:auto;
+	margin: 5px 20px;
+	padding:20px;
+    overflow-x:auto;
+    overflow-y:hidden;
 }
 .big-form table{
 	width:100%;
@@ -382,6 +383,7 @@ body,input,button,textarea,select,form {
     border-color: #C1BBAB;
     border-collapse: collapse;
     empty-cells: show;
+    padding: 10px;
 
 }
 
@@ -452,7 +454,7 @@ body,input,button,textarea,select,form {
 	margin: 5px 10px;
     position:relative;
 }
-.heng .zend_form dd input#username{
+.heng .zend_form dd input#searchinput{
 	background-image: url(../images/search_01_1.jpg);
     width:218px;
     height:29px;
@@ -476,7 +478,7 @@ body,input,button,textarea,select,form {
     height:29px;
     padding:0;
 }
-.heng .zend_form dt#username-label {
+.heng .zend_form dt#searchinput-label {
 	width:260px;
 }
 .heng .zend_form dt#usersearchbtn-label {
@@ -488,25 +490,18 @@ body,input,button,textarea,select,form {
     height:34px;
 }
 
-
-
 .heng .zend_form p {
 	padding: 0;
 	margin: 0;
 }
-
-.heng .zend_form input,.zend_form textarea {
-	margin: 0 0 2px 0;
-	padding: 0;
-}
-
 
 .heng .zend_form input#submit {
 	background-image: url(../images/search_02.jpg);
     width:30px;
     height:30px;
     border:none;
-    margin-left:-28px;
+    margin-top:1px;
+    margin-left:-26px;
 }
 
 
