@@ -459,19 +459,16 @@ body,input,button,textarea,select,form {
     padding:0;
 }
 .heng .zend_form dd input#unitname{
-	background-image: url(../images/search_01.jpg);
     width:336px;
     height:22px;
     padding:0;
 }
 .heng .zend_form dd input#usernamelog{
-	background-image: url(../images/search_01_1.jpg);
     width:218px;
     height:22px;
     padding:0;
 }
 .heng .zend_form dd input#start_date,#end_date{
-	background-image: url(../images/search_01_2.jpg);
     width:170px;
     height:22px;
     padding:0;
@@ -512,7 +509,7 @@ body,input,button,textarea,select,form {
 }
 .shu .zend_form {
 	background: #fff;
-	width: 460px;
+	width: 500px;
 	margin: 5px auto;
 	padding: 0;
 	overflow: auto;
@@ -570,6 +567,22 @@ body,input,button,textarea,select,form {
     height:22px;
     position:relative;
 }
+.shu .zend_form dd input#unitname{
+	width:180px;
+}
+.shu .zend_form dd input#unitname{
+	width:180px;
+}
+.shu .zend_form dd#unitname-element{
+	width:240px;
+}
+.shu .zend_form dt#submitsearch-label{
+	width:0px;
+}
+.shu .zend_form dd#submitsearch-element{
+	width:22px;
+}
+
 
 .shu .zend_form textarea {
 	height: 60px;
@@ -587,8 +600,8 @@ body,input,button,textarea,select,form {
 }
 .shu .zend_form input#submitsearch {
 	background-image: url(../images/search_02.jpg);
-    width:30px;
-    height:30px;
+    width:22px;
+    height:22px;
     border:none;
     margin-left:-28px;
 }

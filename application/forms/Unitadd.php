@@ -32,7 +32,7 @@ class Application_Form_Unitadd extends Zend_Form
     			'multioptions'   => $mapper->parentunit()
     	));
     	
-    	$this->addElement('text', 'unitname', array(
+    	$this->addElement('text', 'unitnameforadd', array(
     			'label'      => '单位名称',
     			'required'   => true,
     			'filters'    => array('StringTrim'),

@@ -28,7 +28,7 @@ class Application_Form_Unitsearch extends Zend_Form
     			 
     			'multioptions'   => $mapper->parentunit()
     	));
-    	 
+
     	$this->addElement('text', 'unitname', array(
     			'label'      => '单位名称',
     			'required'   => false,
@@ -43,6 +43,7 @@ class Application_Form_Unitsearch extends Zend_Form
     			'ignore'   => true,
     			'label'    => '',
     	));
+    	
     	/* Form Elements & Other Definitions Here ... */
     	$unitid = new Zend_Form_Element_Hidden('unitid');
     	$unitid->addFilter('Int');
