@@ -326,6 +326,12 @@ body,input,button,textarea,select,form {
 	font: 34px 'Microsoft YaHei', simsun;
 	text-align: center
 }
+div.message{
+    padding: 10px 0 0 5px;
+	color: red;
+	font: 16px 'Microsoft YaHei', simsun;
+	text-align: center
+}
 
 /*search*/
 .name_search {
@@ -507,6 +513,7 @@ body,input,button,textarea,select,form {
 .heng .optional:before {
 	content: ''
 }
+
 .shu .zend_form {
 	background: #fff;
 	width: 500px;
@@ -514,6 +521,7 @@ body,input,button,textarea,select,form {
 	padding: 0;
 	overflow: auto;
 }
+
 
 .shu .zend_form dt {
 	padding: 0;

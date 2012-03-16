@@ -3,7 +3,7 @@
 		</div>
 <div id="view-content">
 <?php
-echo $this->message;
+echo "<div class='bc_mod'><div class='message'>".$this->message."</div></div>";
 $this->form->setAttrib('class', 'shu');
 $this->form->setAction($this->url());
 echo $this->form;?>

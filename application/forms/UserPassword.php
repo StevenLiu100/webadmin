@@ -61,7 +61,7 @@ class Application_Form_UserPassword extends Zend_Form
     			->addValidator($validator_isEmpty)
     			->addValidator($validator_stringlength_6_20);
     	$submit =  new Zend_Form_Element_Submit('submit');
-    	$submit->setLabel('修改密码');
+    	$submit->setLabel('');
     	
     	$this->addElements(array($password,$newpassword,$renewpassword,$submit));
     

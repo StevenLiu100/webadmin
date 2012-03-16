@@ -2,7 +2,7 @@
 			<div class="lan_tit">系统信息添加</div>
 		</div>
 <?php
-echo $this->message;
+echo "<div class='bc_mod'><div class='message'>".$this->message."</div></div>";
 $this->form->setAttrib('class', 'shu');
 $this->form->setAction($this->url());
 echo $this->form;?>
