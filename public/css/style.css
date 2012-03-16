@@ -451,7 +451,6 @@ body,input,button,textarea,select,form {
 .heng .zend_form dd select {
 	float: left;
 	width: 200px;
-	margin: 5px 10px;
     position:relative;
 }
 .heng .zend_form dd input#searchinput{
@@ -548,7 +547,7 @@ body,input,button,textarea,select,form {
 .shu .zend_form dd select{
 	float: left;
 	width: 200px;
-	margin: 5px 10px;
+    margin-left:30px;
     position:relative;
 }
 .zend_form textarea {
@@ -578,9 +577,7 @@ body,input,button,textarea,select,form {
     margin-left:30px;
 	overflow-y: auto;
 }
-.shu .zend_form select#parentid {
-	width: 200px;
-}
+
 
 .shu .zend_form input#submit {
 	width: 117px;
