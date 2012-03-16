@@ -535,7 +535,7 @@ body,input,button,textarea,select,form {
 	width: 68%;
 	margin: 5px 2px 5px 0;
 }
-.shu .zend_form dd. {
+.shu .zend_form dd {
 	padding: 0;
 	float: left;
 	width: 68%;
@@ -557,17 +557,26 @@ body,input,button,textarea,select,form {
 	padding: 0;
     height:25px;
 }
-.shu .zend_form dd input[type="text"] {
+.shu .zend_form dd input{
+	margin-left:30px;
+}
+.shu .zend_form dd input[type="text"]{
 	float: left;
 	width: 200px;
-	margin: 5px 10px;
-    height:25px;
+    height:22px;
+    position:relative;
+}
+.shu .zend_form dd input[type="password"] {
+	float: left;
+	width: 200px;
+    height:22px;
     position:relative;
 }
 
 .shu .zend_form textarea {
 	height: 60px;
-	width: 300px;
+	width: 270px;
+    margin-left:30px;
 	overflow-y: auto;
 }
 .shu .zend_form select#parentid {
