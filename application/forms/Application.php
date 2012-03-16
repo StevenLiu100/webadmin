@@ -9,9 +9,8 @@ class Application_Form_Application extends Zend_Form
     	
     	// Set the method for the display form to POST
     	$this->setMethod('post');
-    	$appid = new Zend_Form_Element_Hidden('applicationid');
-    	$appid->addFilter('Int');
-    	$this->addElement($appid);
+
+    	//applicationid 放到了submit的后面，不然影响布局  
     	
     	// Add a username element
     	$this->addElement('text', 'applicationname', array(
@@ -59,6 +58,9 @@ class Application_Form_Application extends Zend_Form
     			'ignore'   => true,
     			'label'    => '',
     	));
+    	$appid = new Zend_Form_Element_Hidden('applicationid');
+    	$appid->addFilter('Int');
+    	$this->addElement($appid);
     }
 
 }

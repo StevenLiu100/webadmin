@@ -14,7 +14,7 @@ li {
 }
 
 body,input,button,textarea,select,form {
-	font: normal 16px/1.667 Tahoma, Helvetica, Arial, "\5b8b\4f53", 'Microsoft YaHei', simsun;
+	font: normal 16px  'Microsoft YaHei', simsun;
 	color: #263e8a
 }
 
@@ -455,27 +455,26 @@ body,input,button,textarea,select,form {
     position:relative;
 }
 .heng .zend_form dd input#searchinput{
-	background-image: url(../images/search_01_1.jpg);
     width:218px;
-    height:29px;
+    height:22px;
     padding:0;
 }
 .heng .zend_form dd input#unitname{
 	background-image: url(../images/search_01.jpg);
     width:336px;
-    height:29px;
+    height:22px;
     padding:0;
 }
 .heng .zend_form dd input#usernamelog{
 	background-image: url(../images/search_01_1.jpg);
     width:218px;
-    height:29px;
+    height:22px;
     padding:0;
 }
 .heng .zend_form dd input#start_date,#end_date{
 	background-image: url(../images/search_01_2.jpg);
     width:170px;
-    height:29px;
+    height:22px;
     padding:0;
 }
 .heng .zend_form dt#searchinput-label {
@@ -497,8 +496,8 @@ body,input,button,textarea,select,form {
 
 .heng .zend_form input#submit {
 	background-image: url(../images/search_02.jpg);
-    width:30px;
-    height:30px;
+    width:24px;
+    height:24px;
     border:none;
     margin-top:1px;
     margin-left:-26px;
