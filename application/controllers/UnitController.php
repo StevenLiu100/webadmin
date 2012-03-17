@@ -115,7 +115,7 @@ class UnitController extends BaseController
     	*    其中text是单位名称，value是unitid
     	*    
     	*/
-    	$unitnames = array();
+    	$unitselected = array();
     	
 		$mapper = new Application_Model_UnitMapper();
 		$units = $mapper->getsubunits('0');
@@ -126,10 +126,10 @@ class UnitController extends BaseController
 			$unit->Value = $item->getUnitid();
 			$unit->Text=$item->getUnitname();
 			
-			$unitnames[] = $unit;
+			$unitselected[] = $unit;
 		}
 
-		return $unitnames;
+		return $unitselected;
     }
     public function getsecondlevelunit($parentid)
     {
@@ -147,7 +147,7 @@ class UnitController extends BaseController
     	*    其中text是单位名称，value是unitid
     	*
     	*/
-    	$unitnames = array();
+    	$unitselected = array();
     	
 		$mapper = new Application_Model_UnitMapper();
 		$units = $mapper->getsubunits($parentid);
@@ -158,10 +158,10 @@ class UnitController extends BaseController
 			$unit->Value = $item->getUnitid();
 			$unit->Text=$item->getUnitname();
 			
-			$unitnames[] = $unit;
+			$unitselected[] = $unit;
 		}
 		
-		return $unitnames;
+		return $unitselected;
     }
 
 
