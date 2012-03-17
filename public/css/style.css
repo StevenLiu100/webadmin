@@ -498,6 +498,7 @@ div.message{
 
 .heng .zend_form input#submit {
 	background-image: url(../images/search_02.jpg);
+    cursor:pointer;
     width:24px;
     height:24px;
     border:none;
@@ -608,6 +609,7 @@ div.message{
 }
 .shu .zend_form input#submitsearch {
 	background-image: url(../images/search_02.jpg);
+    cursor:pointer;
     width:22px;
     height:22px;
     border:none;
