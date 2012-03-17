@@ -27,18 +27,29 @@ class Application_Model_AcapplicationMapper
 	public function save(Application_Model_Acapplication $app)
 	{
 		$id = $app->getApplicationid();
-			
-		$data = array(
+
+		$resultSet = $this->getDbTable()->fetchAll();
+		$num = $resultSet->count()+1;
+		
+		if($id == 0)
+		{
+			$data = array(
 				'applicationname' => $app->getApplicationname(),
 				'description'=> $app->getDescription(),
 				'enable'=>$app->getEnable(),
-				'apporder'=>$app->getApporder(),
-		);
-	
-		if ($id == 0) {
+				'apporder'=>$num,
+			);
 			unset($data['applicationid']);
 			$this->getDbTable()->insert($data);
-		} else {
+		}
+		else 
+		{
+			$data = array(
+					'applicationname' => $app->getApplicationname(),
+					'description'=> $app->getDescription(),
+					'enable'=>$app->getEnable(),
+					'apporder'=>$app->getApporder(),
+			);
 			$this->getDbTable()->update($data, array('applicationid = ?' => $id));
 		}
 	}
