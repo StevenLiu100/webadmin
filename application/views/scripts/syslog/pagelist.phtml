@@ -2,7 +2,9 @@
 <div align="center" class="paginationControl">
 <!-- Previous page link -->
 <?php if (isset($this->previous)): ?>
-   <a href="/syslog?page=<?php echo $this->previous; ?>">&lt; 上一页</a> |
+   <a href="<?php echo $this->url(array('page' => $this->previous,'usernamelog'=>$this->usernamelog,'start_date' => $this->start_date,
+				'end_date'=> $this->end_date)); ?>">
+   &lt; 上一页</a> |
 <?php else: ?>
    <span class="disabled">&lt; 上一页</span> |
 <?php endif; ?>
@@ -10,7 +12,8 @@
 <!-- Numbered page links -->
 <?php foreach ($this->pagesInRange as $page): ?>
   <?php if ($page != $this->current): ?>
-     <a href="/syslog?page=<?php echo $page; ?>"><?= $page; ?></a> |
+     <a href="<?php echo $this->url(array('page' => $page,'usernamelog'=>$this->usernamelog,'start_date' => $this->start_date,
+				'end_date'=> $this->end_date)); ?>"><?= $page; ?></a> |
   <?php else: ?>
     <?= $page; ?> |
   <?php endif; ?>
@@ -18,7 +21,8 @@
 
 <!-- Next page link -->
 <?php if (isset($this->next)): ?>
-   <a href="/syslog?page=<?php echo $this->next; ?>">下一页 &gt;</a>
+   <a href="<?php echo $this->url(array('page' => $this->next,'usernamelog'=>$this->usernamelog,'start_date' => $this->start_date,
+				'end_date'=> $this->end_date)); ?>">下一页 &gt;</a>
 <?php else: ?>
    <span class="disabled">下一页 &gt;</span>
 <?php endif; ?>

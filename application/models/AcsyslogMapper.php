@@ -23,6 +23,7 @@ class Application_Model_AcsyslogMapper {
 	}
 	
 	public function getAllSyslogs($start_date,$end_date) {
+		
 		$resultSet = $this->getDbTable ()->select()
 		->where('date_format(createdate,\'%Y-%m-%d\') >= ?',$start_date)
 		->where('date_format(createdate,\'%Y-%m-%d\') <= ?',$end_date)

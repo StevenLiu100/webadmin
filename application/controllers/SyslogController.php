@@ -21,48 +21,46 @@ class SyslogController extends BaseController
     	if ($this->getRequest()->isPost()) {
     		if ($form->isValid($request->getPost())) {
     			$syslog = new Application_Model_Acsyslog();
-     			$this->entries=$form->getValue('usernamelog');
-     			$this->start_date=$form->getValue('start_date');
-     			$this->end_date=$form->getValue('end_date');
+     			$usernamelog=$form->getValue('usernamelog');
+     			$start_date=$form->getValue('start_date');
+     			$end_date=$form->getValue('end_date');
      			$mapper = new Application_Model_AcsyslogMapper();
-     			$this->entries = $mapper->getSyslogsBySearchContent($this->entries,$this->start_date,$this->end_date);
+     			$this->entries = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
+     			
+     			$this->view->usernamelog = $usernamelog;
+     			$this->view->start_date = $start_date;
+     			$this->view->end_date = $end_date;
     		}
     	}
     	else if ($this->_getParam('page')!=null){
     			
-    		$this->entries=$request->getParam('usernamelog');
-    		$this->start_date=$request->getParam('start_date');
-     		$this->end_date=$request->getParam('end_date');
+    		$usernamelog=$request->getParam('usernamelog');
+    		$start_date=$request->getParam('start_date');
+     		$end_date=$request->getParam('end_date');
     		$mapper = new Application_Model_AcsyslogMapper();
-    		$this->entries = $mapper->getSyslogsBySearchContent($this->entries,$this->start_date,$this->end_date);    		
+    		$this->entries = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
+
+    		$this->view->usernamelog = $usernamelog;
+    		$this->view->start_date = $start_date;
+    		$this->view->end_date = $end_date;
     	}
     	else {
     		$this->entries = array();
     	}
     		
     	$this->view->form = $form;
-    	  	
-    	$page = 1;
-    	if(isset($_GET['page']) && is_numeric($_GET['page'])){
-    		$page = $_GET['page'];
-    	}
-    	$this->page($page);
-
-    }
-
-    public function page($page)
-    {
+    	
+    	Zend_View_Helper_PaginationControl::setDefaultViewPartial('../views/scripts/syslog/pagelist.phtml');
     	$paginator = Zend_Paginator::factory($this->entries);
-    	$paginator->setCurrentPageNumber($page);
-    	$paginator->setDefaultPageRange(10);
-    
+    	$paginator->setCurrentPageNumber($this->_getParam('page', 1));
+    	
     	$this->view->paginator = $paginator;
+
     }
 
     public function pagelistAction()
     {
-    	Zend_Paginator::setDefaultScrollingStyle('Elastic');
-    	Zend_View_Helper_PaginationControl::setDefaultViewPartial('../views/scripts/syslog/pagelist.phtml');
+
     }
 
     public function deleteAction()
@@ -76,11 +74,7 @@ class SyslogController extends BaseController
     				$mapper->deleteSyslog($id);
     			}
     			$this->_helper->redirector('index');
-    		} else {
-    			$id = $this->_getParam('logid', 0);
-    			$mapper = new Application_Model_AcsyslogMapper();
-    			$this->view->syslog = $mapper->getSyslog($id);
-    	}
+    		}
     }
     
     public function clearAction()

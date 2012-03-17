@@ -41,6 +41,10 @@ echo $this->form;
 </table>
 </div>
 
-<?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml'); ?>
+<?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml',
+		array(	'usernamelog' => $this->usernamelog,
+				'start_date' => $this->start_date,
+				'end_date'=> $this->end_date
+			)); ?>
 <p align="center"><a href="<?php echo $this->url(array('controller'=>'syslog',
         'action'=>'clear'));?>">清空</a></p>
