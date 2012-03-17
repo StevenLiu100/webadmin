@@ -29,7 +29,14 @@ class Application_Model_AcapplicationMapper
 		$id = $app->getApplicationid();
 
 		$resultSet = $this->getDbTable()->fetchAll();
-		$num = $resultSet->count()+1;
+		$maxsum = $resultSet->count()+1;
+		foreach ($resultSet as $row)
+		{
+			if($maxsum<$row->apporder+1)
+			{
+				$maxsum = $row->apporder+1;
+			}
+		}
 		
 		if($id == 0)
 		{
@@ -37,7 +44,7 @@ class Application_Model_AcapplicationMapper
 				'applicationname' => $app->getApplicationname(),
 				'description'=> $app->getDescription(),
 				'enable'=>$app->getEnable(),
-				'apporder'=>$num,
+				'apporder'=>$maxsum,
 			);
 			unset($data['applicationid']);
 			$this->getDbTable()->insert($data);
