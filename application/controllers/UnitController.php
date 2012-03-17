@@ -122,9 +122,9 @@ class UnitController extends BaseController
     	
 		foreach ($units as $item)
 		{
-			$unit = new unitname();
-			$unit->unitid = $item->getUnitid();
-			$unit->unitname=$item->getUnitname();
+			$unit = new unitforselect();
+			$unit->Value = $item->getUnitid();
+			$unit->Text=$item->getUnitname();
 			
 			$unitnames[] = $unit;
 		}
@@ -154,9 +154,9 @@ class UnitController extends BaseController
     	
 		foreach ($units as $item)
 		{
-			$unit = new unitname();
-			$unit->unitid = $item->getUnitid();
-			$unit->unitname=$item->getUnitname();
+			$unit = new unitforselect();
+			$unit->Value = $item->getUnitid();
+			$unit->Text=$item->getUnitname();
 			
 			$unitnames[] = $unit;
 		}
@@ -167,10 +167,10 @@ class UnitController extends BaseController
 
 }
 
-class unitname
+class unitforselect
 {
-	public $unitname;
-	public $unitid;
+	public $Text;
+	public $Value;
 }
 
 
