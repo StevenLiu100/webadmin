@@ -8,8 +8,6 @@ class Application_Form_Unitadd extends Zend_Form
     	$mapper = new Application_Model_UnitMapper();
         /* Form Elements & Other Definitions Here ... */
     	$this->setMethod('post');
-    	
-    	
     	$this->addElement('select', 'parentid', array(
     			'label'      => '一级单位选择',
     			'required'   => true,

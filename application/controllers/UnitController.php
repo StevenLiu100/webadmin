@@ -94,12 +94,46 @@ class UnitController extends BaseController
     			
     			$parentid = $form->getValue('parentunitname');
     			$unitname = $form->getValue('unitname');
-    			
     			$this->view->units=$mapper->unitSearch($parentid,$unitname);
     		}
     	}
-    	
     	$this->view->form = $form;
+    }
+    public function getfirstlevelunit()
+    {
+    	/*
+    	 * 得到一级单位列表，返回格式应该是
+    	*
+    	*    [{
+    	*        "Text": "一级单位1",
+    	*        "Value": "1"
+    	*    },
+    	*    {
+    	*        "Text": "一级单位2",
+    	*        "Value": "2"
+    	*    }]
+    	*    其中text是单位名称，value是unitid
+    	*    
+    	*/  
+    	  
+    }
+    public function getsecondlevelunit()
+    {
+    	/*
+    	 * 通过一级单位的ID,得到二级单位列表，返回格式应该是
+    	*
+    	*    [{
+    	*        "Text": "二级单位1",
+    	*        "Value": "5"
+    	*    },
+    	*    {
+    	*        "Text": "二级单位2",
+    	*        "Value": "6"
+    	*    }]
+    	*    其中text是单位名称，value是unitid
+    	*
+    	*/
+        
     }
 
 
