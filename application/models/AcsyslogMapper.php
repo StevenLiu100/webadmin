@@ -22,22 +22,27 @@ class Application_Model_AcsyslogMapper {
 		return $this->_dbTable;
 	}
 	
-	public function getAllSyslogs() {
-		$resultSet = $this->getDbTable ()->fetchAll ();
+	public function getAllSyslogs($start_date,$end_date) {
+		$resultSet = $this->getDbTable ()->select()
+		->where('date_format(createdate,\'%Y-%m-%d\') >= ?',$start_date)
+		->where('date_format(createdate,\'%Y-%m-%d\') <= ?',$end_date)
+		->order("createdate DESC")
+		->query()->fetchAll();
+		
 		$entries = array ();
 		foreach ( $resultSet as $row ) {
 			$syslog = new Application_Model_Acsyslog ();
-			$syslog->setLogid ( $row->logid );
-			$syslog->setUserid ( $row->userid );
+			$syslog->setLogid ( $row['logid'] );
+			$syslog->setUserid ( $row['userid'] );
 			
 			$user = new Application_Model_Acuser ();
 			$userMapper = new Application_Model_AcuserMapper ();
-			$userMapper->find ( $row->userid, $user );
+			$userMapper->find ( $row['userid'], $user );
 			$syslog->setUsername ( $user->getUsername () );
 			
-			$syslog->setEvent ( $row->event );
-			$syslog->setEventtype ( $row->eventtype );
-			$syslog->setCreatedate ( $row->createdate );
+			$syslog->setEvent ( $row['event'] );
+			$syslog->setEventtype ( $row['eventtype'] );
+			$syslog->setCreatedate ( $row['createdate'] );
 			$entries [] = $syslog;
 		}
 		return $entries;
@@ -46,15 +51,18 @@ class Application_Model_AcsyslogMapper {
 	
 	public function getSyslogsBySearchContent($username,$start_date,$end_date) {
 		if ($username == null){
-			return $this->getAllSyslogs();
+			return $this->getAllSyslogs($start_date,$end_date);
 		} else {		
 			$entries = array ();
 			$userMapper = new Application_Model_AcuserMapper ();
 			$users = $userMapper->findByName ( $username );
 			foreach ( $users as $user ) {
 				$rows = $this->getDbTable ()->select()->where( 'userid = ?', $user->getUserid () )
-													  //->where('createdate >= ? and createdate <= ?',$end_date,$start_date)
+													  ->where('date_format(createdate,\'%Y-%m-%d\') >= ?',$start_date)
+													  ->where('date_format(createdate,\'%Y-%m-%d\') <= ?',$end_date)
+													  ->order("createdate DESC")
 													  ->query()->fetchAll();
+				//Zend_Debug::dump($start_date);
 				foreach($rows as $row)
 				if ($row) {
 					$syslog = new Application_Model_Acsyslog ();
