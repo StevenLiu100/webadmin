@@ -114,10 +114,24 @@ class UnitController extends BaseController
     	*    }]
     	*    其中text是单位名称，value是unitid
     	*    
-    	*/  
-    	  
+    	*/
+    	$unitnames = array();
+    	
+		$mapper = new Application_Model_UnitMapper();
+		$units = $mapper->getsubunits('0');
+    	
+		foreach ($units as $item)
+		{
+			$unit = new unitname();
+			$unit->unitid = $item->getUnitid();
+			$unit->unitname=$item->getUnitname();
+			
+			$unitnames[] = $unit;
+		}
+
+		return $unitnames;
     }
-    public function getsecondlevelunit()
+    public function getsecondlevelunit($parentid)
     {
     	/*
     	 * 通过一级单位的ID,得到二级单位列表，返回格式应该是
@@ -133,12 +147,31 @@ class UnitController extends BaseController
     	*    其中text是单位名称，value是unitid
     	*
     	*/
-        
+    	$unitnames = array();
+    	
+		$mapper = new Application_Model_UnitMapper();
+		$units = $mapper->getsubunits($parentid);
+    	
+		foreach ($units as $item)
+		{
+			$unit = new unitname();
+			$unit->unitid = $item->getUnitid();
+			$unit->unitname=$item->getUnitname();
+			
+			$unitnames[] = $unit;
+		}
+		
+		return $unitnames;
     }
 
 
 }
 
+class unitname
+{
+	public $unitname;
+	public $unitid;
+}
 
 
 
