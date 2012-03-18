@@ -3,8 +3,9 @@
 $(
   function(){
   $("#parentunitname1").change(
-     function(){        
-              $("#parentunitname").load("/unit/getsecondlevelunit?collegeid="+$("#collegeid").val());
+     function(){
+         alert('ddd');        
+              $("#parentunitname").load("/unit/getsecondlevelunit/"+$("#parentunitname1").val());
           }
                );
     }
