@@ -27,17 +27,40 @@ class Application_Model_UnitMapper
 	public function save(Application_Model_Unit $unit)
 	{
 		$id = $unit->getUnitid();
-			
-		$data = array(
-				'unitname' => $unit->getUnitname(),
-				'parentid'=> $unit->getParentid(),
-				'unitorder'=>$unit->getUnitorder(),
+		$parentid = $unit->getParentid();
+
+		$resultSet = $this->getDbTable()->fetchAll(
+				$this->getDbTable()->select()
+				->where('parentid = ?', $parentid)
+				->order('unitorder')				
 		);
-	
+		$maxnum = $resultSet->count()+1;
+		
+		foreach($resultSet as $item)
+		{
+			if($maxnum<$item->unitorder+1)
+			{
+				$maxnum = $item->unitorder+1;
+			}
+		}
+		
 		if ($id == 0) {
+			$data = array(
+				'unitname' => $unit->getUnitname(),
+				'parentid'=> $parentid,
+				'unitorder'=>$maxnum,
+			);	
+		
 			unset($data['unitid']);
 			$this->getDbTable()->insert($data);
-		} else {
+		} else 
+		{
+			$data = array(
+					'unitname' => $unit->getUnitname(),
+					'parentid'=> $parentid,
+					'unitorder'=>$unit->getUnitorder(),
+			);
+			
 			$this->getDbTable()->update($data, array('unitid = ?' => $id));
 		}
 	}

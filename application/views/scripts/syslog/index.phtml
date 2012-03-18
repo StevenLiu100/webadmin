@@ -3,13 +3,13 @@
 <script type="text/javascript">
 //<!--
 $(document).ready(function() {
+	$.datepicker.setDefaults($.datepicker.regional['zh-CN']);
+	
     $("#start_date").datepicker();
-    $( "#start_date ").datepicker( "option", "dateFormat", 'yy-mm-dd');
     $(" #start_date ").datepicker('setDate', -30);
     $("＃start_date ").datepicker({ hideIfNoPrevNext: true });
     
     $("#end_date").datepicker();
-    $( "#end_date" ).datepicker( "option", "dateFormat", 'yy-mm-dd');
     $(" #end_date").datepicker('setDate', new Date());
 });
 //-->
