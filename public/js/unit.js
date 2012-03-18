@@ -1,5 +1,5 @@
 (function($) {
-	$("#parentunitname").CascadingDropDownLiu("#parentunitname1", '/unit/unitsearch',
+	$('#parentunitname').CascadingDropDownLiu('#parentunitname1', '/unit/getsecondlevelunit',
             {
 		        promptText: '--全部--',
                 loadingText: '加载中 ..',

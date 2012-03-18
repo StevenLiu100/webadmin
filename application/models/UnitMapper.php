@@ -122,6 +122,22 @@ class Application_Model_UnitMapper
 		return $units;
 		
 	}
+	/*
+	 * steven 加入为了给第二级单位select赋值
+	 */
+	public function getsubunits1($unitid)
+	{
+		$resultSet = $this->getDbTable()->fetchAll(
+				$this->getDbTable()->select()
+				->where('parentid = ?', $unitid)
+				->order('unitorder')
+		);
+		$units = array();
+		foreach ($resultSet as $row) {
+			$units[$row->unitid] = $row->unitname;
+		}
+		return $units;
+	}
 	public function findbyid($unitid)
 	{
 		$unit = new Application_Model_Unit();

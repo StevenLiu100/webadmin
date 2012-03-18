@@ -507,6 +507,7 @@ div.message{
 }
 
 
+
 .heng .required:before {
 	content: '* '
 }
@@ -587,26 +588,24 @@ div.message{
 }
 .shu .zend_form dt#submitsearch-label{
 	width:0px;
+    display:none;
 }
 .shu .zend_form dd#submitsearch-element{
 	width:22px;
 }
-
-
 .shu .zend_form textarea {
 	height: 60px;
 	width: 270px;
     margin-left:30px;
 	overflow-y: auto;
 }
-
-
 .shu .zend_form input#submit {
 	width: 117px;
 	height: 45px;
 	border: none;
 	background-image: url(../images/bt_03.jpg);
 }
+
 .shu .zend_form input#submitsearch {
 	background-image: url(../images/search_02.jpg);
     cursor:pointer;

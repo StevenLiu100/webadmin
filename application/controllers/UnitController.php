@@ -129,7 +129,7 @@ class UnitController extends BaseController
 			$unitselected[] = $unit;
 		}
 
-		return $unitselected;
+		return Zend_Json::encode($unitselected);
     }
     public function getsecondlevelunit($parentid)
     {
@@ -161,10 +161,8 @@ class UnitController extends BaseController
 			$unitselected[] = $unit;
 		}
 		
-		return $unitselected;
+		return Zend_Json::encode($unitselected);
     }
-
-
 }
 
 class unitforselect

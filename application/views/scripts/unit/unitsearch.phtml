@@ -1,5 +1,15 @@
-<script type="text/javascript" src="../js/jquery.cascadingDropDown.js"></script>
-<script type="text/javascript" src="../js/unit.js"></script>
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<script language="javascript">
+$(
+  function(){
+  $("#parentunitname1").change(
+     function(){        
+              $("#parentunitname").load("/unit/getsecondlevelunit?collegeid="+$("#collegeid").val());
+          }
+               );
+    }
+);
+</script>
 <div class="bc_mod">
 			<div class="lan_tit">单位信息浏览</div>
 		</div>
