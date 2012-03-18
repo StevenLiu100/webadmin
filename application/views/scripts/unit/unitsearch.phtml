@@ -4,57 +4,67 @@ $(
   function(){
   $("#parentunitname1").change(
      function(){
-         alert('ddd');        
-              $("#parentunitname").load("/unit/getsecondlevelunit/"+$("#parentunitname1").val());
-          }
-               );
+    	 $.ajax({
+ 		    url: '/unit/getsecondlevelunit/parentid/'+$("#parentunitname1").val(),
+ 		    type: 'post',
+ 		    dataType: 'json',
+ 		    timeout: 1000,
+ 		    error: function(){
+ 		        alert('Error loading 二级单位');
+ 		    },
+ 		    success: function(data){
+ 		    	$("#parentunitname").empty();
+ 		    	$("#parentunitname").append("<option value='0'>无</option>");
+ 		    	for (var i = 0; i < data.length; i++) {
+ 		    		$("#parentunitname").append("<option value='"+data[i].Value+"'>"+data[i].Text+"</option>");  
+ 		    	}
+ 		    	
+ 		    }
+ 		});
     }
+);
+}
 );
 </script>
 <div class="bc_mod">
-			<div class="lan_tit">单位信息浏览</div>
-		</div>
+	<div class="lan_tit">单位信息浏览</div>
+</div>
 <?php
 echo "<div class='bc_mod'><div class='message'></div></div>";
-$this->form->setAttrib('class', 'shu');
-$this->form->setAction($this->url());
-echo $this->form;?>
+$this->form->setAttrib ( 'class', 'shu' );
+$this->form->setAction ( $this->url () );
+echo $this->form;
+?>
 <?php if(count($this->units)>0): ?>
 <div class="big-form">
-<table>
-	<thead>
-	
-		<tr class="big-form-tit">
-			
-			<th>单位名称</th>
-			<th width="70">修改</th>
-			<th width="70">删除</th>
-		</tr>
+	<table>
+		<thead>
+
+			<tr class="big-form-tit">
+
+				<th>单位名称</th>
+				<th width="70">修改</th>
+				<th width="70">删除</th>
+			</tr>
 		</thead>
 		<tbody>
 		<?php foreach ($this->units as $item) :?>
 			    <tr>
-			    <td><?php echo $this->escape($item->unitname) ?></td>
-			    <td><a  class="btn_edit" href="<?php echo $this->url(
-			    array(
-			    'controller' => 'unit',
-			    'action'     => 'unitupd',
-			    'unitid'=>$item->unitid
-			    ),
-			    'default',true) ?>"></a></td>
-			    
-  				<td><a  class="btn_del" href="<?php echo $this->url(
-			    array(
-			    'controller' => 'unit',
-			    'action'     => 'unitdel',
-			    'unitid'=>$item->unitid
-			    ),
-			    'default',true) ?>"></a></td>
-			    </tr>
+				<td><?php echo $this->escape($item->unitname) ?></td>
+				<td><a class="btn_edit"
+					href="<?php
+		
+		echo $this->url ( array ('controller' => 'unit', 'action' => 'unitupd', 'unitid' => $item->unitid ), 'default', true )?>"></a></td>
+
+				<td><a class="btn_del"
+					href="<?php
+		
+		echo $this->url ( array ('controller' => 'unit', 'action' => 'unitdel', 'unitid' => $item->unitid ), 'default', true )?>"></a></td>
+			</tr>
      			
 		 <?php endforeach ?>
 		
 	</tbody>
-</table>
+	</table>
 </div>
 <?php endif;?>

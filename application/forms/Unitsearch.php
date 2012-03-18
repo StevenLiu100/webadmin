@@ -18,13 +18,6 @@ class Application_Form_Unitsearch extends Zend_Form
     	
     			'multioptions'   => $mapper->parentunit()
     	));
-//     	$units=$mapper->parentunit();
-//     	if($units!=null)
-//     	{
-//     		$unitid=$units[0].unitid;
-//     	}
-//     	else 
-//     		$unitid=-1;
     	
     	$this->addElement('select', 'parentunitname', array(
     			'label'      => '二级单位选择',
@@ -32,7 +25,7 @@ class Application_Form_Unitsearch extends Zend_Form
     			'validators' => array(
     					array('validator' => 'StringLength', 'options' => array(0, 100))
     			),
-    			'multioptions'   => $mapper->getsubunits1(1)
+    			'multioptions'   => $mapper->getsubunitsforselect(1)
     	));
 
     	$this->addElement('text', 'unitname', array(

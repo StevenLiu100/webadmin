@@ -1,3 +1,30 @@
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<script language="javascript">
+$(
+  function(){
+  $("#firstparentid").change(
+     function(){
+    	 $.ajax({
+ 		    url: '/unit/getsecondlevelunit/parentid/'+$("#firstparentid").val(),
+ 		    type: 'post',
+ 		    dataType: 'json',
+ 		    timeout: 1000,
+ 		    error: function(){
+ 		        alert('Error loading 二级单位');
+ 		    },
+ 		    success: function(data){
+ 		    	$("#parentid").empty();
+ 		    	$("#parentid").append("<option value='0'>无</option>");	
+ 		    	for (var i = 0; i < data.length; i++) {
+ 		    		$("#parentid").append("<option value='"+data[i].Value+"'>"+data[i].Text+"</option>");  
+ 		    	}
+ 		    }
+ 		});
+    }
+);
+}
+);
+</script>
 <div class="bc_mod">
 			<div class="lan_tit">单位添加</div>
 		</div>

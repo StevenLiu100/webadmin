@@ -148,7 +148,7 @@ class Application_Model_UnitMapper
 	/*
 	 * steven 加入为了给第二级单位select赋值
 	 */
-	public function getsubunits1($unitid)
+	public function getsubunitsforselect($unitid)
 	{
 		$resultSet = $this->getDbTable()->fetchAll(
 				$this->getDbTable()->select()
@@ -156,6 +156,7 @@ class Application_Model_UnitMapper
 				->order('unitorder')
 		);
 		$units = array();
+		$units[0]="无";
 		foreach ($resultSet as $row) {
 			$units[$row->unitid] = $row->unitname;
 		}

@@ -34,7 +34,7 @@ class Application_Form_Unitadd extends Zend_Form
     					array('validator' => 'StringLength', 'options' => array(0, 100))
     			),
     			 
-    			'multioptions'   => $mapper->parentunit()
+      			 'multioptions'   => $mapper->getsubunitsforselect(1)
     	));
     	
     	$unitname = new Zend_Form_Element_Text('unitname');

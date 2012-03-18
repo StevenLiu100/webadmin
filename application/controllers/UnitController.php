@@ -78,10 +78,8 @@ class UnitController extends BaseController
     		$form->getElement('unitname')->setValue($unit->getUnitname());
     		$form->getElement('parentid')->setValue($parentunit->getUnitname());
     	}
-    		
 
     }
-
     public function unitsearchAction()
     {
         // action body
@@ -99,54 +97,15 @@ class UnitController extends BaseController
     	}
     	$this->view->form = $form;
     }
-    public function getfirstlevelunit()
-    {
-    	/*
-    	 * 得到一级单位列表，返回格式应该是
-    	*
-    	*    [{
-    	*        "Text": "一级单位1",
-    	*        "Value": "1"
-    	*    },
-    	*    {
-    	*        "Text": "一级单位2",
-    	*        "Value": "2"
-    	*    }]
-    	*    其中text是单位名称，value是unitid
-    	*    
-    	*/
-    	$unitselected = array();
-    	
-		$mapper = new Application_Model_UnitMapper();
-		$units = $mapper->getsubunits('0');
-    	
-		foreach ($units as $item)
-		{
-			$unit = new unitforselect();
-			$unit->Value = $item->getUnitid();
-			$unit->Text=$item->getUnitname();
-			
-			$unitselected[] = $unit;
-		}
-
-		return Zend_Json::encode($unitselected);
-    }
-    public function getsecondlevelunit($parentid)
-    {
-    	/*
-    	 * 通过一级单位的ID,得到二级单位列表，返回格式应该是
-    	*
-    	*    [{
-    	*        "Text": "二级单位1",
-    	*        "Value": "5"
-    	*    },
-    	*    {
-    	*        "Text": "二级单位2",
-    	*        "Value": "6"
-    	*    }]
-    	*    其中text是单位名称，value是unitid
-    	*
-    	*/
+    /*
+     * 级联单位用
+     */
+    public function getsecondlevelunitAction()
+    {    	
+    	$this->_helper->layout->disableLayout();    //disable layout
+    	$this->_helper->viewRenderer->setNoRender();//suppress auto-rendering
+    	$request = $this->getRequest();
+    	$parentid=$request->getParam('parentid');
     	$unitselected = array();
     	
 		$mapper = new Application_Model_UnitMapper();
@@ -160,8 +119,7 @@ class UnitController extends BaseController
 			
 			$unitselected[] = $unit;
 		}
-		
-		return Zend_Json::encode($unitselected);
+		echo  Zend_Json::encode($unitselected);
     }
 }
 
