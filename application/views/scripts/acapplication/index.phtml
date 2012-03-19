@@ -12,7 +12,6 @@ $index = 0;
 <th style="width:100px">系统名称</th>
 <th style="width:200px">系统描述</th>
 <th style="width:70px">系统状态</th>
-<th style="width:70px">系统序号</th>
 <th style="width:70px">修改</th>
 <th style="width:70px">删除</th>
 <th style="width:70px">顺序管理</th>
@@ -27,7 +26,6 @@ $index = 0;
 <td>禁用
 </td>
 <?php endif; ?>
-<td><?php echo $this->escape($item->apporder);?></td>
 <td>
 <a class="btn_edit" href="<?php echo $this->url(array('controller'=>'acapplication',
 'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"></a>
