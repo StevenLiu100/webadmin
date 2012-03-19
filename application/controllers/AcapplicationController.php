@@ -13,6 +13,17 @@ class AcapplicationController extends BaseController
         // action body
     	$mapper  = new Application_Model_AcapplicationMapper();
     	$this->view->apps = $mapper->fetchAll();
+    	
+    	$prevs = array();
+    	$prevs[] = 0;
+    	foreach ($this->view->apps as $item)
+    	{
+    		$prevs[] = $item->applicationid;
+    	}
+    	$nexts = array_slice($prevs, 2);
+    	$nexts[] = 0;
+    	$this->view->prevs = $prevs;
+    	$this->view->nexts = $nexts;
     }
 
     public function appdeleteAction()
@@ -88,8 +99,43 @@ class AcapplicationController extends BaseController
     	$this->view->form = $form;
     }
 
+    public function appupAction()
+    {
+        // action body
+    	$request = $this->getRequest();
+    	$id = $request->getParam('appid');
+    	$prev = $request->getParam('prev');
+    	if($prev!=0)
+    	{
+    		$mapper = new Application_Model_AcapplicationMapper();
+    		$mapper->swapapporder($id, $prev);
+    	}
+    	return $this->_helper->redirector('index');
+    	$this->indexAction();
+    }
+
+    public function appdownAction()
+    {
+        // action body
+    	$request = $this->getRequest();
+    	$id = $request->getParam('appid');
+    	$next = $request->getParam('next');
+    	 
+    	if($next !=0)
+    	{
+    		$mapper = new Application_Model_AcapplicationMapper();
+    		$mapper->swapapporder($id, $next );
+    	}
+    	return $this->_helper->redirector('index');
+    	$this->indexAction();
+    }
+
 
 }
+
+
+
+
 
 
 

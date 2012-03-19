@@ -17,6 +17,8 @@
           <actionMethod actionName="appdelete"/>
           <actionMethod actionName="appupdate"/>
           <actionMethod actionName="appadd"/>
+          <actionMethod actionName="appup"/>
+          <actionMethod actionName="appdown"/>
         </controllerFile>
         <controllerFile controllerName="Unit">
           <actionMethod actionName="index"/>
@@ -113,6 +115,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Base">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="appup"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Acapplication">
+            <viewScriptFile forActionName="appdown"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -63,7 +63,8 @@ class Application_Model_AcapplicationMapper
 	
 	public function fetchAll()
 	{
-		$resultSet = $this->getDbTable()->fetchAll();
+		$resultSet = $this->getDbTable()->fetchAll(null,'apporder asc');
+
 		$apps   = array();
 		foreach ($resultSet as $row) {
 			$app = new Application_Model_Acapplication();
@@ -110,6 +111,20 @@ class Application_Model_AcapplicationMapper
 		$row = $result->current();
 	
 		return $row->toArray();
+	}
+	
+	public function swapapporder($appid1,$appid2)
+	{
+		$app1=$this->findbyid($appid1);
+		$app2=$this->findbyid($appid2);
+		
+		$unitid= $app1->getApporder();
+		
+		$app1->setApporder($app2->getApporder());
+		$app2->setApporder($unitid);
+		
+		$this->save($app1);
+		$this->save($app2);	
 	}
 }
 

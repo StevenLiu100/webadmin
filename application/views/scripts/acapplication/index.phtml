@@ -4,6 +4,7 @@
 <?php
 $this->title = "系统管理";
 $this->headTitle($this->title);
+$index = 0;
 ?>
 <div class="big-form">
 <table>
@@ -14,7 +15,7 @@ $this->headTitle($this->title);
 <th style="width:70px">系统序号</th>
 <th style="width:70px">修改</th>
 <th style="width:70px">删除</th>
-
+<th style="width:70px">顺序管理</th>
 </tr>
 <?php foreach($this->apps as $item) :?>
 <tr>
@@ -32,15 +33,23 @@ $this->headTitle($this->title);
 'action'=>'appupdate', 'applicationid'=>$item->applicationid));?>"></a>
 </td>
 <?php if ($item->enable == 1): ?>
-<td class="disabled"></td>
+<td class="disabled">
+</td>
 <?php else: ?>
 <td> <a  class="btn_del" href="<?php echo $this->url(array('controller'=>'acapplication',
 'action'=>'appdelete', 'applicationid'=>$item->applicationid));?>"></a>
 </td>
 <?php endif; ?>
+<td>
+<a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appup', 'appid'=>$item->applicationid, 'prev'=>$this->prevs[$index])) ?>">上移</a>
+<a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appdown', 'appid'=>$item->applicationid, 'next'=>$this->nexts[$index])) ?>">下移</a>
+</td>
 
 </tr>
-<?php endforeach; ?>
+<?php
+$index++;
+endforeach; 
+?>
 </table>
 </div>
 
