@@ -419,6 +419,24 @@ div.message{
     display:block;
 	background-image: url(../images/del.gif);
 }
+.big-form table td a.orderup{
+	width:16px;
+    height:16px;
+    float:left;
+    border:none;
+    display:block;
+    margin-left:10px;
+    background-image: url(../images/arrow_up.png);
+}
+.big-form table td a.orderdown{
+	width:16px;
+    height:16px;
+    float:right;
+    border:none;
+    display:block;
+    margin-right:10px;
+    background-image: url(../images/arrow_down.png);
+}
 
 
 .big-form-tit {

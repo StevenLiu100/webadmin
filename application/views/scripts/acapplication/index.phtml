@@ -44,7 +44,7 @@ $index = 0;
 <th style="width:70px">系统状态</th>
 <th style="width:70px">修改</th>
 <th style="width:70px">删除</th>
-<th style="width:70px">顺序管理</th>
+<th style="width:50px">顺序管理</th>
 <th style="width:0px; display:none">排序</th>
 </tr>
 </thead>
@@ -72,8 +72,8 @@ $index = 0;
 </td>
 <?php endif; ?>
 <td>
-<a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appup', 'appid'=>$item->applicationid, 'prev'=>$this->prevs[$index])) ?>">上移</a>
-<a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appdown', 'appid'=>$item->applicationid, 'next'=>$this->nexts[$index])) ?>">下移</a>
+<a class="orderup" href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appup', 'appid'=>$item->applicationid, 'prev'=>$this->prevs[$index])) ?>"></a>
+<a class="orderdown" href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appdown', 'appid'=>$item->applicationid, 'next'=>$this->nexts[$index])) ?>"></a>
 </td>
 <td style="width:0px;display:none"><?php echo $this->escape($item->apporder);?></td>
 </tr>
