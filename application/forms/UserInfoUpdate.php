@@ -48,8 +48,8 @@ class Application_Form_UserInfoUpdate extends Zend_Form
     	$username->setLabel('用户名')
     			->setAttrib('readonly', true);
     	$email = new Zend_Form_Element_Text('email');
-    	$email->setLabel('邮箱')
-    			->setAttrib('readonly', true);
+    	$email->setLabel('邮箱');
+//     			->setAttrib('readonly', true);
        	$mobile = new Zend_Form_Element_Text('mobile');
     	$mobile->setLabel('手机号')
    		 		->setAttrib('readonly', true);    
