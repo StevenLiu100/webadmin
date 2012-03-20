@@ -2,6 +2,7 @@
 $(function () { 
     $("#applicationTable").dataTable( 
       { 
+    	  "aaSorting": [[ 6, "asc" ]],
           iDisplayLength: 10,
           bLengthChange: false,
           bPaginate: true,
@@ -44,6 +45,7 @@ $index = 0;
 <th style="width:70px">修改</th>
 <th style="width:70px">删除</th>
 <th style="width:70px">顺序管理</th>
+<th style="width:0px; display:none">排序</th>
 </tr>
 </thead>
 <tbody>
@@ -73,7 +75,7 @@ $index = 0;
 <a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appup', 'appid'=>$item->applicationid, 'prev'=>$this->prevs[$index])) ?>">上移</a>
 <a href="<?php echo $this->url(array('controller'=>'acapplication','action'=>'appdown', 'appid'=>$item->applicationid, 'next'=>$this->nexts[$index])) ?>">下移</a>
 </td>
-
+<td style="width:0px;display:none"><?php echo $this->escape($item->apporder);?></td>
 </tr>
 <?php
 $index++;
