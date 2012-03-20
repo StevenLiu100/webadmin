@@ -102,9 +102,10 @@ class UnitController extends BaseController
     			$unit = new Application_Model_Unit();
     			$mapper  = new Application_Model_UnitMapper();
     			
+    			$grandid = $form->getValue('parentunitname1');
     			$parentid = $form->getValue('parentunitname');
     			$unitname = $form->getValue('unitname');
-    			$this->view->units=$mapper->unitSearch($parentid,$unitname);
+    			$this->view->units=$mapper->unitSearch($grandid,$parentid,$unitname);
     		}
     	}
     	$this->view->form = $form;
@@ -139,6 +140,16 @@ class unitforselect
 {
 	public $Text;
 	public $Value;
+}
+
+class fullunitinfo
+{
+	public $unitid;
+	public $grandunitname;
+	public $parentid;
+	public $parentunitname;
+	public $unitname;
+	public $unitorder;
 }
 
 

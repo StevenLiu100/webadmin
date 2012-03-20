@@ -86,7 +86,7 @@ class Application_Model_UnitMapper
 		$this->getDbTable()->delete(array('unitid = ?' => $unitid));
 	}
 	
-	public function unitSearch($parentid, $key)
+	public function unitSearch1($parentid, $key)
 	{
 		$resultSet = $this->getDbTable()->fetchAll(
 				$this->getDbTable()->select()
@@ -104,6 +104,52 @@ class Application_Model_UnitMapper
 			$unit->setParentid($row->parentid);
 			$unit->setUnitorder($row->unitorder);
 		
+			$units[] = $unit;
+		}
+		return $units;
+	}
+	
+	public function unitSearch($grandid, $parentid, $key)
+	{
+		if($parentid ==0)
+		{
+			$resultSet = $this->getDbTable()->fetchAll(
+					$this->getDbTable()->select()
+					->where('unitname like ? ', '%'.$key.'%')
+					->where('parentid = ? ', $grandid)
+					->order('unitorder')
+			);
+		}
+		else {
+			$resultSet = $this->getDbTable()->fetchAll(
+				$this->getDbTable()->select()
+				->where('unitname like ? ', '%'.$key.'%')
+				->where('parentid = ? ', $parentid)
+				->order('unitorder')
+			);
+		}
+	
+		$units   = array();
+		foreach ($resultSet as $row) {
+			$unit = new fullunitinfo();
+			if($parentid == 0)
+			{
+				$unit->grandunitname = $this->findbyid($grandid)->getUnitname();
+				$unit->parentid = 0;
+				$unit->parentunitname = '无';
+				$unit->unitid = $row->unitid;
+				$unit->unitname = $row->unitname;
+				$unit->unitorder = $row->unitorder;
+			}
+			else 
+			{
+				$unit->grandunitname = $this->findbyid($grandid)->getUnitname();
+				$unit->parentid = $parentid;
+				$unit->parentunitname = $this->findbyid($parentid)->getUnitname();
+				$unit->unitid = $row->unitid;
+				$unit->unitname = $row->unitname;
+				$unit->unitorder = $row->unitorder;
+			}
 			$units[] = $unit;
 		}
 		return $units;
@@ -178,6 +224,20 @@ class Application_Model_UnitMapper
 		$unit->setUnitorder($row->unitorder);
 	
 		return $unit;
+	}
+	
+	public function swapapporder($unitid1,$unitid2)
+	{
+		$unit1=$this->findbyid($unitid1);
+		$unit2=$this->findbyid($unitid2);
+	
+		$order= $unit1->getUnitorder();
+	
+		$unit1->setUnitorder($unit2->getUnitorder());
+		$unit2->setUnitorder($order);
+	
+		$this->save($unit1);
+		$this->save($unit2);
 	}
 }
 
