@@ -58,6 +58,7 @@ echo "<div class='bc_mod'><div class='message'></div></div>";
 $this->form->setAttrib ( 'class', 'shu' );
 $this->form->setAction ( $this->url () );
 echo $this->form;
+$index=0;
 ?>
 <?php if(count($this->units)>0): ?>
 <div class="big-form">
@@ -70,6 +71,7 @@ echo $this->form;
 				<th>单位名称</th>
 				<th width="70">修改</th>
 				<th width="70">删除</th>
+				<th>顺序调整</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -87,9 +89,13 @@ echo $this->form;
 					href="<?php
 		
 		echo $this->url ( array ('controller' => 'unit', 'action' => 'unitdel', 'unitid' => $item->unitid ), 'default', true )?>"></a></td>
+		<td>
+<a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitup', 'unitid'=>$item->unitid, 'prev'=>$this->prevs[$index])) ?>">上移</a>
+<a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitdown', 'unitid'=>$item->unitid, 'next'=>$this->nexts[$index])) ?>">下移</a>
+</td>
 			</tr>
      			
-		 <?php endforeach ?>
+		 <?php $index++; endforeach ?>
 		
 	</tbody>
 	</table>
