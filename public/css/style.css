@@ -410,6 +410,7 @@ div.message{
     height:24px;
     border:none;
     display:block;
+    margin:5px auto;
     background-image: url(../images/modify.gif);
 }
 .big-form table td a.btn_del{
@@ -417,6 +418,7 @@ div.message{
     height:24px;
     border:none;
     display:block;
+    margin:5px auto;
 	background-image: url(../images/del.gif);
 }
 .big-form table td a.orderup{
@@ -498,7 +500,7 @@ div.message{
     padding:0;
 }
 .heng .zend_form dt#searchinput-label {
-	width:260px;
+	width:280px;
 }
 .heng .zend_form dt#usersearchbtn-label {
 	display:none;
