@@ -163,7 +163,6 @@ class UserController extends BaseController
     	    			//$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput.'，排序属性为'.$sortfield, '系统');
     	    			if($searchinput==null)$searchinput = ' 空';
     	    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput,'系统');
-    	    			$this->getRequest()->setParam('page', 1);
     	    		}
     	    	}
     	    	else
@@ -237,6 +236,23 @@ class UserController extends BaseController
     		$mapper  = new Application_Model_AcuserMapper();
     		$mapper->remove($userid);
     		return $this->_helper->redirector('index');
+    	}
+    }
+    public function checkemailAction ()
+    {
+    	$request = $this->getRequest();
+    	$checked_userid=$request->getParam('checked_userid');
+    	$checked_email=$request->getParam('checked_email');
+    	$user = new Application_Model_Acuser();
+    	$mapper  = new Application_Model_AcuserMapper();
+    	$mapper->findByEmail($checked_email,$user);
+    	if($user->getUserid()==null){
+    		$this->view->existed_email=false;
+    	}
+    	else if($checked_userid!=null&&$checked_userid==$user->getUserid()){
+    			$this->view->existed_email=false;
+    	}else{
+    		$this->view->existed_email=true;
     	}
     }
     private function processUserStyle($users)

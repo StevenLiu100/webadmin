@@ -122,6 +122,28 @@ class Application_Model_AcuserMapper
     	
     	return $entries;
     }
+    public function findByEmail($email,$user)
+    {
+    	$result = $this->getDbTable()->fetchAll(
+    			$this->getDbTable()->select()
+    			->where('email = ?', $email));
+    	if (0 == count($result)) {
+    		return;
+    	}
+    	$row = $result->current();
+    	$user->setUserId($row->userid);
+    	$user->setEmail($row->email);
+    	$user->setUserstyle($row->userstyle);
+    	$user->setMobile($row->mobile);
+    	$user->setTel($row->tel);
+    	$user->setUnit($row->unit);
+    	$user->setPassword($row->password);
+    	$user->setState($row->state);
+    	$user->setPasswordsalt($row->passwordsalt);
+    	$user->setCreatedate($row->createdate);
+    	$user->setUserName($row->username);
+    	$user->setComment($row->comment);
+    }
     public function findByManyFields($searchinput,$sortfield)
     {
     	if($searchinput==null){
