@@ -107,46 +107,71 @@ class UserController extends BaseController
     }
     public function searchAction ()
     {
-    	$request = $this->getRequest();
-    	$form    = new Application_Form_UserSearch();
-    	if ($this->getRequest()->isPost()) {
-    		if ($form->isValid($request->getPost())) {
-    			$user = new Application_Model_Acuser();
-    			$mapper  = new Application_Model_AcuserMapper();
-    			$searchinput=$form->getValue('searchinput');
-    			$sortfield=$form->getValue('sortfield');
-    			$users=$mapper->findByManyFields($searchinput,$sortfield);
-    			$this->processUserStyle($users);
-    			$this->view->entries=$users;
-    			$this->view->searchinput=$searchinput;
-    			$this->view->sortfield=$sortfield;
-    			$logMapper=new Application_Model_AcsyslogMapper();
-    			//$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput.'，排序属性为'.$sortfield, '系统');
-    			if($searchinput==null)$searchinput = ' 空';
-    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput,'系统');
-    			$this->getRequest()->setParam('page', 1);
-    		}
-    	}
-    	else if ($this->_getParam('page')!=null){
-    		$searchinput=$request->getParam('searchinput');
-    		$sortfield=$request->getParam('sortfield');
-    		$mapper  = new Application_Model_AcuserMapper();
-    		$users=$mapper->findByManyFields($searchinput,$sortfield);
-    		$this->processUserStyle($users);
-    		$this->view->entries=$users;
-    		$this->view->searchinput=$searchinput;
-    		$this->view->sortfield=$sortfield;		
-    	}
-    	else
-    	{
-    		$this->view->entries=array();
-    	}
-    	Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
-    	$paginator = Zend_Paginator::factory($this->view->entries);
-    	$paginator->setCurrentPageNumber($this->_getParam('page', 1));
-    	$this->view->paginator = $paginator;
-    	$this->view->form = $form;
-    	 
+//     	$request = $this->getRequest();
+//     	$form    = new Application_Form_UserSearch();
+//     	if ($this->getRequest()->isPost()) {
+//     		if ($form->isValid($request->getPost())) {
+//     			$user = new Application_Model_Acuser();
+//     			$mapper  = new Application_Model_AcuserMapper();
+//     			$searchinput=$form->getValue('searchinput');
+//     			$sortfield=$form->getValue('sortfield');
+//     			$users=$mapper->findByManyFields($searchinput,$sortfield);
+//     			$this->processUserStyle($users);
+//     			$this->view->entries=$users;
+//     			$this->view->searchinput=$searchinput;
+//     			$this->view->sortfield=$sortfield;
+//     			$logMapper=new Application_Model_AcsyslogMapper();
+//     			//$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput.'，排序属性为'.$sortfield, '系统');
+//     			if($searchinput==null)$searchinput = ' 空';
+//     			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput,'系统');
+//     			$this->getRequest()->setParam('page', 1);
+//     		}
+//     	}
+//     	else if ($this->_getParam('page')!=null){
+//     		$searchinput=$request->getParam('searchinput');
+//     		$sortfield=$request->getParam('sortfield');
+//     		$mapper  = new Application_Model_AcuserMapper();
+//     		$users=$mapper->findByManyFields($searchinput,$sortfield);
+//     		$this->processUserStyle($users);
+//     		$this->view->entries=$users;
+//     		$this->view->searchinput=$searchinput;
+//     		$this->view->sortfield=$sortfield;		
+//     	}
+//     	else
+//     	{
+//     		$this->view->entries=array();
+//     	}
+//     	Zend_View_Helper_PaginationControl::setDefaultViewPartial('user/controls.phtml');
+//     	$paginator = Zend_Paginator::factory($this->view->entries);
+//     	$paginator->setCurrentPageNumber($this->_getParam('page', 1));
+//     	$this->view->paginator = $paginator;
+//     	$this->view->form = $form;
+    	    	$request = $this->getRequest();
+    	    	$form    = new Application_Form_UserSearch();
+    	    	if ($this->getRequest()->isPost()) {
+    	    		if ($form->isValid($request->getPost())) {
+    	    			$user = new Application_Model_Acuser();
+    	    			$mapper  = new Application_Model_AcuserMapper();
+    	    			$searchinput=$form->getValue('searchinput');
+    	    			$sortfield=$form->getValue('sortfield');
+    	    			$users=$mapper->findByManyFields($searchinput,$sortfield);
+    	    			$this->processUserStyle($users);
+    	    			$this->view->entries=$users;
+    	    			$this->view->searchinput=$searchinput;
+    	    			$this->view->sortfield=$sortfield;
+    	    			$logMapper=new Application_Model_AcsyslogMapper();
+    	    			//$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput.'，排序属性为'.$sortfield, '系统');
+    	    			if($searchinput==null)$searchinput = ' 空';
+    	    			$logMapper->addSyslog('10000', '搜索用户信息，搜素关键字为'.$searchinput,'系统');
+    	    			$this->getRequest()->setParam('page', 1);
+    	    		}
+    	    	}
+    	    	else
+    		    	{
+    	    		$this->view->entries=array();
+    	    	}
+
+    	    	$this->view->form = $form;
     }
     public function updateAction ()
     {

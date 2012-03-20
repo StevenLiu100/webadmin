@@ -1,3 +1,13 @@
+<script type="text/javascript">
+$(function () { 
+    $("#userssearchTable").dataTable( 
+      { 
+          iDisplayLength: 10
+
+      }
+    ); 
+});
+</script>
 <div class="bc_mod">
 			<div class="lan_tit">人员信息浏览</div>
 		</div>
@@ -10,7 +20,7 @@ echo $this->form;
 <div class="big-form">
 <?php if(count($this->entries)>0): ?>
 
-<table style="table-layout:fixed" >
+<table style="table-layout:fixed" class="display"  id='userssearchTable'>
 <thead>
 		<tr class="big-form-tit">
 			
@@ -27,7 +37,7 @@ echo $this->form;
 		</tr>
 		</thead>
         <tbody>
-		<?php foreach ($this->paginator as $item) :?>
+		<?php foreach ($this->entries as $item) :?>
 			    <tr height="35" align="center" bgcolor="#FFFFFF">
 			    
 			    <td><?php echo $this->escape($item->username) ?></td>
@@ -62,11 +72,4 @@ echo $this->form;
 	</tbody>
 </table>
 <?php endif;?>
-<?php echo $this->paginationControl($this->paginator,
-		'Sliding',
-		'user/controls.phtml',
-		array('username' => $this->username,
-				'sortfield'=>$this->sortfield
-			));
-?>
 </div>

@@ -5,12 +5,16 @@
 <title>网站管理系统</title>
   <?php
 		
-		echo $this->headLink ()->appendStylesheet ( $this->baseUrl('/css/style.css') )->appendStylesheet ( $this->baseUrl('/css/redmond/jquery-ui-1.8.18.custom.css') );
+		echo $this->headLink ()->appendStylesheet ( $this->baseUrl('/css/style.css') )
+								->appendStylesheet ( $this->baseUrl('/css/usersearch_page.css') )
+								->appendStylesheet ( $this->baseUrl('/css/usersearch_table.css') )
+								->appendStylesheet ( $this->baseUrl('/css/redmond/jquery-ui-1.8.18.custom.css') );
 		
 		?>
 <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery-1.7.1.min.js')?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery-ui-1.8.18.custom.min.js')?>"></script>
 <script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery.ui.datepicker-zh-CN.js')?>"></script>
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery.dataTables.min.js')?>"></script>
 </head>
 <body>
 	<div id="container">
