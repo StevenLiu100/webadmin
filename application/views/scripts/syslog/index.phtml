@@ -10,6 +10,30 @@ $(document).ready(function() {
     
     $("#end_date").datepicker();
     $(" #end_date").datepicker('setDate', new Date());
+    $("#syslogTable").dataTable( 
+  	      { 
+  	          iDisplayLength: 10,
+  	          bLengthChange: false,
+  	          bPaginate: true,
+  	          bFilter: false,
+  	          oLanguage: {
+  	              sProcessing: "正在加载中......",
+  	              sLengthMenu: "每页显示 _MENU_ 条记录",
+  	              sZeroRecords: "对不起，查询不到相关数据！",
+  	              sEmptyTable: "表中无数据存在！",
+  	              sInfo: "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+  	              sInfoFiltered: "数据表中共为 _MAX_ 条记录",
+  	              sSearch: "搜索",
+  	              oPaginate: {
+  	                  sFirst: "首页",
+  	                  sPrevious: "上一页",
+  	                  sNext: "下一页",
+  	                  sLast: "末页"
+  	              }
+  	      }
+  	     }
+  	    );
+    
 });
 //-->
 </script>
@@ -22,30 +46,23 @@ $this->form->setAction($this->url());
 echo $this->form;
 ?>
 <div class="big-form">
-<table>
+<table style="table-layout:fixed" class="display"  id='syslogTable'>
 <tr class="big-form-tit">
     <th>用户名</th>
     <th>事件</th>
     <th>事件类型</th>
     <th>发生时间</th>
 </tr>
-<?php if (isset($this->paginator)):?>
-<?php foreach($this->paginator as $slog) : ?>
+<?php foreach($this->entries as $item) : ?>
 <tr>
-    <td><?php echo $slog->username;?></td>
-    <td nowrap class="fixtd" title=<?php echo $slog->event ?>><?php echo $slog->event;?></td>
-    <td><?php echo $slog->eventtype;?></td>
-    <td><?php echo $slog->createdate;?></td>
-  
+    <td><?php echo $item->username;?></td>
+    <td nowrap class="fixtd" title=<?php echo $item->event ?>><?php echo $item->event;?></td>
+    <td><?php echo $item->eventtype;?></td>
+    <td><?php echo $item->createdate;?></td>
+ </tr> 
 <?php endforeach; ?>
-<?php endif; ?>
 </table>
 </div>
 
-<?php echo $this->paginationControl($this->paginator, 'Elastic', 'syslog/pagelist.phtml',
-		array(	'usernamelog' => $this->usernamelog,
-				'start_date' => $this->start_date,
-				'end_date'=> $this->end_date
-			)); ?>
 <p align="center"><a href="<?php echo $this->url(array('controller'=>'syslog',
         'action'=>'clear'));?>">清空</a></p>

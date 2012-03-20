@@ -15,7 +15,7 @@ class SyslogController extends BaseController
     public function indexAction()
     {
     	
-    	$request = $this->getRequest();
+    	/* $request = $this->getRequest();
     	$form    = new Application_Form_SyslogSearch();
     	//$this->entries=$form->getValue('usernamelog');
     	if ($this->getRequest()->isPost()) {
@@ -54,7 +54,30 @@ class SyslogController extends BaseController
     	$paginator = Zend_Paginator::factory($this->entries);
     	$paginator->setCurrentPageNumber($this->_getParam('page', 1));
     	
-    	$this->view->paginator = $paginator;
+    	$this->view->paginator = $paginator; */
+    	
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_SyslogSearch();
+    	//$this->entries=$form->getValue('usernamelog');
+    	if ($this->getRequest()->isPost()) {
+    		if ($form->isValid($request->getPost())) {
+    			$syslog = new Application_Model_Acsyslog();
+    			$usernamelog=$form->getValue('usernamelog');
+    			$start_date=$form->getValue('start_date');
+    			$end_date=$form->getValue('end_date');
+    			$mapper = new Application_Model_AcsyslogMapper();
+    			$this->view->entries = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
+    	
+    			$this->view->usernamelog = $usernamelog;
+    			$this->view->start_date = $start_date;
+    			$this->view->end_date = $end_date;
+    		}
+    	}
+    	else {
+    		$this->view->entries = array();
+    	}
+    	
+    	$this->view->form = $form;
 
     }
 
@@ -88,6 +111,24 @@ class SyslogController extends BaseController
     		}
     		$this->_helper->redirector('index');
     	}
+    }
+    /*
+     * action for ajax
+     */
+    public function searchAction()
+    {
+    	$this->_helper->layout->disableLayout (); // disable layout
+    	$this->_helper->viewRenderer->setNoRender ();
+    	
+    	$request = $this->getRequest();
+    	$form    = new Application_Form_SyslogSearch();
+
+    	$syslog = new Application_Model_Acsyslog();
+    	$usernamelog=$form->getValue('usernamelog');
+    	$start_date=$form->getValue('start_date');
+    	$end_date=$form->getValue('end_date');
+    	$mapper = new Application_Model_AcsyslogMapper();
+    	$this->entries = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
     }
 
 
