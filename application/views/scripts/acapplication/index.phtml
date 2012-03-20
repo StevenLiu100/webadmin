@@ -36,6 +36,7 @@ $index = 0;
 ?>
 <div class="big-form">
 <table style="table-layout:fixed" class="display"  id='applicationTable'>
+<thead>
 <tr class="big-form-tit">
 <th style="width:100px">系统名称</th>
 <th style="width:200px">系统描述</th>
@@ -44,6 +45,8 @@ $index = 0;
 <th style="width:70px">删除</th>
 <th style="width:70px">顺序管理</th>
 </tr>
+</thead>
+<tbody>
 <?php foreach($this->apps as $item) :?>
 <tr>
 <td nowrap class="fixtd" title=<?php echo $item->applicationname ?>><?php echo $this->escape($item->applicationname);?></td>
@@ -76,6 +79,7 @@ $index = 0;
 $index++;
 endforeach; 
 ?>
+</tbody>
 </table>
 </div>
 

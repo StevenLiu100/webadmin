@@ -47,12 +47,15 @@ echo $this->form;
 ?>
 <div class="big-form">
 <table style="table-layout:fixed" class="display"  id='syslogTable'>
+<thead>
 <tr class="big-form-tit">
     <th>用户名</th>
     <th>事件</th>
     <th>事件类型</th>
     <th>发生时间</th>
 </tr>
+</thead>
+<tbody>
 <?php foreach($this->entries as $item) : ?>
 <tr>
     <td><?php echo $item->username;?></td>
@@ -61,6 +64,7 @@ echo $this->form;
     <td><?php echo $item->createdate;?></td>
  </tr> 
 <?php endforeach; ?>
+</tbody>
 </table>
 </div>
 
