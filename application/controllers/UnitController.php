@@ -23,7 +23,19 @@ class UnitController extends BaseController
     		$formData = $this->getRequest()->getPost();
     		 
     		if ($form->isValid($formData)) {
-    			$unit = new Application_Model_Unit($form->getValues());
+    			$unit = new Application_Model_Unit();
+    			$grandid= $form->getValue('firstparentid');
+    			$parentid=$form->getValue('parentid');
+    			$unitname =$form->getValue('unitname');
+    			if($parentid==0)
+    			{
+    				$unit->setParentid($grandid);
+    			}
+    			else
+    			{
+    				$unit->setParentid($parentid);
+    			}
+    			$unit->setUnitname($unitname);
     			$mapper  = new Application_Model_UnitMapper();
     			$mapper->save($unit);
     			return $this->_helper->redirector('index');
