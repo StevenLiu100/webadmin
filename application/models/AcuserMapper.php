@@ -88,6 +88,7 @@ class Application_Model_AcuserMapper
     		$user->setPasswordsalt($row->passwordsalt);
     		$user->setCreatedate($row->createdate);
     		$user->setUserName($row->username);
+    		$user->setComment($row->comment);
     		$entries[] = $user;
     	}
     	return $entries;
@@ -117,6 +118,7 @@ class Application_Model_AcuserMapper
     	    $user->setPasswordsalt($row->passwordsalt);
     	    $user->setCreatedate($row->createdate);
     	    $user->setUserName($row->username);
+    	    $user->setComment($row->comment);
     		$entries[] = $user;
     	}
     	
@@ -176,6 +178,7 @@ class Application_Model_AcuserMapper
     		$user->setPasswordsalt($row->passwordsalt);
     		$user->setCreatedate($row->createdate);
     		$user->setUserName($row->username);
+    		$user->setcomment($row->comment);
     		$entries[] = $user;
     	}
     	 
