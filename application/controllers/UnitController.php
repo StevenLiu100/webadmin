@@ -92,6 +92,7 @@ class UnitController extends BaseController
     	}
 
     }
+
     public function unitsearchAction()
     {
         // action body
@@ -102,18 +103,28 @@ class UnitController extends BaseController
     			$unit = new Application_Model_Unit();
     			$mapper  = new Application_Model_UnitMapper();
     			
+    			$grandid = $form->getValue('parentunitname1');
     			$parentid = $form->getValue('parentunitname');
     			$unitname = $form->getValue('unitname');
-    			$this->view->units=$mapper->unitSearch($parentid,$unitname);
+    			$this->view->units=$mapper->unitSearch($grandid,$parentid,$unitname);
+    			
+    			$prevs = array();
+    			$prevs[] = 0;
+    			foreach ($this->view->units as $item)
+    			{
+    				$prevs[] = $item->unitid;
+    			}
+    			$nexts = array_slice($prevs, 2);
+    			$nexts[] = 0;
+    			$this->view->prevs = $prevs;
+    			$this->view->nexts = $nexts;
     		}
     	}
     	$this->view->form = $form;
     }
-    /*
-     * 级联单位用
-     */
+
     public function getsecondlevelunitAction()
-    {    	
+    {
     	$this->_helper->layout->disableLayout();    //disable layout
     	$this->_helper->viewRenderer->setNoRender();//suppress auto-rendering
     	$request = $this->getRequest();
@@ -133,13 +144,62 @@ class UnitController extends BaseController
 		}
 		echo  Zend_Json::encode($unitselected);
     }
+
+    public function unitupAction()
+    {
+        // action body
+    	$request = $this->getRequest();
+    	$id = $request->getParam('unitid');
+    	$prev = $request->getParam('prev');
+    	if($prev!=0)
+    	{
+    		$mapper = new Application_Model_UnitMapper();
+    		$mapper->swapapporder($id, $prev);
+    	}
+    	return $this->_helper->redirector('unitsearch');
+    }
+
+    public function unitdownAction()
+    {
+        // action body
+    	$request = $this->getRequest();
+    	$id = $request->getParam('unitid');
+    	$next = $request->getParam('next');
+    	 
+    	if($next !=0)
+    	{
+    		$mapper = new Application_Model_UnitMapper();
+    		$mapper->swapapporder($id, $next );
+    	}
+    	return $this->_helper->redirector('unitsearch');
+    }
+
+
 }
+
+
 
 class unitforselect
 {
 	public $Text;
 	public $Value;
 }
+
+class fullunitinfo
+{
+	public $unitid;
+	public $grandunitname;
+	public $parentid;
+	public $parentunitname;
+	public $unitname;
+	public $unitorder;
+}
+
+
+
+
+
+
 
 
 

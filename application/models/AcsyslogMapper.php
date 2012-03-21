@@ -56,7 +56,7 @@ class Application_Model_AcsyslogMapper {
 		} else {		
 			$entries = array ();
 			$userMapper = new Application_Model_AcuserMapper ();
-			$users = $userMapper->findByName ( $username );
+			$users = $userMapper->findByName ( $username,$username);
 			foreach ( $users as $user ) {
 				$rows = $this->getDbTable ()->select()->where( 'userid = ?', $user->getUserid () )
 													  ->where('date_format(createdate,\'%Y-%m-%d\') >= ?',$start_date)

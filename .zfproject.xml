@@ -29,6 +29,8 @@
           <actionMethod actionName="unitdel"/>
           <actionMethod actionName="unitupd"/>
           <actionMethod actionName="unitsearch"/>
+          <actionMethod actionName="unitup"/>
+          <actionMethod actionName="unitdown"/>
         </controllerFile>
         <controllerFile controllerName="BaseController">
           <actionMethod actionName="index"/>
@@ -121,6 +123,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Acapplication">
             <viewScriptFile forActionName="appdown"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitup"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Unit">
+            <viewScriptFile forActionName="unitdown"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
