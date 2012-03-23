@@ -14,7 +14,7 @@ li {
 }
 
 body,input,button,textarea,select,form {
-	font: normal 16px  'Microsoft YaHei', simsun;
+	font: normal 16px 'Microsoft YaHei', simsun;
 	color: #263e8a
 }
 
@@ -205,88 +205,189 @@ body,input,button,textarea,select,form {
 }
 
 /*Drop-down menu*/
-#nav {background-image:url(../images/nav_bg.jpg);width:900px;height:39px;}
+#nav {
+	background-image: url(../images/nav_bg.jpg);
+	width: 900px;
+	height: 39px;
+}
 
-#menu1 {float:left;padding:5px 0 0 5px;}
+#menu1 {
+	float: left;
+	padding: 5px 0 0 5px;
+}
 
-#menu1 li {padding-left:3px; float:left; position:relative;}
-#menu1 li ul {display:none;}
+#menu1 li {
+	padding-left: 3px;
+	float: left;
+	position: relative;
+}
 
-#menu1 .menu_1{width:74px; height:28px;}
-#menu1 .menu_1 a{display:block;overflow:hidden;text-indent:-9999px;width:74px; height:28px; background-image: url(../images/nav_02.jpg);}
-#menu1 .menu_1 a:hover{width:74px; height:28px; background-image: url(../images/nav_02_1.jpg);}
+#menu1 li ul {
+	display: none;
+}
 
-#menu1 .menu_2{width:74px; height:28px;}
-#menu1 .menu_2 a{display:block;overflow:hidden;text-indent:-9999px;width:74px; height:28px; background-image: url(../images/nav_01.jpg);}
-#menu1 .menu_2 a:hover{width:74px; height:28px; background-image: url(../images/nav_01_1.jpg);}
+#menu1 .menu_1 {
+	width: 74px;
+	height: 28px;
+}
 
-#menu1 .menu_3{width:74px; height:28px;}
-#menu1 .menu_3 a{display:block;overflow:hidden;text-indent:-9999px;width:74px; height:28px; background-image: url(../images/nav_03.jpg);}
-#menu1 .menu_3 a:hover{width:74px; height:28px; background-image: url(../images/nav_03_1.jpg);}
+#menu1 .menu_1 a {
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_02.jpg);
+}
 
-#menu1 .menu_4{width:74px; height:28px;}
-#menu1 .menu_4 a{display:block;overflow:hidden;text-indent:-9999px;width:74px; height:28px; background-image: url(../images/nav_04.jpg);}
-#menu1 .menu_4 a:hover{width:74px; height:28px; background-image: url(../images/nav_04_1.jpg);}
+#menu1 .menu_1 a:hover {
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_02_1.jpg);
+}
 
-#menu1 .menu_5{width:74px; height:28px;}
-#menu1 .menu_5 a{display:block;overflow:hidden;text-indent:-9999px;width:74px; height:28px; background-image: url(../images/nav_05.jpg);}
-#menu1 .menu_5 a:hover{width:74px; height:28px; background-image: url(../images/nav_05_1.jpg);}
+#menu1 .menu_2 {
+	width: 74px;
+	height: 28px;
+}
+
+#menu1 .menu_2 a {
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_01.jpg);
+}
+
+#menu1 .menu_2 a:hover {
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_01_1.jpg);
+}
+
+#menu1 .menu_3 {
+	width: 74px;
+	height: 28px;
+}
+
+#menu1 .menu_3 a {
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_03.jpg);
+}
+
+#menu1 .menu_3 a:hover {
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_03_1.jpg);
+}
+
+#menu1 .menu_4 {
+	width: 74px;
+	height: 28px;
+}
+
+#menu1 .menu_4 a {
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_04.jpg);
+}
+
+#menu1 .menu_4 a:hover {
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_04_1.jpg);
+}
+
+#menu1 .menu_5 {
+	width: 74px;
+	height: 28px;
+}
+
+#menu1 .menu_5 a {
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_05.jpg);
+}
+
+#menu1 .menu_5 a:hover {
+	width: 74px;
+	height: 28px;
+	background-image: url(../images/nav_05_1.jpg);
+}
 
 /*这是下拉小菜单*/
-#nav_root_ul li .nav_mini_ul{    
-    width: 127px;
-    border:solid 1px #ccc;
-    display:none;
-    height:auto;
-    /*border-bottom:solid 1px #ccc;*/
-    }
-    
-#nav_root_ul li .nav_mini_ul li{    color: #5D5D5D;
-    font: 13px 'Microsoft YaHei',simsun;
-    text-align: center;
-    padding-left:0px;
-    }
-    
-#nav_root_ul li .nav_mini_ul li a{background-image: url("../images/m_bg.jpg");
-    color: #5D5D5D;
-    display: block;
-    height: 34px;
-    overflow: hidden;
-    text-decoration: none;
-    width: 127px;
-    text-indent:0px;
-    }
-    
-    
-#nav_root_ul li .nav_mini_ul li a:hover{
-    background-image: url("../images/m_bg_1.jpg");
-    color: #263E8A;
-    height: 34px;
-    overflow: hidden;
-    text-decoration: none;
-  width: 127px;}
-    
-#nav_root_ul li .nav_mini_ul li a span{
-  clear: both;
-    height: 19px;
-    position: relative;
-  top: 7px;}
-    
-#menu1 ul li:hover ul { display:block;}
-#menu1 ul li.sfhover ul { display:block;}
+#nav_root_ul li .nav_mini_ul {
+	width: 127px;
+	border: solid 1px #ccc;
+	display: none;
+	height: auto;
+	/*border-bottom:solid 1px #ccc;*/
+}
+
+#nav_root_ul li .nav_mini_ul li {
+	color: #5D5D5D;
+	font: 13px 'Microsoft YaHei', simsun;
+	text-align: center;
+	padding-left: 0px;
+}
+
+#nav_root_ul li .nav_mini_ul li a {
+	background-image: url("../images/m_bg.jpg");
+	color: #5D5D5D;
+	display: block;
+	height: 34px;
+	overflow: hidden;
+	text-decoration: none;
+	width: 127px;
+	text-indent: 0px;
+}
+
+#nav_root_ul li .nav_mini_ul li a:hover {
+	background-image: url("../images/m_bg_1.jpg");
+	color: #263E8A;
+	height: 34px;
+	overflow: hidden;
+	text-decoration: none;
+	width: 127px;
+}
+
+#nav_root_ul li .nav_mini_ul li a span {
+	clear: both;
+	height: 19px;
+	position: relative;
+	top: 7px;
+}
+
+#menu1 ul li:hover ul {
+	display: block;
+}
+
+#menu1 ul li.sfhover ul {
+	display: block;
+}
 
 /*Bread crumbs*/
-.breadcrumbs
-		{
-			padding-top: 10px;
-			padding-left: 5px;
-			height:20px;
-			text-decoration: none;
-		}
-.breadcrumbs a
-		{
-			text-decoration: none;
-		}
+.breadcrumbs {
+	padding-top: 10px;
+	padding-left: 5px;
+	height: 20px;
+	text-decoration: none;
+}
+
+.breadcrumbs a {
+	text-decoration: none;
+}
 
 .bc {
 	padding: 10px 0 0 5px;
@@ -326,8 +427,9 @@ body,input,button,textarea,select,form {
 	font: 34px 'Microsoft YaHei', simsun;
 	text-align: center
 }
-div.message{
-    padding: 10px 0 0 5px;
+
+div.message {
+	padding: 10px 0 0 5px;
 	color: red;
 	font: 16px 'Microsoft YaHei', simsun;
 	text-align: center
@@ -378,68 +480,89 @@ div.message{
 .big-form {
 	width: 840px;
 	margin: 5px 20px;
-	padding:20px;
-    overflow-x:auto;
-    overflow-y:hidden;
-}
-.big-form table{
-	width:100%;
-    border-width: 0px;
-    border-style: none;
-    border-color: #C1BBAB;
-    border-collapse: collapse;
-    empty-cells: show;
-    padding: 10px;
-
+	padding: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
- .big-form table td, table th {
+.big-form table {
+	width: 100%;
+	border-width: 0px;
+	border-style: none;
+	border-color: #C1BBAB;
+	border-collapse: collapse;
+	empty-cells: show;
+	padding: 10px;
+}
+
+.big-form table td,table th {
 	border-width: 1px;
-    border-style: solid;
-    text-align: center;
-    padding: 1px 5px 1px 5px;
+	border-style: solid;
+	text-align: center;
+	padding: 1px 5px 1px 5px;
+}
 
+.big-form table td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: keep-all;
 }
-.big-form table td.fixtd{
-	overflow:hidden;
-    text-overflow:ellipsis;
-    word-break:keep-all;
+
+.big-form table td a.btn_edit {
+	width: 57px;
+	height: 24px;
+	border: none;
+	display: block;
+	margin: 5px auto;
+	background-image: url(../images/modify.gif);
 }
-.big-form table td a.btn_edit{
-	width:57px;
-    height:24px;
-    border:none;
-    display:block;
-    margin:5px auto;
-    background-image: url(../images/modify.gif);
-}
-.big-form table td a.btn_del{
-	width:57px;
-    height:24px;
-    border:none;
-    display:block;
-    margin:5px auto;
+
+.big-form table td a.btn_del {
+	width: 57px;
+	height: 24px;
+	border: none;
+	display: block;
+	margin: 5px auto;
 	background-image: url(../images/del.gif);
 }
-.big-form table td a.orderup{
-	width:16px;
-    height:16px;
-    float:left;
-    border:none;
-    display:block;
-    margin-left:10px;
-    background-image: url(../images/arrow_up.png);
-}
-.big-form table td a.orderdown{
-	width:16px;
-    height:16px;
-    float:right;
-    border:none;
-    display:block;
-    margin-right:10px;
-    background-image: url(../images/arrow_down.png);
+
+.big-form table td a.orderup {
+	width: 16px;
+	height: 16px;
+	float: left;
+	border: none;
+	display: block;
+	margin-left: 10px;
+	background: url(../images/arrow_up.png);
 }
 
+.big-form table td a.orderdown {
+	width: 16px;
+	height: 16px;
+	float: right;
+	border: none;
+	display: block;
+	margin-right: 10px;
+	background-image: url(../images/arrow_down.png);
+}
+
+.big-form table td button.orderup {
+	width: 16px;
+	height: 16px;
+	float: left;
+	border: none;
+	margin-left: 10px;
+	background-image: url(../images/arrow_up.png);
+}
+
+.big-form table td button.orderdown {
+	width: 16px;
+	height: 16px;
+	float: right;
+	border: none;
+	margin-right: 10px;
+	background: url(../images/arrow_down.png);
+}
 
 .big-form-tit {
 	height: 34px;
@@ -455,16 +578,18 @@ div.message{
 	margin: 5px auto;
 	padding: 0;
 }
-.heng .zend_form dl{
-	margin:0 auto;
-    width:600px;
+
+.heng .zend_form dl {
+	margin: 0 auto;
+	width: 600px;
 }
+
 .heng .zend_form dt {
 	padding: 2px 5px;
 	float: left;
 	text-align: right;
 	margin: 6px auto;
-    font: bold 16px 'Microsoft YaHei', simsun;
+	font: bold 16px 'Microsoft YaHei', simsun;
 }
 
 .heng .zend_form dd {
@@ -472,43 +597,50 @@ div.message{
 	float: left;
 	width: auto;
 	margin: 5px auto;
-    position:relative;
+	position: relative;
 }
+
 .heng .zend_form dd select {
 	float: left;
 	width: 200px;
-    position:relative;
+	position: relative;
 }
-.heng .zend_form dd input#searchinput{
-    width:218px;
-    height:22px;
-    padding:0;
+
+.heng .zend_form dd input#searchinput {
+	width: 218px;
+	height: 22px;
+	padding: 0;
 }
-.heng .zend_form dd input#unitname{
-    width:336px;
-    height:22px;
-    padding:0;
+
+.heng .zend_form dd input#unitname {
+	width: 336px;
+	height: 22px;
+	padding: 0;
 }
-.heng .zend_form dd input#usernamelog{
-    width:218px;
-    height:22px;
-    padding:0;
+
+.heng .zend_form dd input#usernamelog {
+	width: 218px;
+	height: 22px;
+	padding: 0;
 }
-.heng .zend_form dd input#start_date,#end_date{
-    width:170px;
-    height:22px;
-    padding:0;
+
+.heng .zend_form dd input#start_date,#end_date {
+	width: 170px;
+	height: 22px;
+	padding: 0;
 }
+
 .heng .zend_form dt#searchinput-label {
-	width:280px;
+	width: 280px;
 }
+
 .heng .zend_form dt#usersearchbtn-label {
-	display:none;
+	display: none;
 }
 
 .heng .zend_form dd input#usersearchbtn {
-    margin-left:-46px;
-    height:34px;
+	margin-left: -46px;
+	height: 34px;
 }
 
 .heng .zend_form p {
@@ -518,15 +650,23 @@ div.message{
 
 .heng .zend_form input#submit {
 	background-image: url(../images/search_02.jpg);
-    cursor:pointer;
-    width:24px;
-    height:24px;
-    border:none;
-    margin-top:1px;
-    margin-left:-26px;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	border: none;
+	margin-top: 1px;
+	margin-left: -26px;
 }
 
-
+.heng .zend_form button#submit {
+	background-image: url(../images/search_02.jpg);
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	border: none;
+	margin-top: 1px;
+	margin-left: -26px;
+}
 
 .heng .required:before {
 	content: '* '
@@ -544,7 +684,6 @@ div.message{
 	overflow: auto;
 }
 
-
 .shu .zend_form dt {
 	padding: 0;
 	clear: both;
@@ -560,6 +699,7 @@ div.message{
 	width: 68%;
 	margin: 5px 2px 5px 0;
 }
+
 .shu .zend_form dd {
 	padding: 0;
 	float: left;
@@ -571,54 +711,66 @@ div.message{
 	padding: 0;
 	margin: 0;
 }
-.shu .zend_form dd select{
+
+.shu .zend_form dd select {
 	float: left;
 	width: 200px;
-    margin-left:30px;
-    position:relative;
+	margin-left: 30px;
+	position: relative;
 }
+
 .zend_form textarea {
 	margin: 0 0 0px 0;
 	padding: 0;
-    height:25px;
+	height: 25px;
 }
-.shu .zend_form dd input{
-	margin-left:30px;
+
+.shu .zend_form dd input {
+	margin-left: 30px;
 }
-.shu .zend_form dd input[type="text"]{
+
+.shu .zend_form dd input[type="text"] {
 	float: left;
 	width: 200px;
-    height:22px;
-    position:relative;
+	height: 22px;
+	position: relative;
 }
+
 .shu .zend_form dd input[type="password"] {
 	float: left;
 	width: 200px;
-    height:22px;
-    position:relative;
+	height: 22px;
+	position: relative;
 }
-.shu .zend_form dd input#unitname{
-	width:180px;
+
+.shu .zend_form dd input#unitname {
+	width: 180px;
 }
-.shu .zend_form dd input#unitname{
-	width:180px;
+
+.shu .zend_form dd input#unitname {
+	width: 180px;
 }
-.shu .zend_form dd#unitname-element{
-	width:240px;
+
+.shu .zend_form dd#unitname-element {
+	width: 240px;
 }
-.shu .zend_form dt#submitsearch-label{
-	width:0px;
-    display:none;
+
+.shu .zend_form dt#submitsearch-label {
+	width: 0px;
+	display: none;
 }
-.shu .zend_form dd#submitsearch-element{
-	width:22px;
+
+.shu .zend_form dd#submitsearch-element {
+	width: 24px;
 }
+
 .shu .zend_form textarea {
 	height: 60px;
 	width: 270px;
-    margin-left:30px;
+	margin-left: 30px;
 	overflow-y: auto;
 }
+
 .shu .zend_form input#submit {
 	width: 117px;
 	height: 45px;
@@ -626,13 +778,14 @@ div.message{
 	background-image: url(../images/bt_03.jpg);
 }
 
-.shu .zend_form input#submitsearch {
+.shu .zend_form button#submitsearch {
 	background-image: url(../images/search_02.jpg);
-    cursor:pointer;
-    width:22px;
-    height:22px;
-    border:none;
-    margin-left:-28px;
+	cursor: pointer;
+	width: 22px;
+	height: 24px;
+	border: none;
+	margin-top: 0px;
+	margin-left: -28px;
 }
 
 .shu .required:before {

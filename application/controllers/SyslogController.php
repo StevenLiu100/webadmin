@@ -121,17 +121,40 @@ class SyslogController extends BaseController
     	$this->_helper->viewRenderer->setNoRender ();
     	
     	$request = $this->getRequest();
-    	$form    = new Application_Form_SyslogSearch();
-
     	$syslog = new Application_Model_Acsyslog();
-    	$usernamelog=$form->getValue('usernamelog');
-    	$start_date=$form->getValue('start_date');
-    	$end_date=$form->getValue('end_date');
+    	$usernamelog=$request->getParam('usernamelog');
+    	$start_date=$request->getParam('start_date');
+    	$end_date=$request->getParam('end_date');
     	$mapper = new Application_Model_AcsyslogMapper();
-    	$this->entries = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
+    	$logs = $mapper->getSyslogsBySearchContent($usernamelog,$start_date,$end_date);
+    	
+    	$logarray=array();
+    	foreach ($logs as $item){
+    		$log=new loginfo();
+    		$log->userid=$item->getUserid();
+    		$log->username=$item->getUsername();
+    		$log->event=$item->getEvent();
+    		$log->eventtype=$item->getEventtype();
+    		$log->createdate=$item->getCreatedate();
+    		$logarray[]=$log;
+    	}
+    	$output = array(
+    			"sEcho" => 1,
+    			"iTotalRecords" => count($logarray),
+    			"iTotalDisplayRecords" => 10,
+    			"aaData" => array()
+    	);
+    	$output['aaData']= $logarray;
+    	echo json_encode($output);
     }
-
-
+}
+class loginfo{
+	public $logid;
+	public $userid;
+	public $username;
+	public $event;
+	public $eventtype;
+	public $createdate;
 }
 
 

@@ -38,7 +38,7 @@ class Application_Form_Unitsearch extends Zend_Form
     	));
     	 
     	// Add a submit button
-    	$this->addElement('submit', 'submitsearch', array(
+    	$this->addElement('button', 'submitsearch', array(
     			'ignore'   => true,
     			'label'    => '',
     	));

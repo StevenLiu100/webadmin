@@ -32,7 +32,7 @@ class Application_Form_SyslogSearch extends Zend_Form
    	));
     	  	
     	// Add a submit button
-    	$this->addElement('submit', 'submit', array(
+    	$this->addElement('button', 'submit', array(
     			'ignore'   => true,
     			'label'    => '',
     			//    'label'      => 'search',

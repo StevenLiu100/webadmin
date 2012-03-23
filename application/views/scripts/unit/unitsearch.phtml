@@ -1,9 +1,25 @@
-
-<script language="javascript">
+<script type="text/javascript" src="<?php echo $this->baseUrl('js/jquery.dataTables.fnreload.js')?>"></script>
+<script type="text/javascript">
 $(
   function(){
-	  $("#unitsearchTable").dataTable( 
+	  
+	  var oTable=$("#unitsearchTable").dataTable( 
 		      { 
+
+		    	  "aaSorting": [[ 6, "asc" ]],
+		    	  "bProcessing": true,
+		          "aoColumns": [
+			                       { "mDataProp": "grandunitname" },
+			                       { "mDataProp": "parentunitname" },
+			                       { "mDataProp": "unitname" },
+			                       {"mDataProp":"updateunit"},
+			                       {"mDataProp":"deleteunit"},
+			                       {"mDataProp":"orderunit"},
+			                       {"mDataProp":"order"}
+			                   ],
+			      "aoColumnDefs": [
+			                   { "bVisible": false, "aTargets": [ 6 ] }
+			                      ], 
 		          iDisplayLength: 10,
 		          bLengthChange: false,
 		          bPaginate: true,
@@ -30,7 +46,7 @@ $(
      function(){
     	 $.ajax({
  		    url: '/unit/getsecondlevelunit/parentid/'+$("#parentunitname1").val(),
- 		    type: 'post',
+ 		    type: 'post', 
  		    dataType: 'json',
  		    timeout: 1000,
  		    error: function(){
@@ -45,8 +61,62 @@ $(
  		    	
  		    }
  		});
-    }
-);
+    });
+  $("#submitsearch").click(
+		  function(){
+				 $.ajax({
+		 		    url: '/unit/unitsearchforajax/unit1/'+$("#parentunitname1").val()+'/unit2/'+$("#parentunitname").val()+'/unitname/'+$("#unitname").val(),
+		 		    type: 'get',
+			 		cache: false, 
+		 		    dataType: 'json',
+		 		    timeout: 1000,
+		 		    error: function (request, status, error) {
+		 		        alert(request.responseText);
+		 		    
+		 		    
+		 		        alert('单位查找失败');
+		 		    },
+		 		    success: function(data){  
+		 		    	oTable.fnClearTable(0);
+				 		oTable.fnAddData(data.aaData); //the data part of your json message
+                        oTable.fnDraw();
+	    	
+		 		    }
+		  }
+	  );
+		  });
+  $(".orderup").live('click', function(){
+	  
+	  $url= $(this).attr("tag");
+	  $.ajax({
+		    url:$url,
+		    type: 'post',
+		    timeout: 1000,
+		    error: function(){
+		        alert('Error');
+		    },
+		    success: function(data){
+		    	$("#submitsearch").click();
+		    }
+		});
+	}
+   );
+  $(".orderdown").live('click', function(){
+	  $url= $(this).attr("tag");
+	  $.ajax({
+		    url:$url,
+		    type: 'post',
+		    timeout: 1000,
+		    error: function(){
+		        alert('Error');
+		    },
+		    success: function(data){
+		    	$("#submitsearch").click();
+		    }
+		});
+	}
+   );
+		  
 }
 );
 </script>
@@ -60,44 +130,21 @@ $this->form->setAction ( $this->url () );
 echo $this->form;
 $index=0;
 ?>
-<?php if(count($this->units)>0): ?>
 <div class="big-form">
 	<table style="table-layout:fixed" class="display"  id='unitsearchTable'>
 		<thead>
-
 			<tr class="big-form-tit">
 				<th>一级单位名称</th>
 				<th>二级单位名称</th>
 				<th>单位名称</th>
 				<th width="70">修改</th>
 				<th width="70">删除</th>
-				<th>顺序调整</th>
+				<th width="60px">顺序调整</th>
+				<th style="width:0px;display:none">顺序</th>
 			</tr>
 		</thead>
 		<tbody>
-		<?php foreach ($this->units as $item) :?>
-			    <tr>
-			    <td><?php echo $this->escape($item->grandunitname) ?></td>
-			    <td><?php echo $this->escape($item->parentunitname) ?></td>
-				<td><?php echo $this->escape($item->unitname) ?></td>
-				<td><a class="btn_edit"
-					href="<?php
 		
-		echo $this->url ( array ('controller' => 'unit', 'action' => 'unitupd', 'unitid' => $item->unitid ), 'default', true )?>"></a></td>
-
-				<td><a class="btn_del"
-					href="<?php
-		
-		echo $this->url ( array ('controller' => 'unit', 'action' => 'unitdel', 'unitid' => $item->unitid ), 'default', true )?>"></a></td>
-		<td>
-<a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitup', 'unitid'=>$item->unitid, 'prev'=>$this->prevs[$index])) ?>">上移</a>
-<a href="<?php echo $this->url(array('controller'=>'unit','action'=>'unitdown', 'unitid'=>$item->unitid, 'next'=>$this->nexts[$index])) ?>">下移</a>
-</td>
-			</tr>
-     			
-		 <?php $index++; endforeach ?>
-		
-	</tbody>
+	    </tbody>
 	</table>
 </div>
-<?php endif;?>

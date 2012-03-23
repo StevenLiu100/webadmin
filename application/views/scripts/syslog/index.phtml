@@ -10,8 +10,15 @@ $(document).ready(function() {
     
     $("#end_date").datepicker();
     $(" #end_date").datepicker('setDate', new Date());
-    $("#syslogTable").dataTable( 
+    var oTable=$("#syslogTable").dataTable( 
   	      { 
+    	      "bProcessing": true,
+  	          "aoColumns": [
+  		                       { "mDataProp": "username" },
+  		                       { "mDataProp": "event" },
+  		                       {"mDataProp":"eventtype"},
+  		                       {"mDataProp":"createdate"}
+  		                   ],
   	          iDisplayLength: 10,
   	          bLengthChange: false,
   	          bPaginate: true,
@@ -33,6 +40,24 @@ $(document).ready(function() {
   	      }
   	     }
   	    );
+    $("#submit").click(
+    		  function(){
+    				 $.ajax({
+    		 		    url: '/syslog/search/usernamelog/'+$("#usernamelog").val()+'/start_date/'+$("#start_date").val()+'/end_date/'+$("#end_date").val(),
+    		 		    type: 'get',
+    		 		    dataType: 'json',
+    		 		    timeout: 1000,
+    		 		    error: function(){
+    		 		        alert('单位查找失败');
+    		 		    },
+    		 		    success: function(data){  
+    		 		    	oTable.fnClearTable(0);
+    				 		oTable.fnAddData(data.aaData); //the data part of your json message
+                            oTable.fnDraw();	    	
+    		 		    }
+    		  }
+    	  );
+    		  });
     
 });
 //-->
@@ -49,21 +74,14 @@ echo $this->form;
 <table style="table-layout:fixed" class="display"  id='syslogTable'>
 <thead>
 <tr class="big-form-tit">
-    <th>用户名</th>
+    <th style="width:70px">用户名</th>
     <th>事件</th>
-    <th>事件类型</th>
-    <th>发生时间</th>
+    <th style="width:70px">事件类型</th>
+    <th style="width:100px">发生时间</th>
 </tr>
 </thead>
 <tbody>
-<?php foreach($this->entries as $item) : ?>
-<tr>
-    <td><?php echo $item->username;?></td>
-    <td nowrap class="fixtd" title=<?php echo $item->event ?>><?php echo $item->event;?></td>
-    <td><?php echo $item->eventtype;?></td>
-    <td><?php echo $item->createdate;?></td>
- </tr> 
-<?php endforeach; ?>
+
 </tbody>
 </table>
 </div>
