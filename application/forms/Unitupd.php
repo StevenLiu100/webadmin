@@ -33,7 +33,7 @@ class Application_Form_Unitupd extends Zend_Form
     	// Add a submit button
     	$this->addElement('submit', 'submit', array(
     			'ignore'   => true,
-    			'label'    => '保存',
+    			'label'    => '',
     	));
     	
     	$unitid = new Zend_Form_Element_Hidden('unitid');

@@ -1,7 +1,10 @@
-<br /><br />
+<div class="bc_mod">
+			<div class="lan_tit">单位修改</div>
+		</div>
 <div id="view-content">
 <?php
 echo "<div class='bc_mod'><div class='message'>".$this->message."</div></div>";
+$this->form->setAttrib('class', 'shu');
 $this->form->setAction($this->url());
 echo $this->form;?>
 </div>
