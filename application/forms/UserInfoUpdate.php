@@ -85,9 +85,18 @@ class Application_Form_UserInfoUpdate extends Zend_Form
     			->addMultiOptions(array(
     				'可用' => '可用',
     				'禁用' => '禁用',));
+    	$idpic=new Zend_Form_Element_File("idpic");
+    	$idpic->setLabel('上传证件')
+    			->setDestination('D:\Program Files\Zend\Apache2\htdocs\webadmin\upload\idpics')
+    			->addValidator('ImageSize',false,array('minwidth'=>0,'maxwidth'=>1000,'minheight'=>0,'maxheigh'=>1000))
+    			->addValidator('Size',false, array('min'=>128000,'max'=> 1000000))
+    			->addValidator('MimeType',false,array('image/png'))
+    			->setRequired(true);
+    	$idimage=new Zend_Form_Element_Image("idimage");
+    	$idimage->setLabel('证件图像');
     	$submit =  new Zend_Form_Element_Submit('submit');
     	$submit->setLabel('');
-     	$this->addElements(array($username,$email,$mobile,$tel,$unit,$userstyle,$comment,$state,$submit));
+     	$this->addElements(array($username,$email,$mobile,$tel,$unit,$userstyle,$comment,$state,$idpic,$idimage,$submit));
     }
 }
 

@@ -16,8 +16,22 @@ class Application_Model_Acuser
 	protected $_comment;
 	protected $_createdate;
 	protected $_passwordsalt;
+	protected $_idpic;
 	
-	
+	/**
+	 * @return the $_idpic
+	 */
+	public function getIdpic() {
+		return $this->_idpic;
+	}
+
+	/**
+	 * @param field_type $_idpic
+	 */
+	public function setIdpic($_idpic) {
+		$this->_idpic = $_idpic;
+	}
+
 	/**
 	 * @return the $_repassword
 	 */
