@@ -62,8 +62,8 @@ class UserController extends BaseController
         		$apps=$appMapper->fetchAll();
         		$userstyle=implode('#', $user->getUserstyle());
         		$user->setUserstyle($userstyle);
-        		$upload = new Zend_File_Transfer_Adapter_Http();
-        		$upload->receive();
+//         		$upload = new Zend_File_Transfer_Adapter_Http();
+//         		$upload->receive();
         		$mapper  = new Application_Model_AcuserMapper();
         		//密码和密码确认工作已经在浏览器端验证了，用户名的是否重复的问题也已经验证过了，因此这里直接插入一条新记录
         		$mapper->save($user);
@@ -192,8 +192,8 @@ class UserController extends BaseController
     			$user_update->setPassword($user->getPassword());
     			$userstyle=implode('#', $user_update->getUserstyle());
         		$user_update->setUserstyle($userstyle);
-        		$upload = new Zend_File_Transfer_Adapter_Http();
-        		$upload->receive();
+//         		$upload = new Zend_File_Transfer_Adapter_Http();
+//         		$upload->receive();
     			$mapper  = new Application_Model_AcuserMapper();
     			$mapper->save($user_update);
     			$logMapper=new Application_Model_AcsyslogMapper();

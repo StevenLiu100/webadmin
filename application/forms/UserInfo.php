@@ -112,13 +112,13 @@ class Application_Form_UserInfo extends Zend_Form
     					'可用' => '可用',
         				'禁用' => '禁用',))
         		->setValue('可用');
-    	$base_idpic_url='D:\Program Files\Zend\Apache2\htdocs\webadmin';
+    	
     	$idpic=new Zend_Form_Element_File("idpic");
     	$idpic->setLabel('上传证件')
-    			->setDestination('D:\Program Files\Zend\Apache2\htdocs\webadmin\upload\idpics')
+    			->setDestination(APPLICATION_PATH.'/../upload/idpics')
     			->addValidator('ImageSize',false,array('minwidth'=>0,'maxwidth'=>1000,'minheight'=>0,'maxheigh'=>1000))
-        		->addValidator('Size',false, array('min'=>128000,'max'=> 1000000))
-        		->addValidator('MimeType',false,array('image/png'))
+        		->addValidator('Size',false, array('min'=>50000,'max'=> 1000000))
+        	//	->addValidator('MimeType',false,array('image/png'))
     			->setRequired(true);
     	$idimage=new Zend_Form_Element_Image("idimage");
     	$idimage->setLabel('证件图像');
