@@ -115,11 +115,12 @@ class Application_Form_UserInfo extends Zend_Form
     	
     	$idpic=new Zend_Form_Element_File("idpic");
     	$idpic->setLabel('上传证件')
-    			->setDestination(APPLICATION_PATH.'/../upload/idpics')
-    			->addValidator('ImageSize',false,array('minwidth'=>0,'maxwidth'=>1000,'minheight'=>0,'maxheigh'=>1000))
-        		->addValidator('Size',false, array('min'=>50000,'max'=> 1000000))
+    			->setDestination(APPLICATION_PATH.'/../public/idpics')
+    		//	->addValidator('ImageSize',false,array('minwidth'=>0,'maxwidth'=>1000,'minheight'=>0,'maxheigh'=>1000))
+        	//	->addValidator('Size',false, array('min'=>50000,'max'=> 1000000))
         	//	->addValidator('MimeType',false,array('image/png'))
-    			->setRequired(true);
+    			->setRequired(false);
+   			 //	->setRequired(true);
     	$idimage=new Zend_Form_Element_Image("idimage");
     	$idimage->setLabel('证件图像');
     	$submit =  new Zend_Form_Element_Submit('submit');
